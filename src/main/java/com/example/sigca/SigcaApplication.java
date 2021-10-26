@@ -13,11 +13,13 @@ import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
+import com.example.sigca.entity.Tipo;
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.SedeRepository;
+import com.example.sigca.repository.TipoRepository;
 
 @SpringBootApplication
 public class SigcaApplication implements CommandLineRunner{
@@ -35,6 +37,9 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
+@Autowired 
+private TipoRepository tipo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
@@ -55,9 +60,6 @@ private ModuloRepository modulo;
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
-		
-		System.out.println("Hola.....");
-		
 		
 }
 }
