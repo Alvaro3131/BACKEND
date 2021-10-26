@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name="tbl_categoria")
 public class Categoria {
 	
+	//JOSUE DOMINGUEZ 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_categoria")

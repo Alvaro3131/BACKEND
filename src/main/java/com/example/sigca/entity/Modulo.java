@@ -24,6 +24,8 @@ import lombok.NoArgsConstructor;
 @Table(name="tbl_modulo")
 public class Modulo {
 	
+	//JOSUE DOMINGUEZ
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_modulo")

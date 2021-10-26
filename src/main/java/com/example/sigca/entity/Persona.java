@@ -3,11 +3,13 @@ package com.example.sigca.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -39,7 +41,10 @@ public class Persona  implements Serializable {
 	private String correo;
 	@Column(name="NU_TELEFONO")
 	private String telefono;
-	@OneToOne(mappedBy = "tbl_persona")
+	
+	@OneToOne
+	@MapsId
 	private Asesor asesor;
+	
 	private static final long serialVersionUID = 1L;
 }
