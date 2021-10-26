@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 
 import lombok.AllArgsConstructor;
@@ -37,5 +39,7 @@ public class Persona  implements Serializable {
 	private String correo;
 	@Column(name="NU_TELEFONO")
 	private String telefono;
+	@OneToOne(mappedBy = "tbl_persona")
+	private Asesor asesor;
 	private static final long serialVersionUID = 1L;
 }
