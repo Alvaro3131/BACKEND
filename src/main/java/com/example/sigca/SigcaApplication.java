@@ -56,7 +56,7 @@ private ModuloRepository modulo;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
 		
-		System.out.println("Hola.....");
+
 		
 
 		
