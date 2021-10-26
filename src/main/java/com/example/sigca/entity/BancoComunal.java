@@ -52,5 +52,9 @@ public class BancoComunal {
 	@JoinColumn(name = "id_programacion")
 	private Set<Programacion> programacion;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_persona")
+	private Set<Socio> socio;
+	
 	
 }
