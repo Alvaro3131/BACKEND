@@ -12,7 +12,7 @@ import com.example.sigca.entity.Distrito;
 @Repository
 public interface DistritoRepository extends JpaRepository<Distrito, Integer>{
 	
-	// Listar	
+	//Listar	
 	@Query(value = "{ CALL SP_LISTAR_DISTRITO(0) }", nativeQuery = true)
 	List<Distrito> listarDistrito();
 	
@@ -20,5 +20,17 @@ public interface DistritoRepository extends JpaRepository<Distrito, Integer>{
 	//buscar
 	@Query(value = "{call SP_LISTAR_DISTRITO(:p_nIDDISTRITO)}", nativeQuery = true) 
 	Optional<Distrito> buscarDistrito(@Param("p_nIDDISTRITO") int p_nIDDISTRITO);
+	
+	//Delete
+	@Query(value = "{ CALL SP_ELIMINAR_DISTRITO(:p_nIDDISTRITO) }", nativeQuery = true)
+	String eliminarDistrito(@Param("p_nIDDISTRITO") int p_nIDDISTRITO);
+		
+	//Insertar
+	@Query(value = "{call SP_INS_DISTRITO(:p_vNombre,:p_nIdSede)}", nativeQuery = true) 
+	String insertarDistrito(@Param("p_vNombre") String p_vNombre ,@Param("p_nIdSede") int p_nIdSede );
+		
+	//Update
+	@Query(value = "{call SP_UPD_DISTRITO(:p_nID,:p_vNombre,:p_nIdSede)}", nativeQuery = true) 
+	String actualizarDistrito(@Param("p_nID") int p_nID ,@Param("p_vNombre") String p_vNombre,@Param("p_nIdSede") int p_nIdSede );
 	
 }
