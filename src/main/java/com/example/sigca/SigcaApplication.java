@@ -21,17 +21,17 @@ private PersonaRepository personaRepository;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-		
+		/*
 		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
-		/*
 		Persona pe=personaRepository.readId(1).get();
 		System.out.println(pe.getNombre()+" "+pe.getCorreo());
 		
 		personaRepository.savePersona("Pablo", "Alva", "Chipana", "40875108", "pabloalva2017@hotmail.com", "933771205");
 	*/
+		
 	
 	}
 

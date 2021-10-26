@@ -16,8 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="tbl_sede")
 public class Sede {
-	
-	
+	//git log --oneline --decorate --all --graph
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_sede")
