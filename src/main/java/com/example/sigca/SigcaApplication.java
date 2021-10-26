@@ -45,5 +45,7 @@ private DistritoRepository distrito;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
 		
+	
+		
 }
 }
