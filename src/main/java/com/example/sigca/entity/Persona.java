@@ -3,7 +3,6 @@ package com.example.sigca.entity;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,6 +44,5 @@ public class Persona  implements Serializable {
 	@OneToOne
 	@MapsId
 	private Asesor asesor;
-	
 	private static final long serialVersionUID = 1L;
 }
