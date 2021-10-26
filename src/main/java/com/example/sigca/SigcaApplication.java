@@ -44,32 +44,21 @@ private ModuloRepository modulo;
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*
-		List<Persona> pe= personaRepository.listarPersona();
+		
+	/*	List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 
 		
-		/*List<Persona> pe= personaRepository.listarPersona();
+		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
 		
+		System.out.println("Hola.....");
 		
-		
-		Modulo m = modulo.buscarModulo(1);
-		System.out.println(m.getId_modulo()+ " : " + m.getNo_modulo()+ "  "+ m.getCategoria().getNo_categoria());
-		//cate.actualizarCategoria(4, "Deportivo");
-		List<Modulo> l = modulo.listarModulo();
-		for(int i=0;i<l.size(); i++) {
-			System.out.println(l.get(i).getId_modulo()+" "+l.get(i).getNo_modulo()+ " " +l.get(i).getCategoria().getNo_categoria());
-		}
-		
-		List<Categoria> c = cate.listarCategoria();
-		for(int i=0;i<c.size(); i++) {
-			System.out.println(c.get(i).getId_categoria()+" "+c.get(i).getNo_categoria());
-		}
+
 		
 }
 }
