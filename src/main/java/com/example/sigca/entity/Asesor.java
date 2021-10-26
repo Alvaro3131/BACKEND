@@ -1,5 +1,9 @@
 package com.example.sigca.entity;
 
+
+
+
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -27,4 +31,6 @@ public class Asesor {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_bancocomunal")
 	private Set<BancoComunal> banco;
+
 }
+
