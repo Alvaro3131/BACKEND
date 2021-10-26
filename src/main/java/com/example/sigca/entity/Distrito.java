@@ -21,6 +21,8 @@ import lombok.NoArgsConstructor;
 @Table(name="tbl_distrito")
 public class Distrito {
 	
+	//JOSUE DOMINGUEZ
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_distrito")
