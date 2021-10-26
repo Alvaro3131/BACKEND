@@ -39,13 +39,13 @@ public class BancoComunal {
 	@JoinColumn(name="fk_asesor", nullable = false)
 	public Asesor asesor;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	/*@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_persona")
-	private Set<Persona> persona;
+	private Set<Persona> persona;*/
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	/*@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_programa_capacitacion")
-	private Set<Programa_Seminario> ps;
+	private Set<Programa_Seminario> ps;*/
 	
 	
 	@OneToMany(cascade = CascadeType.ALL)
