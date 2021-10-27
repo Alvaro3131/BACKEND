@@ -1,5 +1,7 @@
 package com.example.sigca;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,13 +15,11 @@ import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
-import com.example.sigca.entity.Tipo;
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.SedeRepository;
-import com.example.sigca.repository.TipoRepository;
 
 @SpringBootApplication
 public class SigcaApplication implements CommandLineRunner{
@@ -38,8 +38,6 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 
-@Autowired 
-private TipoRepository tipo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
@@ -49,18 +47,22 @@ private TipoRepository tipo;
 	@Override
 	public void run(String... args) throws Exception {
 
-		
-	/*	List<Persona> pe= personaRepository.listarPersona();
+		/*
+		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 
 		
-		List<Persona> pe= personaRepository.listarPersona();
+		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
 		
-
+		
+		
+		
+	
+	
 }
 }
