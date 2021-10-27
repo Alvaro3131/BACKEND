@@ -21,7 +21,7 @@ public interface ModuloRepository extends JpaRepository<Modulo, Integer> {
 		// Buscar
 		
 		@Query(value = "{call SP_LISTAR_MODULO(:p_nIDMODULO)}", nativeQuery = true) 
-		Modulo buscarModulo(@Param("p_nIDMODULO") int p_nIDMODULO);
+		Optional<Modulo> buscarModulo(@Param("p_nIDMODULO") int p_nIDMODULO);
 		
 		//Delete
 		

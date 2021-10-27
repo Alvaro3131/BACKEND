@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+//Tabla Ariana 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +24,7 @@ public class Programa_Seminario {
 	int ID_PROGRAMA_CAPACITACION;
 	
 	
-/*	@ManyToOne
+	@ManyToOne
 	@JoinColumn(name = "fk_bancocomunal", nullable = false)
-	private BancoComunal banco;*/
+	private BancoComunal banco;
 }

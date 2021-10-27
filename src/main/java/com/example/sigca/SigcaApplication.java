@@ -1,5 +1,7 @@
 package com.example.sigca;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +15,7 @@ import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
+import com.example.sigca.entity.Seminario;
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
@@ -36,6 +39,7 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
 	}
@@ -58,7 +62,7 @@ private ModuloRepository modulo;
 		
 		
 		
-		Modulo m = modulo.buscarModulo(1);
+		/*Modulo m = modulo.buscarModulo(1);
 		System.out.println(m.getId_modulo()+ " : " + m.getNo_modulo()+ "  "+ m.getCategoria().getNo_categoria());
 		//cate.actualizarCategoria(4, "Deportivo");
 		List<Modulo> l = modulo.listarModulo();
@@ -69,7 +73,33 @@ private ModuloRepository modulo;
 		List<Categoria> c = cate.listarCategoria();
 		for(int i=0;i<c.size(); i++) {
 			System.out.println(c.get(i).getId_categoria()+" "+c.get(i).getNo_categoria());
-		}
+		}*/
 		
+		
+		
+		/*Seminario s = seminario.buscarSeminario(1);
+		System.out.println(s.getID_SEMINARIO()+" "+s.getNO_SEMINARIO()+" "+ s.getFE_INICIO()+" "+ s.getFE_FIN()+" "+ s.getURL_SEMINARIO());
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*List<Seminario> s = seminario.listarSeminario();
+		for(int i=0;i<s.size(); i++) {
+			System.out.println(s.get(i).getID_SEMINARIO()+" "+s.get(i).getNO_SEMINARIO()+" "+ s.get(i).getFE_INICIO()+" "+ s.get(i).getFE_FIN()+" "+ s.get(i).getURL_SEMINARIO());
+		}*/
+		
+		
+	String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+	System.out.println(timeStamp);
+	
 }
 }
