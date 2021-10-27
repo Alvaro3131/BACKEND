@@ -16,6 +16,7 @@ import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
+import com.example.sigca.entity.Seminario;
 import com.example.sigca.entity.Socio;
 import com.example.sigca.entity.Usuario;
 import com.example.sigca.repository.AsesorRepository;
@@ -24,6 +25,7 @@ import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.SedeRepository;
+import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SocioRepository;
 import com.example.sigca.repository.UsuarioRepository;
 
@@ -52,6 +54,8 @@ private SocioRepository socio;
 private AsesorRepository asesor;
 @Autowired 
 private UsuarioRepository usuario;
+@Autowired 
+private SeminarioRepository seminario;
 
 
 	public static void main(String[] args) {
@@ -74,6 +78,11 @@ private UsuarioRepository usuario;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
 		
-
+		
+		/*Seminario s = seminario.buscarSeminario(2); {
+			System.out.println("Seminario: "+s.getNO_SEMINARIO());*/
+		
+		Seminario s = seminario.buscarSeminario(2);
+		System.out.println(s.getNO_SEMINARIO());
 }
 }
