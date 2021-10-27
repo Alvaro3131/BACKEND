@@ -37,7 +37,7 @@ public class Sede implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_distrito")
-	private Set<Distrito> distrito;
+	private Set<Distrito> distritos;
 	
 	
 }
