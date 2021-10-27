@@ -16,6 +16,7 @@ import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
+import com.example.sigca.entity.Sesion;
 import com.example.sigca.entity.Socio;
 import com.example.sigca.entity.Usuario;
 import com.example.sigca.repository.AsesorRepository;
@@ -24,6 +25,7 @@ import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.SedeRepository;
+import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
 import com.example.sigca.repository.UsuarioRepository;
 
@@ -44,7 +46,8 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
-
+@Autowired
+private SesionRepository sesion;
 
 @Autowired 
 private SocioRepository socio;
@@ -62,10 +65,10 @@ private UsuarioRepository usuario;
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*
-		List<Persona> pe= personaRepository.listarPersona();
+		
+		List<Sesion> pe= sesion.listarSesion();
 		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
+			System.out.println(pe.get(i).getIdsesion()+" "+pe.get(i).getNombreSesion()+" "+pe.get(i).getModulo().getNo_modulo());
 		}
 
 		
