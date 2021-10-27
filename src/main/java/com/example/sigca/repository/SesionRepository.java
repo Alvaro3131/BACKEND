@@ -22,11 +22,11 @@ public interface SesionRepository extends JpaRepository<Sesion, Integer>{
 		
 		@Query(value = "{call SP_LISTAR_SESION(:p_nIDSESION)}", nativeQuery = true) 
 		Optional<Sesion> buscarSesion(@Param("p_nIDSESION") int p_nIDSESION);
-		/*
+		
 		//Delete
 		
-		@Query(value = "{ CALL SP_ELIMINAR_SESION(:p_IDSESION) }", nativeQuery = true)
-		String eliminarSesion(@Param("p_IDSESION") int P_IDSESION);
+		@Query(value = "{ CALL SP_ELIMINAR_SESION(:p_nIDSESION) }", nativeQuery = true)
+		String eliminarSesion(@Param("p_nIDSESION") int p_nIDSESION);
 		
 		// Insertar
 		@Query(value = "{call SP_INS_SEDE(:P_NOMBRE)}", nativeQuery = true) 
@@ -35,6 +35,6 @@ public interface SesionRepository extends JpaRepository<Sesion, Integer>{
 		//Update
 		@Query(value = "{call SP_UPD_SEDE(:P_IDSEDE,:P_NOMBRE)}", nativeQuery = true) 
 		String actualizarSede(@Param("P_IDSEDE") int P_IDSEDE ,@Param("P_NOMBRE") String P_NOMBRE);
-			*/
+			
 	
 }
