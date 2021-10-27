@@ -10,16 +10,23 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.sigca.entity.Asesor;
 import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
+import com.example.sigca.entity.Socio;
+import com.example.sigca.entity.Usuario;
+import com.example.sigca.repository.AsesorRepository;
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.SedeRepository;
+import com.example.sigca.repository.SocioRepository;
+import com.example.sigca.repository.UsuarioRepository;
+
 
 @SpringBootApplication
 public class SigcaApplication implements CommandLineRunner{
@@ -37,6 +44,14 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
+
+@Autowired 
+private SocioRepository socio;
+@Autowired 
+private AsesorRepository asesor;
+@Autowired 
+private UsuarioRepository usuario;
 
 
 	public static void main(String[] args) {
@@ -59,10 +74,6 @@ private ModuloRepository modulo;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
 		
-		
-		
-		
-	
-	
+
 }
 }
