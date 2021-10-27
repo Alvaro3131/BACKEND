@@ -43,4 +43,6 @@ public class Modulo {
 	@JoinColumn(name="id_programacion")
 	private Set<Programacion> programacion;
 	
+	
+	
 }
