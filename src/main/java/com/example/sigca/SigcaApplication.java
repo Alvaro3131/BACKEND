@@ -1,5 +1,7 @@
 package com.example.sigca;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,12 +45,14 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 
+
 @Autowired 
 private SocioRepository socio;
 @Autowired 
 private AsesorRepository asesor;
 @Autowired 
 private UsuarioRepository usuario;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
@@ -58,23 +62,17 @@ private UsuarioRepository usuario;
 	@Override
 	public void run(String... args) throws Exception {
 
-		
-	/*	List<Persona> pe= personaRepository.listarPersona();
+		/*
+		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 
 		
-		List<Persona> pe= personaRepository.listarPersona();
+		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
-		
-		
-	
-		
-		
-		
 		
 
 }
