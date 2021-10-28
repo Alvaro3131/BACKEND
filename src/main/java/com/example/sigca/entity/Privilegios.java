@@ -22,25 +22,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="tbl_rol")
-public class Rol implements Serializable{
+@Table(name="tbl_privilegios")
+public class Privilegios implements Serializable{
 	
 	//Carlos Gutierrez Acosta
 	
 	private static final long serialVersionUID = -1942395296462336245L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_rol")
-	public int idrol;
-	@Column(name="no_rol")
-	public String nombrerol;
+	@Column(name="id_privilegios")
+	public int idprivilegios;
+	@Column(name="no_privilegios")
+	public String nombreprivilegios;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_rol_privilegios")
 	private Set<RolPrivilegios> rolprivilegios;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_usuario")
-	private Set<RolUsuario> rolusuario;
 	
 }
