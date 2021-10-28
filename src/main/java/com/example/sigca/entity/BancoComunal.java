@@ -41,7 +41,7 @@ public class BancoComunal {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_programa_capacitacion")
-	private Set<Programa_Seminario> ps;
+	private Set<ProgramaSeminario> ps;
 	
 	
 	@OneToMany(cascade = CascadeType.ALL)
