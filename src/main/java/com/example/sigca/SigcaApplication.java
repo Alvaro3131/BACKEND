@@ -1,5 +1,7 @@
 package com.example.sigca;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,16 +10,29 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.sigca.entity.Asesor;
 import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Sede;
+
+import com.example.sigca.entity.Seminario;
+import com.example.sigca.entity.Sesion;
+import com.example.sigca.entity.Socio;
+import com.example.sigca.entity.Usuario;
+import com.example.sigca.repository.AsesorRepository;
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.SedeRepository;
+
+import com.example.sigca.repository.SeminarioRepository;
+import com.example.sigca.repository.SesionRepository;
+import com.example.sigca.repository.SocioRepository;
+import com.example.sigca.repository.UsuarioRepository;
+
 
 @SpringBootApplication
 public class SigcaApplication implements CommandLineRunner{
@@ -35,6 +50,18 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+@Autowired
+private SesionRepository sesion;
+
+@Autowired 
+private SocioRepository socio;
+@Autowired 
+private AsesorRepository asesor;
+@Autowired 
+private UsuarioRepository usuario;
+@Autowired 
+private SeminarioRepository seminario;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
@@ -44,32 +71,17 @@ private ModuloRepository modulo;
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*
-		List<Persona> pe= personaRepository.listarPersona();
+		
+		/*List<Sesion> pe= sesion.listarSesion();
 		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
+			System.out.println(pe.get(i).getIdsesion()+" "+pe.get(i).getNombreSesion()+" "+pe.get(i).getModulo().getNo_modulo());
 		}
 
 		
-		/*List<Persona> pe= personaRepository.listarPersona();
+		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}*/
-		
-		
-		
-		Modulo m = modulo.buscarModulo(1);
-		System.out.println(m.getId_modulo()+ " : " + m.getNo_modulo()+ "  "+ m.getCategoria().getNo_categoria());
-		//cate.actualizarCategoria(4, "Deportivo");
-		List<Modulo> l = modulo.listarModulo();
-		for(int i=0;i<l.size(); i++) {
-			System.out.println(l.get(i).getId_modulo()+" "+l.get(i).getNo_modulo()+ " " +l.get(i).getCategoria().getNo_categoria());
-		}
-		
-		List<Categoria> c = cate.listarCategoria();
-		for(int i=0;i<c.size(); i++) {
-			System.out.println(c.get(i).getId_categoria()+" "+c.get(i).getNo_categoria());
-		}
 		
 }
 }
