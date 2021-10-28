@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,25 +23,25 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="tbl_rol")
-public class Rol implements Serializable{
+@Table(name="tbl_rol_usuario")
+public class RolUsuario implements Serializable{
 	
 	//Carlos Gutierrez Acosta
 	
 	private static final long serialVersionUID = -1942395296462336245L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_rol")
-	public int idrol;
-	@Column(name="no_rol")
-	public String nombrerol;
+	@Column(name="id_rol_usuario")
+	public int idrolprivilegio;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_privilegios")
-	private Set<RolPrivilegios> rolprivilegios;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_usuario")
-	private Set<RolUsuario> rolusuario;
+	
+	@ManyToOne
+	@JoinColumn(name="fk_usuario", nullable = false)
+	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="fk_rol", nullable = false)
+	private Rol rol;
 	
 }
