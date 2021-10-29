@@ -21,14 +21,14 @@ public interface AsistenciaSeminarioRepository extends JpaRepository<Asistencia_
 		
 		//Delete
 		@Query(value = "{ CALL SP_ELIMINAR_ASISTENCIA_SEMINARIO(:p_nIDASISTENCIASEMINARIO) }", nativeQuery = true)
-		String eliminarBanco(@Param("p_nIDASISTENCIASEMINARIO") int p_nIDASISTENCIASEMINARIO);
+		String eliminarAsistenciaSeminario(@Param("p_nIDASISTENCIASEMINARIO") int p_nIDASISTENCIASEMINARIO);
 		
-		// Insertar
+		//Insertar
 		@Query(value = "{call SP_INS_ASISTENCIA_SEMINARIO(:p_nIdSeminario,:p_nIdSocio,:p_nEstado,:p_vDescripcion)}", nativeQuery = true) 
-		String insertarBanco(@Param("P_NOMBRE") String P_NOMBRE,@Param("P_FKDISTRITO") int P_FKDISTRITO,@Param("P_FKASESOR") int P_FKASESOR);
+		String insertarAsistenciaSeminario(@Param("p_nIdSeminario") int p_nIdSeminario,@Param("p_nIdSocio") int p_nIdSocio,@Param("p_nEstado") int p_nEstado,@Param("p_vDescripcion") String p_vDescripcion);
 		
 		//Update
 		@Query(value = "{call SP_UPD_ASISTENCIA_SEMINARIO(:p_nIdAsistencia,:p_nIdSeminario,:p_nIdSocio,:p_nEstado,:p_vDescripcion)}", nativeQuery = true) 
-		String actualizarBanco(@Param("p_nIdAsistencia") int P_IDASISTENCIA ,@Param("p_nIdSeminario") int P_IDSEMINARIO ,@Param("p_nIdSocio") int P_IDSOCIO,@Param("p_nEstado") int P_ESTADO,@Param("p_vDescripcion") String P_DESCRIPCION);
+		String actualizarAsistenciaSeminario(@Param("p_nIdAsistencia") int p_nIdAsistencia ,@Param("p_nIdSeminario") int p_nIdSeminario,@Param("p_nIdSocio") int p_nIdSocio,@Param("p_nEstado") int p_nEstado,@Param("p_vDescripcion") int p_vDescripcion);
 		
 }

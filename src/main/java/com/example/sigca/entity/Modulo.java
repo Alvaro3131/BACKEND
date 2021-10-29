@@ -43,7 +43,7 @@ public class Modulo {
 	@JoinColumn(name="id_programacion")
 	private Set<Programacion> programacion;
 	
-
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_sesion")
 	private Set<Sesion> sesion;
