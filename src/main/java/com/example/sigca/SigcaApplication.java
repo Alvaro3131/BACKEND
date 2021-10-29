@@ -100,7 +100,7 @@ private PrivilegiosRepository privilegios;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-
+/*
 	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
 	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
 			   		   a.getSeminario().getNO_SEMINARIO()+" "+
@@ -108,9 +108,7 @@ private PrivilegiosRepository privilegios;
 			   		   a.getES_ASISTENCIA()+" "+
 			   		   a.getDE_ASISTENCIA()+" "+
 			   		   a.getFE_ASISTENCIA());
-		
-
-		List<Asistencia_Seminario> pe = asistenciaSeminarioRepository.listarAsistencia_Seminario();
+		*/
 
 		/*List<Sesion> pe= sesion.listarSesion();
 
