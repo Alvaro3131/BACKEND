@@ -13,25 +13,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="tbl_tipo")
-public class Tipo implements Serializable {
-		
-	private static final long serialVersionUID = 6647357831920610109L;
-		@Id
-		@GeneratedValue (strategy = GenerationType.IDENTITY)
-		@Column(name = "id_tipo")
-		private int id;
-		@Column(name="no_tipo")
-		private String nombre;
-		
-		@OneToMany(cascade = CascadeType.ALL)
-		@JoinColumn(name="id_recurso")
-		private Set<Recurso> recursos;
+@Table(name="tbl_privilegios")
+public class Privilegios implements Serializable{
+	
+	//Carlos Gutierrez Acosta
+	
+	private static final long serialVersionUID = -1942395296462336245L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_privilegios")
+	public int idprivilegios;
+	@Column(name="no_privilegios")
+	public String nombreprivilegios;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="id_rol_privilegios")
+	private Set<RolPrivilegios> rolprivilegios;
+	
 }
