@@ -42,4 +42,15 @@ public class Socio {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="ID_ASISTENCIA_SEMINARIO")
 	public Set<Asistencia_Seminario> as;
+	
+	@OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_pedidooracion")
+	private Set<PedidoOracion> pedido;
+	
+	
+    @OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_asistencia_recurso")
+	private Set<AsistenciaRecurso> asistenciarecurso;
+	
+
 }
