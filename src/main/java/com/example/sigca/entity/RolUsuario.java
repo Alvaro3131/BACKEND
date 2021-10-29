@@ -32,7 +32,7 @@ public class RolUsuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_rol_usuario")
-	public int idrolprivilegio;
+	public int idrolusuario;
 	
 	
 	

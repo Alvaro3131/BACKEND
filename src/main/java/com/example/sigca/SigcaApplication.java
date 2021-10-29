@@ -29,7 +29,11 @@ import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
+import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.repository.RolPrivilegiosRepository;
+import com.example.sigca.repository.RolRepository;
+import com.example.sigca.repository.RolUsuarioRepository;
 import com.example.sigca.repository.SedeRepository;
 
 import com.example.sigca.repository.SeminarioRepository;
@@ -69,7 +73,14 @@ private SeminarioRepository seminario;
 @Autowired 
 private ProgramaSeminarioRepository programaseminario;
 @Autowired 
-private BancoComunalRepositoy banco;
+private RolRepository rol;
+@Autowired 
+private RolPrivilegiosRepository rolprivilegios;
+@Autowired 
+private RolUsuarioRepository rolusuario;
+@Autowired 
+private PrivilegiosRepository privilegios;
+
 
 
 
