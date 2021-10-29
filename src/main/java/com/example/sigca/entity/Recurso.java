@@ -40,8 +40,14 @@ public class Recurso implements Serializable {
 	@JoinColumn(name = "id_tipo", nullable = false)
 	private Tipo tipo;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_sesion", nullable = false)
+	private Sesion sesion;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pregunta")
 	private Set<Pregunta> preguntas;
+	
+	
 	
 }
