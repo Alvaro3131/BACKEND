@@ -20,8 +20,14 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
+
 import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -106,6 +112,44 @@ private ProgramacionRepository p;
 	@Override
 	public void run(String... args) throws Exception {
 
+
+		
+		
+		
+		
+		List<Rol> pe= rol.listarRol();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
+		}
+		/*
+		
+		
+		
+		/*
+		privilegios.eliminarPrivilegios(2);
+		
+		       */
+		
+	/*privilegios.actualizarPrivilegios(, null)
+	 
+	 */
+		
+		
+		
+		/*
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+			
+
+
+		
+
+		
+
+		
+
 /*
 	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
 	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
@@ -124,18 +168,18 @@ private ProgramacionRepository p;
 		}
 		
 
+
+		/*List<Persona> pe= personaRepository.listarPersona();
+
 /*
 		List<Persona> pe= personaRepository.listarPersona();
+
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
 
 		
-		
-		
-
-	
 
 	}
 
