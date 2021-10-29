@@ -22,8 +22,12 @@ import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
 import com.example.sigca.entity.Rol;
 import com.example.sigca.entity.RolPrivilegios;
+
+import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -42,6 +46,7 @@ import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.repository.ProgramacionRepository;
 import com.example.sigca.repository.RolPrivilegiosRepository;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.RolUsuarioRepository;
@@ -93,6 +98,9 @@ private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
 
+@Autowired
+private ProgramacionRepository p;
+
 
 
 
@@ -103,6 +111,7 @@ private PrivilegiosRepository privilegios;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
 		
 		
 		
@@ -133,26 +142,26 @@ private PrivilegiosRepository privilegios;
 		}*/
 			
 
-		/*List<Sesion> pe= sesion.listarSesion();
 
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
-		}
 		
 
-		/*
+		
+
+		
 
 
-		List<Persona> pe= personaRepository.listarPersona();
+		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
+
+		
+		
+	
+		
+
+	
 
 	}
 
