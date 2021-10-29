@@ -38,10 +38,11 @@ public class Modulo {
 	@JoinColumn(name="fk_categoria", nullable = false)
 	public Categoria categoria;
 	
-	// Enlaze con programacion
+	// Enlace con programacion
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_programacion")
 	private Set<Programacion> programacion;
+	
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_sesion")

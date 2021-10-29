@@ -16,12 +16,10 @@ public interface ModuloRepository extends JpaRepository<Modulo, Integer> {
 		List<Modulo> listarModulo();
 		
 		// Buscar
-		
 		@Query(value = "{call SP_LISTAR_MODULO(:p_nIDMODULO)}", nativeQuery = true) 
 		Modulo buscarModulo(@Param("p_nIDMODULO") int p_nIDMODULO);
 		
 		//Delete
-		
 		@Query(value = "{ CALL SP_ELIMINAR_MODULO(:p_nIDMODULO) }", nativeQuery = true)
 		String eliminarModulo(@Param("p_nIDMODULO") int p_nIDMODULO);
 		

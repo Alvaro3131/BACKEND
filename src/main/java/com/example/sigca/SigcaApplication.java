@@ -11,7 +11,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.sigca.entity.Asesor;
+
+import com.example.sigca.entity.Asistencia_Seminario;
+
 import com.example.sigca.entity.BancoComunal;
+
 import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
@@ -27,7 +31,11 @@ import com.example.sigca.entity.Sesion;
 import com.example.sigca.entity.Socio;
 import com.example.sigca.entity.Usuario;
 import com.example.sigca.repository.AsesorRepository;
+
+import com.example.sigca.repository.AsistenciaSeminarioRepository;
+
 import com.example.sigca.repository.BancoComunalRepositoy;
+
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
@@ -63,7 +71,8 @@ private CategoriaRepository cate;
 private ModuloRepository modulo;
 @Autowired
 private SesionRepository sesion;
-
+@Autowired
+private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 @Autowired 
 private SocioRepository socio;
 @Autowired 
@@ -95,15 +104,26 @@ private PrivilegiosRepository privilegios;
 	@Override
 	public void run(String... args) throws Exception {
 		
-		/*List<Privilegios> pe= privilegios.listarPrivilegios();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdprivilegios()+" "+pe.get(i).getNombreprivilegios());
-		}*/
-
-		/*List<Rol> pe= rol.listarRol();
+		
+		
+		
+		List<Rol> pe= rol.listarRol();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
-		}*/
+		}
+		/*
+		
+		
+		
+		/*
+		privilegios.eliminarPrivilegios(2);
+		
+		       */
+		
+	/*privilegios.actualizarPrivilegios(, null)
+	 
+	 */
+		
 		
 		
 		/*
@@ -111,21 +131,30 @@ private PrivilegiosRepository privilegios;
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getIdrolprivilegios());
 		}*/
-		
-		
-		
-		/*List<Sesion> pe= sesion.listarSesion();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdsesion()+" "+pe.get(i).getNombreSesion()+" "+pe.get(i).getModulo().getNo_modulo());
-		}
+			
 
+		/*List<Sesion> pe= sesion.listarSesion();
+
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
+							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
+							   pe.get(i).getSocio().getPersona().getNombre()+" "+
+							   pe.get(i).getES_ASISTENCIA()+" "+
+							   pe.get(i).getDE_ASISTENCIA()+" "+
+							   pe.get(i).getFE_ASISTENCIA());
+		}
 		
+
+		/*
+
+
 		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}*/
-		
-		
+		}
+		*/
+
 	}
+
 }
 

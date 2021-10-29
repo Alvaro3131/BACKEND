@@ -2,7 +2,6 @@ package com.example.sigca.entity;
 
 import java.io.Serializable;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,16 +27,18 @@ public class Sede implements Serializable{
 	//JOSUE DOMINGUEZ 
 	
 	private static final long serialVersionUID = -1942395296462336245L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_sede")
 	public int idsede;
+	
 	@Column(name="no_sede")
 	public String nombreSede;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_distrito")
-	private Set<Distrito> distritos;
+	public Set<Distrito> distrito;
 	
 	
 }

@@ -36,8 +36,23 @@ public class Usuario {
 	@Column(name = "PW_USUARIO")
 	public String  pass;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany( cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_rol_usuario")
 	private Set<RolUsuario> rolusuario;
+	/*
+	@OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_pedidooracion")
+	private Set<Pedido> pedido;
+	
+    @OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_asistencia_recurso")
+	private Set<asistenciaRecurso> asistenciarecurso;
+	
+    @OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_asistencia_seminario")
+	private Set<AsistenciaSeminario> asistenciaseminario;
+	
+	
+	*/
 	
 }
