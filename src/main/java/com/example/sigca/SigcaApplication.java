@@ -21,6 +21,7 @@ import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
 import com.example.sigca.entity.ProgramaSeminario;
+import com.example.sigca.entity.Programacion;
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -39,6 +40,7 @@ import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.repository.ProgramacionRepository;
 import com.example.sigca.repository.RolPrivilegiosRepository;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.RolUsuarioRepository;
@@ -90,6 +92,9 @@ private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
 
+@Autowired
+private ProgramacionRepository p;
+
 
 
 
@@ -100,6 +105,7 @@ private PrivilegiosRepository privilegios;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
 /*
 	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
 	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
@@ -120,6 +126,7 @@ private PrivilegiosRepository privilegios;
 							   pe.get(i).getDE_ASISTENCIA()+" "+
 							   pe.get(i).getFE_ASISTENCIA());
 		}
+
 		
 
 		/*
@@ -130,6 +137,13 @@ private PrivilegiosRepository privilegios;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
+
+		
+		
+		p.insertarProgramacion(2, 2);
+		
+
+	
 
 	}
 
