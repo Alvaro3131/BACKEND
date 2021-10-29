@@ -39,20 +39,21 @@ public class Usuario {
 	@OneToMany( cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_rol_usuario")
 	private Set<RolUsuario> rolusuario;
-	/*
+	
+	
 	@OneToMany( cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pedidooracion")
-	private Set<Pedido> pedido;
+	private Set<PedidoOracion> pedido;
+	
 	
     @OneToMany( cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_asistencia_recurso")
-	private Set<asistenciaRecurso> asistenciarecurso;
+	private Set<AsistenciaRecurso> asistenciarecurso;
 	
     @OneToMany( cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_asistencia_seminario")
-	private Set<AsistenciaSeminario> asistenciaseminario;
+	private Set<Asistencia_Seminario> asistenciaseminario;
 	
 	
-	*/
 	
 }
