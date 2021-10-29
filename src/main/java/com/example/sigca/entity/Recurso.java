@@ -37,17 +37,19 @@ public class Recurso implements Serializable {
 	private String descripcion;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_tipo", nullable = false)
+	@JoinColumn(name = "fk_tipo", nullable = false)
 	private Tipo tipo;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_sesion", nullable = false)
+	@JoinColumn(name = "fk_sesion", nullable = false)
 	private Sesion sesion;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pregunta")
 	private Set<Pregunta> preguntas;
 	
-	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_asistencia_recurso")
+	private Set<Asistencia_Seminario> asistencia_Seminarios;
 	
 }

@@ -41,6 +41,7 @@ public class Seminario {
 	@Column(name = "URL_SEMINARIO")
 	public String URL_SEMINARIO;
 	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_asistencia_seminario")
 	private Set<Asistencia_Seminario> as;
