@@ -2,13 +2,10 @@ package com.example.sigca.repository;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import com.example.sigca.entity.Sede;
 import com.example.sigca.entity.Sesion;
 
 @Repository
@@ -20,21 +17,21 @@ public interface SesionRepository extends JpaRepository<Sesion, Integer>{
 		
 		// Buscar
 		
-		@Query(value = "{call SP_LISTAR_SESION(:p_nIDSESION)}", nativeQuery = true) 
-		Optional<Sesion> buscarSesion(@Param("p_nIDSESION") int p_nIDSESION);
+		@Query(value = "{call SP_LISTAR_SESION(:ID_SESION)}", nativeQuery = true) 
+		Optional<Sesion> buscarSesion(@Param("ID_SESION") int ID_SESION);
 		
 		//Delete
 		
-		@Query(value = "{ CALL SP_ELIMINAR_SESION(:p_nIDSESION) }", nativeQuery = true)
-		String eliminarSesion(@Param("p_nIDSESION") int p_nIDSESION);
+		@Query(value = "{ CALL SP_ELIMINAR_SESION(:ID_SESION) }", nativeQuery = true)
+		String eliminarSesion(@Param("ID_SESION") int ID_SESION);
 		
 		// Insertar
-		@Query(value = "{call SP_INS_SEDE(:P_NOMBRE)}", nativeQuery = true) 
-		String insertarSede(@Param("P_NOMBRE") String P_NOMBRE);
+		@Query(value = "{call SP_INS_SESION(:NO_SESION,:FK_MODULO)}", nativeQuery = true) 
+		String insertarSesion(@Param("NO_SESION") String NO_SESION, @Param("FK_MODULO") int FK_MODULO);
 		
 		//Update
-		@Query(value = "{call SP_UPD_SEDE(:P_IDSEDE,:P_NOMBRE)}", nativeQuery = true) 
-		String actualizarSede(@Param("P_IDSEDE") int P_IDSEDE ,@Param("P_NOMBRE") String P_NOMBRE);
-			
+		@Query(value = "{call SP_UPD_SESION(:ID_SESION,:NO_SESION,:FK_MODULO)}", nativeQuery = true) 
+		String actualizarSesion(@Param("ID_SESION") int ID_SESION,@Param("NO_SESION") String NO_SESION, @Param("FK_MODULO") int FK_MODULO);
+		
 	
 }
