@@ -36,4 +36,6 @@ public class Seminario {
 	@Column(name = "URL_SEMINARIO")
 	public String URL_SEMINARIO;
 	
+	
+	
 }
