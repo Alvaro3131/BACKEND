@@ -105,18 +105,9 @@ private ProgramacionRepository p;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
 		
 
-		/*List<Sesion> pe= sesion.listarSesion();
-
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
-		}
 		
 
 		/*
@@ -127,10 +118,14 @@ private ProgramacionRepository p;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
+
 		
 		
-		p.insertarProgramacion(2, 2);
+		//p.insertarProgramacion(2, 2);
 		
+
+	
+
 	}
 
 }

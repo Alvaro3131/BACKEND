@@ -33,6 +33,6 @@ public class Alternativa implements Serializable {
 	private int valor;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pregunta", nullable = false)
+	@JoinColumn(name = "fk_pregunta", nullable = false)
 	private Pregunta pregunta;
 }
