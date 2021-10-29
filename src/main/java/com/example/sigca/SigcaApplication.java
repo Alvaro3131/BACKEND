@@ -100,17 +100,15 @@ private PrivilegiosRepository privilegios;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-
-	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
-	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
-			   		   a.getSeminario().getNO_SEMINARIO()+" "+
-			   		   a.getSocio().getPersona().getNombre()+" "+
-			   		   a.getES_ASISTENCIA()+" "+
-			   		   a.getDE_ASISTENCIA()+" "+
-			   		   a.getFE_ASISTENCIA());
+		sede.actualizarSede(14, "APC NORTE 1");
 		
-
-		List<Asistencia_Seminario> pe = asistenciaSeminarioRepository.listarAsistencia_Seminario();
+		List<Sede> pe = sede.listarSede();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdsede()+" "+
+							   pe.get(i).getNombreSede()
+							 );
+		}
+		
 
 		/*List<Sesion> pe= sesion.listarSesion();
 
