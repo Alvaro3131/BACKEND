@@ -48,4 +48,6 @@ public class Recurso implements Serializable {
 	@JoinColumn(name = "id_pregunta")
 	private Set<Pregunta> preguntas;
 	
+	
+	
 }
