@@ -1,45 +1,38 @@
 package com.example.sigca.entity;
 
 import java.io.Serializable;
-import java.util.Set;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="tbl_sede")
-public class Sede implements Serializable{
+@Entity
+@Table(name = "tbl_alternativa")
+public class Alternativa implements Serializable {
 	
-	//JOSUE DOMINGUEZ 
-	
-	private static final long serialVersionUID = -1942395296462336245L;
-	
+	private static final long serialVersionUID = 8179352236021303563L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_sede")
-	public int idsede;
+	@Column(name = "id_alternativa")
+	private int id;
+	@Column(name = "no_alternativa")
+	private String nombre;
+	@Column(name = "nu_valor")
+	private int valor;
 	
-	@Column(name="no_sede")
-	public String nombreSede;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_distrito")
-	public Set<Distrito> distrito;
-	
-	
+	@ManyToOne
+	@JoinColumn(name = "id_pregunta", nullable = false)
+	private Pregunta pregunta;
 }
-

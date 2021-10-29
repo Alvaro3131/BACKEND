@@ -1,5 +1,6 @@
 package com.example.sigca.entity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,31 +22,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="tbl_modulo")
-public class Modulo {
-	
-	//JOSUE DOMINGUEZ
-	
+@Table(name = "tbl_recurso")
+public class Recurso implements Serializable {
+	private static final long serialVersionUID = -1016636679259223396L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_modulo")
-	int id_modulo;
-	@Column(name = "no_modulo")
-	String no_modulo;
+	@Column(name = "id_recurso")
+	private int id;
+	@Column(name = "no_recurso")
+	private String nombre;
+	@Column(name = "se_orden")
+	private int orden;
+	@Column(name = "desc_recurso")
+	private String descripcion;
 	
-	// Enlaze con categoria
 	@ManyToOne
-	@JoinColumn(name="fk_categoria", nullable = false)
-	public Categoria categoria;
+	@JoinColumn(name = "id_tipo", nullable = false)
+	private Tipo tipo;
 	
-	// Enlace con programacion
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_programacion")
-	private Set<Programacion> programacion;
-	
-
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_sesion")
-	private Set<Sesion> sesion;
+	@JoinColumn(name = "id_pregunta")
+	private Set<Pregunta> preguntas;
 	
 }
