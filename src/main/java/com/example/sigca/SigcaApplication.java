@@ -75,7 +75,7 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 @Autowired 
@@ -111,6 +111,7 @@ private ProgramacionRepository p;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
 
 		
 		
@@ -149,19 +150,36 @@ private ProgramacionRepository p;
 
 		
 
+/*
+	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
+	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
+			   		   a.getSeminario().getNO_SEMINARIO()+" "+
+			   		   a.getSocio().getPersona().getNombre()+" "+
+			   		   a.getES_ASISTENCIA()+" "+
+			   		   a.getDE_ASISTENCIA()+" "+
+			   		   a.getFE_ASISTENCIA());
+		*/
+
+
+		
+		List<Sesion> pe= sesionRepository.listarSesion();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getID_SESION()+" "+pe.get(i).getNO_SESION());
+		}
+		
+
 
 		/*List<Persona> pe= personaRepository.listarPersona();
+
+/*
+		List<Persona> pe= personaRepository.listarPersona();
+
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
 
 		
-		
-	
-		
-
-	
 
 	}
 
