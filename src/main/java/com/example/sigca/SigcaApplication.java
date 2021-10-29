@@ -121,7 +121,7 @@ private ProgramacionRepository p;
 
 		
 		
-		//p.insertarProgramacion(2, 2);
+		p.insertarProgramacion(2, 2);
 		
 
 	
