@@ -106,7 +106,26 @@ private ProgramacionRepository p;
 	@Override
 	public void run(String... args) throws Exception {
 
-		
+/*
+	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
+	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
+			   		   a.getSeminario().getNO_SEMINARIO()+" "+
+			   		   a.getSocio().getPersona().getNombre()+" "+
+			   		   a.getES_ASISTENCIA()+" "+
+			   		   a.getDE_ASISTENCIA()+" "+
+			   		   a.getFE_ASISTENCIA());
+		*/
+
+		/*List<Sesion> pe= sesion.listarSesion();
+
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
+							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
+							   pe.get(i).getSocio().getPersona().getNombre()+" "+
+							   pe.get(i).getES_ASISTENCIA()+" "+
+							   pe.get(i).getDE_ASISTENCIA()+" "+
+							   pe.get(i).getFE_ASISTENCIA());
+		}
 
 		
 
