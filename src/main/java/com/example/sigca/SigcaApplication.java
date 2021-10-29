@@ -69,7 +69,7 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 @Autowired 
@@ -116,22 +116,15 @@ private ProgramacionRepository p;
 			   		   a.getFE_ASISTENCIA());
 		*/
 
-		/*List<Sesion> pe= sesion.listarSesion();
-
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
-		}
 
 		
+		List<Sesion> pe= sesionRepository.listarSesion();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getID_SESION()+" "+pe.get(i).getNO_SESION());
+		}
+		
 
-		/*
-
-
+/*
 		List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
@@ -140,7 +133,6 @@ private ProgramacionRepository p;
 
 		
 		
-		p.insertarProgramacion(2, 2);
 		
 
 	
