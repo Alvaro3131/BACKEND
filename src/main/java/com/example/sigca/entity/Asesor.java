@@ -30,7 +30,7 @@ public class Asesor {
 	@Column(name = "id_persona")
 	public int id_persona;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@PrimaryKeyJoinColumn
 	public Persona persona;
 	
