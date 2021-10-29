@@ -22,14 +22,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="tbl_tipo")
 public class Tipo implements Serializable {
-		private static final long serialVersionUID = -1942395296462336245L;
+		
+	private static final long serialVersionUID = 6647357831920610109L;
 		@Id
 		@GeneratedValue (strategy = GenerationType.IDENTITY)
 		@Column(name = "id_tipo")
 		private int id;
 		@Column(name="no_tipo")
 		private String nombre;
-		/*@OneToMany(cascade = CascadeType.ALL)
+		
+		@OneToMany(cascade = CascadeType.ALL)
 		@JoinColumn(name="id_recurso")
-		private Set<Recurso> recursos;*/
+		private Set<Recurso> recursos;
 }
