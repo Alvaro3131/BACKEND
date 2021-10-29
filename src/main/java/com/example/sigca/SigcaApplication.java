@@ -16,7 +16,10 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -91,7 +94,25 @@ private PrivilegiosRepository privilegios;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+		
+		/*List<Privilegios> pe= privilegios.listarPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdprivilegios()+" "+pe.get(i).getNombreprivilegios());
+		}*/
 
+		/*List<Rol> pe= rol.listarRol();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
+		}*/
+		
+		
+		/*
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+		
+		
 		
 		/*List<Sesion> pe= sesion.listarSesion();
 		for(int i=0;i<pe.size(); i++) {
