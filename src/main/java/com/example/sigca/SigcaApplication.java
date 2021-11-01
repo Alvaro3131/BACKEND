@@ -118,10 +118,7 @@ private ProgramacionRepository p;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
-
 		
-		
-		p.insertarProgramacion(2, 2);
 		
 
 	

@@ -36,6 +36,9 @@ public class Sesion implements Serializable {
 	@JoinColumn(name="FK_MODULO",nullable = false)
 	public Modulo modulo;
 	
+	@Column(name="NU_RECURSOS")
+	public String no_recursos;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_recurso")
 	private Set<Recurso> recurso;
