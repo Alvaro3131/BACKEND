@@ -20,7 +20,14 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
+
+import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -39,6 +46,7 @@ import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.repository.ProgramacionRepository;
 import com.example.sigca.repository.RolPrivilegiosRepository;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.RolUsuarioRepository;
@@ -67,7 +75,7 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 @Autowired 
@@ -90,6 +98,9 @@ private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
 
+@Autowired
+private ProgramacionRepository p;
+
 
 
 
@@ -101,7 +112,19 @@ private PrivilegiosRepository privilegios;
 	@Override
 	public void run(String... args) throws Exception {
 
+
+	
+		
+	
 		/*
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+			
+	
+
+/*
 	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
 	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
 			   		   a.getSeminario().getNO_SEMINARIO()+" "+
@@ -109,39 +132,15 @@ private PrivilegiosRepository privilegios;
 			   		   a.getES_ASISTENCIA()+" "+
 			   		   a.getDE_ASISTENCIA()+" "+
 			   		   a.getFE_ASISTENCIA());
-
-		sede.actualizarSede(14, "APC NORTE 1");
-		
-		List<Sede> pe = sede.listarSede();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdsede()+" "+
-							   pe.get(i).getNombreSede()
-							 );
-		}
-
-		
-
-		List<Sesion> pe= sesion.listarSesion();
-
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
-		}
-		
-
-		/*
-
-
-		List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
 		*/
-		personaRepository.actualizarPersona(7, "a", "a", "a", "a","A", "a");
+
+
+		
+
+		
+
+
+
 	}
 
 }
