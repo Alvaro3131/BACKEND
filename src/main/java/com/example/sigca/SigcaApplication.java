@@ -20,8 +20,14 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
+
 import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -69,7 +75,7 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 @Autowired 
@@ -106,22 +112,33 @@ private ProgramacionRepository p;
 	@Override
 	public void run(String... args) throws Exception {
 
-		
-
-		
-
-		/*
-
-
-		List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
-		*/
-		
-		
 
 	
+		
+	
+		/*
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+			
+	
+
+/*
+	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
+	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
+			   		   a.getSeminario().getNO_SEMINARIO()+" "+
+			   		   a.getSocio().getPersona().getNombre()+" "+
+			   		   a.getES_ASISTENCIA()+" "+
+			   		   a.getDE_ASISTENCIA()+" "+
+			   		   a.getFE_ASISTENCIA());
+		*/
+
+
+		
+
+		
+
 
 	}
 

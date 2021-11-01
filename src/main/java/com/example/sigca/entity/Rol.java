@@ -27,7 +27,7 @@ public class Rol implements Serializable{
 	
 	//Carlos Gutierrez Acosta
 	
-	private static final long serialVersionUID = -1942395296462336245L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_rol")
