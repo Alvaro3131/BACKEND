@@ -141,7 +141,7 @@ private PrivilegiosRepository privilegios;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
-	
+		personaRepository.actualizarPersona(7, "a", "a", "a", "a","A", "a");
 	}
 
 }
