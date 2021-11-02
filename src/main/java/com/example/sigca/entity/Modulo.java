@@ -48,4 +48,8 @@ public class Modulo {
 	@JoinColumn(name="id_sesion")
 	private Set<Sesion> sesion;
 	
+	@OneToMany
+	@JoinColumn(name = "id_inscripcion")
+	private Set<Inscripcion> inscripciones;
+	
 }

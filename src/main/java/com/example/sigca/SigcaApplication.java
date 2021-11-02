@@ -26,7 +26,9 @@ import com.example.sigca.entity.Sede;
 import com.example.sigca.entity.Seminario;
 import com.example.sigca.entity.Sesion;
 import com.example.sigca.entity.Socio;
+import com.example.sigca.entity.Tipo;
 import com.example.sigca.entity.Usuario;
+import com.example.sigca.repository.AlternativaRepository;
 import com.example.sigca.repository.AsesorRepository;
 
 import com.example.sigca.repository.AsistenciaSeminarioRepository;
@@ -37,8 +39,10 @@ import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
+import com.example.sigca.repository.PreguntaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.repository.RecursoRepository;
 import com.example.sigca.repository.RolPrivilegiosRepository;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.RolUsuarioRepository;
@@ -47,6 +51,7 @@ import com.example.sigca.repository.SedeRepository;
 import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
+import com.example.sigca.repository.TipoRepository;
 import com.example.sigca.repository.UsuarioRepository;
 
 
@@ -89,7 +94,14 @@ private RolPrivilegiosRepository rolprivilegios;
 private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
-
+@Autowired
+private TipoRepository tipos;
+@Autowired
+private RecursoRepository recursos;
+@Autowired
+private PreguntaRepository preguntas;
+@Autowired
+private AlternativaRepository alternativas;
 
 
 
@@ -97,20 +109,22 @@ private PrivilegiosRepository privilegios;
 		SpringApplication.run(SigcaApplication.class, args);
 	}
 	
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-		sede.actualizarSede(14, "APC NORTE 1");
 		
-		List<Sede> pe = sede.listarSede();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdsede()+" "+
-							   pe.get(i).getNombreSede()
+		
+		/*List<Tipo> tip = tipos.listarTipo();
+		for(int i=0;i<tip.size(); i++) {
+			System.out.println(tip.get(i).getId()+" "+
+							   tip.get(i).getNombre()
 							 );
 		}
 		
-
-		/*List<Sesion> pe= sesion.listarSesion();
+		
+       
+		List<Sesion> pe= sesion.listarSesion();
 
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
@@ -130,7 +144,17 @@ private PrivilegiosRepository privilegios;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
-
+		
+		
+		
+		/*recursos.insertarRecurso("video whatsap", 1, "Este recurso es bueno", 2, 2);
+		
+		preguntas.actualizarPregunta(1, "Que aplicacion se usa menos?", 1);
+		
+		alternativas.insertarAlternativa("esta es la correcta", 1, 1);
+		
+		tipos.insertarTipo("Clase Online");*/
+		
 	}
 
 }

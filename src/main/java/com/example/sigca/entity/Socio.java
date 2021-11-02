@@ -52,5 +52,7 @@ public class Socio {
 	@JoinColumn(name = "id_asistencia_recurso")
 	private Set<AsistenciaRecurso> asistenciarecurso;
 	
-
+    @OneToMany
+	@JoinColumn(name = "id_inscripcion")
+	private Set<Inscripcion> inscripciones;
 }
