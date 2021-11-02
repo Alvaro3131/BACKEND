@@ -19,7 +19,7 @@ public interface DistritoRepository extends JpaRepository<Distrito, Integer>{
 	
 	//buscar
 	@Query(value = "{call SP_LISTAR_DISTRITO(:p_nIDDISTRITO)}", nativeQuery = true) 
-	Optional<Distrito> buscarDistrito(@Param("p_nIDDISTRITO") int p_nIDDISTRITO);
+	Distrito buscarDistrito(@Param("p_nIDDISTRITO") int p_nIDDISTRITO);
 	
 	//Delete
 	@Query(value = "{ CALL SP_ELIMINAR_DISTRITO(:p_nIDDISTRITO) }", nativeQuery = true)

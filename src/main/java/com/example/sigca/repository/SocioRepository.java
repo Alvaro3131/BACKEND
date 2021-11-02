@@ -22,8 +22,8 @@ public interface SocioRepository extends JpaRepository<Socio, Integer> {
 		
 		//Delete
 		
-		@Query(value = "{ CALL SP_DEL_SOCIO(:p_nID) }", nativeQuery = true)
-		String eliminarsocio(@Param("p_nID") int p_nID);
+		@Query(value = "{ CALL SP_ELIMINAR_SOCIO(:p_nIDSOCIO) }", nativeQuery = true)
+		String eliminarsocio(@Param("p_nIDSOCIO") int p_nIDSOCIO);
 		
 		// Insertar
 		@Query(value = "{ CALL SP_INS_SOCIO(:p_nIdSocio,:p_nEstado,:p_nBancoComunal) }", nativeQuery = true) 

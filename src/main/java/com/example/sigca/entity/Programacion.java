@@ -1,6 +1,5 @@
 package com.example.sigca.entity;
 
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,8 +24,8 @@ public class Programacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_programacion")
 	int id_programacion;
-	@Column(name="es_pogramacion")
-	String es_pogramacion;
+	@Column(name="es_programacion")
+	int es_pogramacion;
 	
 	//Relacion con modulo
 	@ManyToOne
@@ -37,6 +36,6 @@ public class Programacion {
 	//Relacion con banco comunal
 	@ManyToOne
 	@JoinColumn(name="fk_bancocomunal",nullable = false)
-	public BancoComunal bancocomunal;
+	public BancoComunal banco;
 	
 }

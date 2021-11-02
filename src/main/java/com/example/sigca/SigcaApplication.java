@@ -20,7 +20,14 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
+
+import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -71,16 +78,19 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
+
 @Autowired 
 private SocioRepository socio;
 @Autowired 
 private AsesorRepository asesor;
 @Autowired 
 private UsuarioRepository usuario;
+
 @Autowired 
 private SeminarioRepository seminario;
 
@@ -94,6 +104,7 @@ private RolPrivilegiosRepository rolprivilegios;
 private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
+
 @Autowired
 private TipoRepository tipos;
 @Autowired
@@ -113,49 +124,7 @@ private AlternativaRepository alternativas;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-		
-		
-		/*List<Tipo> tip = tipos.listarTipo();
-		for(int i=0;i<tip.size(); i++) {
-			System.out.println(tip.get(i).getId()+" "+
-							   tip.get(i).getNombre()
-							 );
-		}
-		
-		
-       
-		List<Sesion> pe= sesion.listarSesion();
 
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
-		}
-		
-
-		/*
-
-
-		List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
-		*/
-		
-		
-		
-		/*recursos.insertarRecurso("video whatsap", 1, "Este recurso es bueno", 2, 2);
-		
-		preguntas.actualizarPregunta(1, "Que aplicacion se usa menos?", 1);
-		
-		alternativas.insertarAlternativa("esta es la correcta", 1, 1);
-		
-		tipos.insertarTipo("Clase Online");*/
-		
-	}
-
+}
 }
 
