@@ -35,6 +35,7 @@ public class SedeServiceImpl implements SedeService {
 	@Override
 	public String eliminarSede(int id_sede) {
 		// TODO Auto-generated method stub
+		System.out.println(id_sede);
 		return sede.eliminarSede(id_sede);
 	}
 

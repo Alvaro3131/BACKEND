@@ -1,10 +1,12 @@
 package com.example.sigca.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,17 +30,24 @@ public class Sede implements Serializable{
 	
 	private static final long serialVersionUID = -1942395296462336245L;
 	
+	
+	
+	public Sede(String nombreSede) {
+		super();
+		this.nombreSede = nombreSede;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_sede")
-	public int idsede;
+	private int idsede;
 	
 	@Column(name="no_sede")
-	public String nombreSede;
+	private String nombreSede;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_distrito")
-	public Set<Distrito> distrito;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sede")
+	//@JoinColumn(name="id_distrito")
+	private List<Distrito> distrito;
 	
 	
 }
