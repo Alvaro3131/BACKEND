@@ -24,7 +24,7 @@ public interface TipoRepository extends JpaRepository<Tipo, Integer> {
 		
 		//Delete
 		
-		@Query(value = "{ CALL SP_ELIMINAR_SEDE(:p_nIDTIPO) }", nativeQuery = true)
+		@Query(value = "{ CALL SP_ELIMINAR_TIPO(:p_nIDTIPO) }", nativeQuery = true)
 		String eliminarTipo(@Param("p_nIDTIPO") int p_nIDTIPO);
 		
 		// Insertar

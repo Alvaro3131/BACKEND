@@ -1,9 +1,13 @@
 package com.example.sigca.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -31,5 +35,14 @@ public class Usuario {
 	
 	@Column(name = "PW_USUARIO")
 	public String  pass;
+	
+	@OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_rol_usuario")
+	private Set<RolUsuario> rolusuario;
+	
+	
+	
+	
+	
 	
 }

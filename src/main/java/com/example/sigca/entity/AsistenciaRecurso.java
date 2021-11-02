@@ -1,14 +1,12 @@
 package com.example.sigca.entity;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,21 +15,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="tbl_categoria")
-public class Categoria {
-	
-	//JOSUE DOMINGUEZ 
+@Table(name="tbl_asistencia_recurso")
+public class AsistenciaRecurso {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_categoria")
-	private int id_categoria;
-	@Column(name="no_categoria")
-	private String no_categoria;
+	@Column(name = "id_asistencia_recurso")
+	int id_asistencia_recurso;
+	@Column( name = "fk_socio")
+	int fk_socio;
+	@Column( name = "fk_recurso")
+	int fk_recurso;
+	@Column( name = "es_asistencia")
+	int es_asistencia;
+	@Column( name = "nu_valoracion")
+	int nu_valoracion;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria")
-	//@JoinColumn(name="id_modulo")
-	private List<Modulo> modulo;
-	
-	
+	//enlaces...
 }

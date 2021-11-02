@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -34,7 +35,22 @@ public class Socio {
 	@Column(name = "es_socio")
 	public int  estado;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="fk_bancocomunal", nullable = false)
 	public BancoComunal banco;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="ID_ASISTENCIA_SEMINARIO")
+	public Set<Asistencia_Seminario> as;
+	
+	@OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_pedidooracion")
+	private Set<PedidoOracion> pedido;
+	
+	
+    @OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_asistencia_recurso")
+	private Set<AsistenciaRecurso> asistenciarecurso;
+	
+
 }

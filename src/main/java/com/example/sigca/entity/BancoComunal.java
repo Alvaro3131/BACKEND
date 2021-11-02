@@ -1,13 +1,22 @@
 package com.example.sigca.entity;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,35 +31,33 @@ public class BancoComunal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_bancocomunal")
-	public int id_bancocomunal;
+	private int id_bancocomunal;
 	
 	@Column(name = "no_bancocomunal")
-	public String no_bancocomunal;
+	private String no_bancocomunal;
 	
-	@ManyToOne
-	@JoinColumn(name="fk_distrito", nullable = false)
-	public Distrito distrito;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
+	private Distrito distrito;
 	
-	@ManyToOne
-	@JoinColumn(name="fk_asesor", nullable = false)
-	public Asesor asesor;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
+	private Asesor asesor;
 	
-	/*@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Set<Persona> persona;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_programa_capacitacion")
-	private Set<Programa_Seminario> ps;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
+	//@JoinColumn(name = "id_programa_capacitacion")
+	private List<ProgramaSeminario> ps;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_programacion")
-	private Set<Programacion> programacion;
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
+	//@JoinColumn(name = "id_programacion")
+	private List<Programacion> programacion;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_persona")
-	private Set<Socio> socio;*/
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
+	//@JoinColumn(name = "id_persona")
+	private List<Socio> socio;
 	
 	
 }

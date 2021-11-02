@@ -1,12 +1,11 @@
 package com.example.sigca.entity;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,40 +14,34 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="tbl_distrito")
-public class Distrito {
+@Table(name="tbl_rol_privilegios")
+public class RolPrivilegios implements Serializable{
 	
-	//JOSUE DOMINGUEZ
+	//Carlos Gutierrez Acosta
 	
+	private static final long serialVersionUID = -1942395296462336245L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_distrito")
-	private int id_distrito;
-	@Column(name="no_distrito")
-	private String no_distrito;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn(name="FK_SEDE",referencedColumnName = "id_sede")
-	private Sede sede;
-	
-	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="distrito" )
-	//@JoinColumn(name = "id_bancocomunal")
-	private List<BancoComunal> banco;
+	@Column(name="id_rol_privilegios")
+	public int idrolprivilegios;
 	
 	
 	
+	@ManyToOne
+	@JoinColumn(name="fk_rol", nullable = false)
+	private Rol rol;
 	
+	@ManyToOne
+	@JoinColumn(name="fk_privilegio", nullable = false)
+	private Privilegios privilegios;
 	
 }
