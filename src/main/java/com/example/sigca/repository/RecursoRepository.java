@@ -19,7 +19,7 @@ public interface RecursoRepository extends JpaRepository<Recurso, Integer> {
 			
 			// Buscar
 			@Query(value = "{ CALL SP_LISTAR_RECURSO(:p_nID_RECURSO) }", nativeQuery = true)
-			Optional<Recurso> buscarRecurso(@Param("p_nID_RECURSO") int p_nID_RECURSO);
+			Recurso buscarRecurso(@Param("p_nID_RECURSO") int p_nID_RECURSO);
 			
 			// Delete
 			@Query(value = "{ CALL SP_ELIMINAR_RECURSO(:p_nID_RECURSO) }", nativeQuery = true)

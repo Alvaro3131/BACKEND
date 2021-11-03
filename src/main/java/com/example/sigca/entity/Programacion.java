@@ -24,9 +24,10 @@ public class Programacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_programacion")
 	int id_programacion;
+	
 	@Column(name="es_programacion")
 	int es_pogramacion;
-	
+
 	//Relacion con modulo
 	@ManyToOne
 	@JoinColumn(name="fk_modulo",nullable = false)

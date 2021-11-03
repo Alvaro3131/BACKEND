@@ -101,6 +101,8 @@ private RolPrivilegiosRepository rolprivilegios;
 private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
+@Autowired 
+private BancoComunalRepositoy banco;
 
 @Autowired
 private ProgramacionRepository p;
