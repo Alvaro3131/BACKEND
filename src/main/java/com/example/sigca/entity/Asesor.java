@@ -32,22 +32,20 @@ import lombok.NoArgsConstructor;
 public class Asesor {
 	@Id
 	@Column(name = "id_persona")
-	public int id_persona;
+	private int id_persona;
 	@Column(name = "es_asesor")
-	public String es_asesor;
+	private int es_asesor;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	@JsonBackReference
-	public Persona persona;
+	private Persona persona;
 	
 
 	
 	
 /*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asesor")
-	//@JoinColumn(name="id_bancocomunal")
-	@JsonBackReference
 	private List<BancoComunal> banco;
 */	
 }

@@ -15,22 +15,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.example.sigca.entity.Persona;
-import com.example.sigca.service.PersonaService;
-
+import com.example.sigca.entity.Asesor;
+import com.example.sigca.entity.Usuario;
+import com.example.sigca.service.UsuarioService;
 
 
 @RestController
-@RequestMapping("/api/persona")
-public class PersonaController {
+@RequestMapping("/api/usuario")
+public class UsuarioController {
 	@Autowired
-	private PersonaService personaService;
+	private UsuarioService usuarioService;
 	@GetMapping("/all")
-	public ResponseEntity<List<Persona>> getAlumnos(){
+	public ResponseEntity<List<Usuario>> getPersonas(){
 		try {
-			List<Persona> list = new ArrayList<>();
-			list = personaService.readall();
+			List<Usuario> list = new ArrayList<>();
+			list = usuarioService.readall();
 			if(list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -41,27 +40,24 @@ public class PersonaController {
 		}
 	}
 	@GetMapping("/read/{id}")
-	public ResponseEntity<Persona> getUser(@PathVariable("id") int id){
-		Persona persona = personaService.read(id);
-			if(persona.getId()>0) {
-				return new ResponseEntity<>(persona, HttpStatus.OK);
+	public ResponseEntity<Usuario> getUser(@PathVariable("id") int id){
+		Usuario usuario = usuarioService.read(id);
+			if(usuario.getId()>0) {
+				return new ResponseEntity<>(usuario, HttpStatus.OK);
 			}else {
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			} 
 	}
 	@PostMapping("/insertar")
-	public ResponseEntity<Persona> save(@RequestBody Persona persona){
+	public ResponseEntity<Usuario> save(@RequestBody Usuario usuario){
 		try {
-			Persona a = new Persona();
+			Usuario a = new Usuario();
 			
-			a.setNombre(persona.getNombre());
-			a.setPaterno(persona.getPaterno());
-			a.setMaterno(persona.getMaterno());
-			a.setDni(persona.getDni());
-			a.setCorreo(persona.getCorreo());
-			a.setTelefono(persona.getTelefono());
-			Persona al = personaService.create(a);
+			a.setId(usuario.getId());
+			a.setPass(usuario.getPass());
+			a.setUser(usuario.getUser());
+			Usuario al = usuarioService.create(a);
 			return new ResponseEntity<>(al, HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -69,19 +65,14 @@ public class PersonaController {
 		}
 	}
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Persona> update(@RequestBody Persona persona, @PathVariable("id") int id){
+	public ResponseEntity<Usuario> update(@RequestBody Usuario usuario, @PathVariable("id") int id){
 		try {
-			Persona a = personaService.read(id);
+			Usuario a = usuarioService.read(id);
 			if(a.getId()>0) {
 				
-				
-				a.setNombre(persona.getNombre());
-				a.setPaterno(persona.getPaterno());
-				a.setMaterno(persona.getMaterno());
-				a.setDni(persona.getDni());
-				a.setCorreo(persona.getCorreo());
-				a.setTelefono(persona.getTelefono());
-				return new ResponseEntity<>(personaService.create(a),HttpStatus.OK);
+				a.setPass(usuario.getPass());
+				a.setUser(usuario.getUser());
+				return new ResponseEntity<>(usuarioService.create(a),HttpStatus.OK);
 			}else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}			
@@ -93,7 +84,7 @@ public class PersonaController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<HttpStatus> delete(@PathVariable("id") int id){
 		try {
-			personaService.delete(id);
+			usuarioService.delete(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

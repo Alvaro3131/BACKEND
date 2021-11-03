@@ -16,6 +16,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,29 +41,24 @@ public class Socio {
 	@PrimaryKeyJoinColumn
 	@JsonBackReference
 	public Persona persona;
-	
-	@ManyToOne
-	@JoinColumn(name="fk_bancocomunal", nullable = false)
-	public BancoComunal banco;
-	
-	
+	/*
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
-	//@JoinColumn(name="id_distrito")
-	private List<Asistencia_Seminario> as;
-	
-	
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
-	//@JoinColumn(name="id_distrito")
 	private List<PedidoOracion> pedido;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<Inscripcion> inscripcion;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
-	//@JoinColumn(name="id_distrito")
-	private List<AsistenciaRecurso> asistenciarecurso;
+	private List<Asistencia_Seminario> as;
 	
-    @OneToMany
-	@JoinColumn(name = "id_inscripcion")
-	private Set<Inscripcion> inscripciones;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<AsistenciaRecurso> ar;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name="FK_BANCOCOMUNAL",referencedColumnName = "id_bancocomunal")
+	private BancoComunal banco;
+
+    */
 }
