@@ -42,11 +42,11 @@ public class Distrito {
 	@JsonIgnore
 	@JoinColumn(name="FK_SEDE",referencedColumnName = "id_sede")
 	private Sede sede;
-	
+	/*
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="distrito" )
 	//@JoinColumn(name = "id_bancocomunal")
 	private List<BancoComunal> banco;
-	
+	*/
 	
 	
 	

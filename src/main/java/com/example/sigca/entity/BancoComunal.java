@@ -26,13 +26,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_bancocomunal" )
 public class BancoComunal {
 	
-	public BancoComunal(int id_bancocomunal, String no_bancocomunal, Distrito distrito, Asesor asesor) {
-		super();
-		this.id_bancocomunal = id_bancocomunal;
-		this.no_bancocomunal = no_bancocomunal;
-		this.distrito = distrito;
-		this.asesor = asesor;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,13 +34,16 @@ public class BancoComunal {
 	
 	@Column(name = "no_bancocomunal")
 	private String no_bancocomunal;
-	
+	/*
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
 	private Distrito distrito;
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 15a87dbd0c8772125cdc1f8ab096797f53a4735f
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
@@ -65,6 +61,5 @@ public class BancoComunal {
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
 	//@JoinColumn(name = "id_persona")
 	private List<Socio> socio;
-	
-	
+	*/
 }
