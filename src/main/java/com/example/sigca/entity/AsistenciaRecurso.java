@@ -2,15 +2,10 @@ package com.example.sigca.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,13 +31,5 @@ public class AsistenciaRecurso {
 	@Column( name = "nu_valoracion")
 	int nu_valoracion;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn(name="FK_SOCIO",referencedColumnName = "id_persona")
-	private Socio socio;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn(name="FK_RECURSO",referencedColumnName = "ID_RECURSO")
-	private Recurso recurso;
+	//enlaces...
 }

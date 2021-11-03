@@ -44,7 +44,7 @@ public class Usuario {
 
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-	//@JoinColumn(name="id_distrito")
+	@JsonBackReference
 	private List<RolUsuario> rolusuario;
 	
 	
