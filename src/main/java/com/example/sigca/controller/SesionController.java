@@ -21,8 +21,6 @@ public class SesionController {
 	private SesionService sesionService;
 	@GetMapping("/all")
 	public ResponseEntity<List<Sesion>> getSesion(){
-		
-		
 		try {
 			List<Sesion> list = new ArrayList<>();
 			list = sesionService.readAll();
