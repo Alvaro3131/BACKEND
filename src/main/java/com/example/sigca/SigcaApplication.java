@@ -20,8 +20,14 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
+
 import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -50,6 +56,7 @@ import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
 import com.example.sigca.repository.UsuarioRepository;
+import com.example.sigca.service.PersonaService;
 
 
 @SpringBootApplication
@@ -68,16 +75,19 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
+
+
+
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
-@Autowired 
-private SocioRepository socio;
-@Autowired 
-private AsesorRepository asesor;
+
+
 @Autowired 
 private UsuarioRepository usuario;
+
 @Autowired 
 private SeminarioRepository seminario;
 
@@ -91,9 +101,14 @@ private RolPrivilegiosRepository rolprivilegios;
 private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
+@Autowired 
+private BancoComunalRepositoy banco;
 
 @Autowired
 private ProgramacionRepository p;
+@Autowired
+private PersonaService personaService;
+
 
 
 
@@ -106,33 +121,56 @@ private ProgramacionRepository p;
 	@Override
 	public void run(String... args) throws Exception {
 
-/*
-	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
-	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
-			   		   a.getSeminario().getNO_SEMINARIO()+" "+
-			   		   a.getSocio().getPersona().getNombre()+" "+
-			   		   a.getES_ASISTENCIA()+" "+
-			   		   a.getDE_ASISTENCIA()+" "+
-			   		   a.getFE_ASISTENCIA());
-		*/
-
-		/*List<Sesion> pe= sesion.listarSesion();
-
+<<<<<<< HEAD
+=======
+		
+		
+		
+	/*	
+		List<Rol> pe= rol.listarRol();
 		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
+			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
 		}
+		*/
+		/*
+		rol.insertarRol("integral");
+		
+	*/
+		
+		
+		rol.actualizarRol(5, "INTEGRAL ACTUALIZADO");
+		
+		
+		/*
+		rol.eliminarRol(6);
+		*/
+		/*
+		privilegios.eliminarPrivilegios(2);
+		
+		       */
+		
+	/*privilegios.actualizarPrivilegios(, null)
+	 
+	 */
+		
+		
+		
+		/*
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+			
+
 
 		
 
-		/*
+		
+
+		
 
 
-		List<Persona> pe= personaRepository.listarPersona();
+		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
@@ -140,12 +178,12 @@ private ProgramacionRepository p;
 
 		
 		
-		p.insertarProgramacion(2, 2);
+	
 		
+>>>>>>> carlos
 
 	
 
-	}
-
+}
 }
 

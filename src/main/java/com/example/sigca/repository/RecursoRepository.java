@@ -19,7 +19,7 @@ public interface RecursoRepository extends JpaRepository<Recurso, Integer> {
 			
 			// Buscar
 			@Query(value = "{ CALL SP_LISTAR_RECURSO(:p_nID_RECURSO) }", nativeQuery = true)
-			Optional<Recurso> buscarRecurso(@Param("p_nID_RECURSO") int p_nID_RECURSO);
+			Recurso buscarRecurso(@Param("p_nID_RECURSO") int p_nID_RECURSO);
 			
 			// Delete
 			@Query(value = "{ CALL SP_ELIMINAR_RECURSO(:p_nID_RECURSO) }", nativeQuery = true)
@@ -31,6 +31,5 @@ public interface RecursoRepository extends JpaRepository<Recurso, Integer> {
 			
 			//Actualizar
 			@Query(value = "{call SP_UPD_RECURSO(:p_nID_RECURSO, :p_vNO_RECURSO, :p_nSE_ORDEN, :p_vDESC_RECURSO, :p_nFK_SESION, :p_nFK_TIPO)}", nativeQuery = true) 
-			String actualizarRecurso(@Param("p_nID_RECURSO") int p_nID_RECURSO ,@Param("p_vNO_RECURSO") String p_vNO_RECURSO, @Param("p_nSE_ORDEN") int p_nSE_ORDEN, @Param("p_vDESC_RECURSO") String p_vDESC_RECURSO, @Param("p_nFK_SESION") int p_nFK_SESION, @Param("p_nFK_TIPO") int p_nFK_TIPO);
-			
+			String actualizarRecurso(@Param("p_nID_RECURSO") int p_nID_RECURSO ,@Param("p_vNO_RECURSO") String p_vNO_RECURSO, @Param("p_nSE_ORDEN") int p_nSE_ORDEN, @Param("p_vDESC_RECURSO") String p_vDESC_RECURSO, @Param("p_nFK_SESION") int p_nFK_SESION, @Param("p_nFK_TIPO") int p_nFK_TIPO);		
 }

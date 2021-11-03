@@ -23,7 +23,7 @@ public interface AlternativaRepository extends JpaRepository<Alternativa, Intege
 	
 	// Delete
 	@Query(value = "{ CALL SP_ELIMINAR_ALTERNATIVA(:p_nIDALTERNATIVA) }", nativeQuery = true)
-	String eliminarTipo(@Param("p_nIDALTERNATIVA") int p_nIDALTERNATIVA);
+	String eliminarAlternativa(@Param("p_nIDALTERNATIVA") int p_nIDALTERNATIVA);
 	
 	// Insertar
 	@Query(value = "{call SP_INS_ALTERNATIVA(:p_vNombre, :p_nValor, :p_nIdPregunta)}", nativeQuery = true) 

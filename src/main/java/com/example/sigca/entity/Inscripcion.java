@@ -1,42 +1,41 @@
 package com.example.sigca.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="tbl_privilegios")
-public class Privilegios implements Serializable{
-	
-	//Carlos Gutierrez Acosta
-	
-	
+@Entity
+@Table(name = "tbl_inscripcion")
+public class Inscripcion implements Serializable{
+
+	private static final long serialVersionUID = -6706191668148771249L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_privilegios")
-	public int idprivilegios;
-	@Column(name="no_privilegios")
-	public String nombreprivilegios;
+	@Column(name = "id_inscripcion")
+	private int id;
+	@Column(name = "nu_recursosvistos")
+	private int recursosvistos;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_privilegios")
-	private Set<RolPrivilegios> rolprivilegios;
+	@ManyToOne
+	@JoinColumn(name = "fk_socio", nullable = false)
+	private Socio socio;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_modulo", nullable = false)
+	private Modulo modulo;
 	
 }
