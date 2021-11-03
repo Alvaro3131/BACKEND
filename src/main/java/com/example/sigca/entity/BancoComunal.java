@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -40,6 +41,8 @@ public class BancoComunal {
 	@JsonIgnore
 	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
 	private Distrito distrito;
+	
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore

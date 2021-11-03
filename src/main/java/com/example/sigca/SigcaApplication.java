@@ -33,9 +33,7 @@ import com.example.sigca.entity.Sede;
 import com.example.sigca.entity.Seminario;
 import com.example.sigca.entity.Sesion;
 import com.example.sigca.entity.Socio;
-import com.example.sigca.entity.Tipo;
 import com.example.sigca.entity.Usuario;
-import com.example.sigca.repository.AlternativaRepository;
 import com.example.sigca.repository.AsesorRepository;
 
 import com.example.sigca.repository.AsistenciaSeminarioRepository;
@@ -46,10 +44,9 @@ import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
-import com.example.sigca.repository.PreguntaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
-import com.example.sigca.repository.RecursoRepository;
+import com.example.sigca.repository.ProgramacionRepository;
 import com.example.sigca.repository.RolPrivilegiosRepository;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.RolUsuarioRepository;
@@ -58,8 +55,8 @@ import com.example.sigca.repository.SedeRepository;
 import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
-import com.example.sigca.repository.TipoRepository;
 import com.example.sigca.repository.UsuarioRepository;
+import com.example.sigca.service.PersonaService;
 
 
 @SpringBootApplication
@@ -79,15 +76,15 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 
+
+
+
 @Autowired
 private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 
-@Autowired 
-private SocioRepository socio;
-@Autowired 
-private AsesorRepository asesor;
+
 @Autowired 
 private UsuarioRepository usuario;
 
@@ -106,13 +103,11 @@ private RolUsuarioRepository rolusuario;
 private PrivilegiosRepository privilegios;
 
 @Autowired
-private TipoRepository tipos;
+private ProgramacionRepository p;
 @Autowired
-private RecursoRepository recursos;
-@Autowired
-private PreguntaRepository preguntas;
-@Autowired
-private AlternativaRepository alternativas;
+private PersonaService personaService;
+
+
 
 
 
@@ -120,10 +115,12 @@ private AlternativaRepository alternativas;
 		SpringApplication.run(SigcaApplication.class, args);
 	}
 	
-	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
+
+	
 
 }
 }
