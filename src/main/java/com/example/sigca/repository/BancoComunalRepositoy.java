@@ -11,21 +11,19 @@ import com.example.sigca.entity.BancoComunal;
 @Repository
 public interface BancoComunalRepositoy extends JpaRepository<BancoComunal, Integer>{
 	
-	//Listar
+	//List
 	@Query(value = "{ CALL SP_LISTAR_BANCOCOMUNAL(0) }", nativeQuery = true)
 	List<BancoComunal> listarBancoComunal();
 	
 	//Buscar
-	
 	@Query(value = "{call SP_LISTAR_BANCOCOMUNAL(:p_nIDBANCOCOMUNAL)}", nativeQuery = true) 
 	Optional<BancoComunal> buscarBanco(@Param("p_nIDBANCOCOMUNAL") int p_nIDBANCOCOMUNAL);
 	
 	//Delete
-	
 	@Query(value = "{ CALL SP_ELIMINAR_BANCOCOMUNAL(:p_nIDBANCOCOMUNAL) }", nativeQuery = true)
 	String eliminarBanco(@Param("p_nIDBANCOCOMUNAL") int p_nIDBANCOCOMUNAL);
 	
-	// Insertar
+	//Insert
 	@Query(value = "{call SP_INS_BANCOCOMUNAL(:P_NOMBRE,:P_FKDISTRITO,:P_FKASESOR)}", nativeQuery = true) 
 	String insertarBanco(@Param("P_NOMBRE") String P_NOMBRE,@Param("P_FKDISTRITO") int P_FKDISTRITO,@Param("P_FKASESOR") int P_FKASESOR);
 	

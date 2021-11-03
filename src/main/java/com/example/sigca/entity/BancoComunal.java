@@ -1,9 +1,7 @@
 package com.example.sigca.entity;
 
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +26,14 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_bancocomunal" )
 public class BancoComunal {
 	
+	public BancoComunal(int id_bancocomunal, String no_bancocomunal, Distrito distrito, Asesor asesor) {
+		super();
+		this.id_bancocomunal = id_bancocomunal;
+		this.no_bancocomunal = no_bancocomunal;
+		this.distrito = distrito;
+		this.asesor = asesor;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_bancocomunal")
@@ -41,7 +46,6 @@ public class BancoComunal {
 	@JsonIgnore
 	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
 	private Distrito distrito;
-	
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
