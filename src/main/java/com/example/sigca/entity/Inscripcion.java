@@ -1,5 +1,6 @@
 package com.example.sigca.entity;
 
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,30 +14,28 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_programacion" )
-public class Programacion {
-	
+@Table(name = "tbl_inscripcion")
+public class Inscripcion implements Serializable{
+
+	private static final long serialVersionUID = -6706191668148771249L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_programacion")
-	int id_programacion;
+	@Column(name = "id_inscripcion")
+	private int id;
+	@Column(name = "nu_recursosvistos")
+	private int recursosvistos;
 	
-	@Column(name="es_programacion")
-	int es_pogramacion;
-
-	//Relacion con modulo
 	@ManyToOne
-	@JoinColumn(name="fk_modulo",nullable = false)
-	public Modulo modulo;
+	@JoinColumn(name = "fk_socio", nullable = false)
+	private Socio socio;
 	
-	
-	//Relacion con banco comunal
 	@ManyToOne
-	@JoinColumn(name="fk_bancocomunal",nullable = false)
-	public BancoComunal banco;
+	@JoinColumn(name = "fk_modulo", nullable = false)
+	private Modulo modulo;
 	
 }

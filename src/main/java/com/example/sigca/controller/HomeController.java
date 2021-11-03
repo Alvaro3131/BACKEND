@@ -8,6 +8,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	String mensaje() {
-		return "Bienvenido a SIGCA";
+		return "Bienvenidos a Sigca";
+
 	}
 }

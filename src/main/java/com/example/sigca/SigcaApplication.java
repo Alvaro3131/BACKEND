@@ -56,6 +56,7 @@ import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
 import com.example.sigca.repository.UsuarioRepository;
+import com.example.sigca.service.PersonaService;
 
 
 @SpringBootApplication
@@ -74,16 +75,19 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
+
+
+
 @Autowired
 private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
-@Autowired 
-private SocioRepository socio;
-@Autowired 
-private AsesorRepository asesor;
+
+
 @Autowired 
 private UsuarioRepository usuario;
+
 @Autowired 
 private SeminarioRepository seminario;
 
@@ -97,9 +101,14 @@ private RolPrivilegiosRepository rolprivilegios;
 private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
+@Autowired 
+private BancoComunalRepositoy banco;
 
 @Autowired
 private ProgramacionRepository p;
+@Autowired
+private PersonaService personaService;
+
 
 
 
@@ -111,24 +120,56 @@ private ProgramacionRepository p;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
 		
 		List<Sesion> pe= sesionRepository.listarSesion();
+		
+	/*	
+		List<Rol> pe= rol.listarRol();
+
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getID_SESION()+" "+pe.get(i).getNO_SESION());
 		}
-			
-		
+	
 		/*
 		 
 		sesionRepository.eliminarSesion(2);
-		
-			*/
+
+		*/
 		/*
+		rol.insertarRol("integral");
+		
+	*/	
+		
+		rol.actualizarRol(5, "INTEGRAL ACTUALIZADO");
+		
+		
+		/*
+		rol.eliminarRol(6);
+		*/
+		/*
+		privilegios.eliminarPrivilegios(2);
+		
+		       */
+		
+	/*privilegios.actualizarPrivilegios(, null)
+	
+
 		sesionRepository.buscarSesion(0);
 	*/
-		
 
-	}
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+			
 
+		/*List<Persona> pe= personaRepository.listarPersona();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
+		}
+		*/
+
+}
 }
 
