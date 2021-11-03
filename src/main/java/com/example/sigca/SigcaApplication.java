@@ -115,15 +115,24 @@ private ProgramacionRepository p;
 		
 		
 		
-		
+	/*	
 		List<Rol> pe= rol.listarRol();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
 		}
+		*/
 		/*
+		rol.insertarRol("integral");
+		
+	*/
 		
 		
+		rol.actualizarRol(5, "INTEGRAL ACTUALIZADO");
 		
+		
+		/*
+		rol.eliminarRol(6);
+		*/
 		/*
 		privilegios.eliminarPrivilegios(2);
 		
