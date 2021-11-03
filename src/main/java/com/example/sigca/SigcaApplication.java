@@ -56,6 +56,7 @@ import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
 import com.example.sigca.repository.UsuarioRepository;
+import com.example.sigca.service.PersonaService;
 
 
 @SpringBootApplication
@@ -83,10 +84,7 @@ private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 
-@Autowired 
-private SocioRepository socio;
-@Autowired 
-private AsesorRepository asesor;
+
 @Autowired 
 private UsuarioRepository usuario;
 
@@ -106,6 +104,8 @@ private PrivilegiosRepository privilegios;
 
 @Autowired
 private ProgramacionRepository p;
+@Autowired
+private PersonaService personaService;
 
 
 
@@ -121,34 +121,7 @@ private ProgramacionRepository p;
 
 
 	
-		
-	
-		/*
-		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrolprivilegios());
-		}*/
 
-
-/*
-	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
-	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
-			   		   a.getSeminario().getNO_SEMINARIO()+" "+
-			   		   a.getSocio().getPersona().getNombre()+" "+
-			   		   a.getES_ASISTENCIA()+" "+
-			   		   a.getDE_ASISTENCIA()+" "+
-			   		   a.getFE_ASISTENCIA());
-		*/
-
-
-		
-
-		
-
-
-
-	}
-
-
+}
 }
 

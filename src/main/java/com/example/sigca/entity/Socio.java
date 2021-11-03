@@ -62,5 +62,7 @@ public class Socio {
 	//@JoinColumn(name="id_distrito")
 	private List<AsistenciaRecurso> asistenciarecurso;
 	
-
+    @OneToMany
+	@JoinColumn(name = "id_inscripcion")
+	private Set<Inscripcion> inscripciones;
 }
