@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,11 +36,12 @@ public class Pregunta implements Serializable {
 	@Column(name = "no_pregunta")
 	private String nombre;
 	
-	@ManyToOne
-	@JoinColumn(name = "fk_recurso", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name = "fk_recurso", referencedColumnName = "id_recurso")
 	private Recurso recurso;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	/*@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alternativa")
-	private Set<Alternativa> alternativas;
+	private Set<Alternativa> alternativas;*/
 }
