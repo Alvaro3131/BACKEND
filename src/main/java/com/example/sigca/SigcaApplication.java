@@ -20,7 +20,14 @@ import com.example.sigca.entity.Categoria;
 import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Persona;
+import com.example.sigca.entity.Privilegios;
 import com.example.sigca.entity.ProgramaSeminario;
+
+import com.example.sigca.entity.Rol;
+import com.example.sigca.entity.RolPrivilegios;
+
+import com.example.sigca.entity.Programacion;
+
 import com.example.sigca.entity.Sede;
 
 import com.example.sigca.entity.Seminario;
@@ -39,6 +46,7 @@ import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
 import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.repository.ProgramacionRepository;
 import com.example.sigca.repository.RolPrivilegiosRepository;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.RolUsuarioRepository;
@@ -48,6 +56,7 @@ import com.example.sigca.repository.SeminarioRepository;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.repository.SocioRepository;
 import com.example.sigca.repository.UsuarioRepository;
+import com.example.sigca.service.PersonaService;
 
 
 @SpringBootApplication
@@ -66,16 +75,19 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
+
+
+
 @Autowired
-private SesionRepository sesion;
+private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
-@Autowired 
-private SocioRepository socio;
-@Autowired 
-private AsesorRepository asesor;
+
+
 @Autowired 
 private UsuarioRepository usuario;
+
 @Autowired 
 private SeminarioRepository seminario;
 
@@ -92,6 +104,12 @@ private PrivilegiosRepository privilegios;
 @Autowired 
 private BancoComunalRepositoy banco;
 
+@Autowired
+private ProgramacionRepository p;
+@Autowired
+private PersonaService personaService;
+
+
 
 
 
@@ -103,38 +121,9 @@ private BancoComunalRepositoy banco;
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
-	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
-			   		   a.getSeminario().getNO_SEMINARIO()+" "+
-			   		   a.getSocio().getPersona().getNombre()+" "+
-			   		   a.getES_ASISTENCIA()+" "+
-			   		   a.getDE_ASISTENCIA()+" "+
-			   		   a.getFE_ASISTENCIA());
-		
 
-		List<Asistencia_Seminario> pe = asistenciaSeminarioRepository.listarAsistencia_Seminario();
-
-		List<Sesion> pe= sesion.listarSesion();
-
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
-							   pe.get(i).getSeminario().getNO_SEMINARIO()+" "+
-							   pe.get(i).getSocio().getPersona().getNombre()+" "+
-							   pe.get(i).getES_ASISTENCIA()+" "+
-							   pe.get(i).getDE_ASISTENCIA()+" "+
-							   pe.get(i).getFE_ASISTENCIA());
-		}
-		
-
-		
-
-
-		
-		personaRepository.savePersona("Ariana", "Villalva", "VELASQUEZ", "45632187","arianavillalva@upeu.edu.pe ", "993213480");
-*/
-	}
-	
 	
 
+}
 }
 

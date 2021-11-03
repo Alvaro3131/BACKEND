@@ -1,6 +1,5 @@
 package com.example.sigca.entity;
 
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,8 +26,8 @@ public class Programacion {
 	int id_programacion;
 	
 	@Column(name="es_programacion")
-	int es_programacion;
-	
+	int es_pogramacion;
+
 	//Relacion con modulo
 	@ManyToOne
 	@JoinColumn(name="fk_modulo",nullable = false)
@@ -38,6 +37,6 @@ public class Programacion {
 	//Relacion con banco comunal
 	@ManyToOne
 	@JoinColumn(name="fk_bancocomunal",nullable = false)
-	public BancoComunal bancocomunal;
+	public BancoComunal banco;
 	
 }
