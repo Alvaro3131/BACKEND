@@ -37,7 +37,8 @@ public class Sesion implements Serializable {
 	public Modulo modulo;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_recurso")
+	
+	//@JoinColumn(name = "id_recurso")
 	private Set<Recurso> recurso;
 	
 }
