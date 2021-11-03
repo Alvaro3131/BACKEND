@@ -19,7 +19,7 @@ public interface PreguntaRepository extends JpaRepository<Pregunta, Integer> {
 		
 		// Buscar
 		@Query(value = "{ CALL SP_LISTAR_TBL_PREGUNTA(:p_nID) }", nativeQuery = true)
-		Optional<Pregunta> buscarPregunta(@Param("p_nID") int p_nID);
+		Pregunta buscarPregunta(@Param("p_nID") int p_nID);
 		
 		// Delete
 		@Query(value = "{ CALL SP_ELIMINAR_TBL_PREGUNTA(:p_nID) }", nativeQuery = true)

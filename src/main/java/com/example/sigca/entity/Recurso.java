@@ -27,11 +27,17 @@ import lombok.NoArgsConstructor;
 public class Recurso implements Serializable {
 	private static final long serialVersionUID = -1016636679259223396L;
 	
-	public Recurso(String nombrerecurso) {
+	
+
+	public Recurso(String nombrerecurso, int orden, String descripcion, Sesion sesion, Tipo tipo) {
 		super();
 		this.nombrerecurso = nombrerecurso;
+		this.orden = orden;
+		this.descripcion = descripcion;
+		this.sesion = sesion;
+		this.tipo = tipo;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_recurso")
@@ -48,13 +54,13 @@ public class Recurso implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
-	@JoinColumn(name = "fk_tipo", referencedColumnName = "id_tipo")
-	private Tipo tipo;
+	@JoinColumn(name = "fk_sesion", referencedColumnName = "id_sesion")
+	private Sesion sesion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
-	@JoinColumn(name = "fk_sesion", referencedColumnName = "id_sesion")
-	private Sesion sesion;
+	@JoinColumn(name = "fk_tipo", referencedColumnName = "id_tipo")
+	private Tipo tipo;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "recurso")
 	//@JoinColumn(name = "id_pregunta")
@@ -62,6 +68,6 @@ public class Recurso implements Serializable {
 	
 	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "")
 	//@JoinColumn(name = "id_asistencia_recurso")
-	//private Set<Asistencia_Seminario> asistencia_Seminarios;
+	//private Set<AsistenciaRecurso> asistenciaRecurso;
 	
 }

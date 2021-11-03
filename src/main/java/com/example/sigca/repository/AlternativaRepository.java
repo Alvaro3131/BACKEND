@@ -19,7 +19,7 @@ public interface AlternativaRepository extends JpaRepository<Alternativa, Intege
 	
 	// Buscar
 	@Query(value = "{ CALL SP_LISTAR_ALTERNATIVA(:p_nIDALTERNATIVA) }", nativeQuery = true)
-	Optional<Alternativa> buscarAlternativa(@Param("p_nIDALTERNATIVA") int p_nIDALTERNATIVA);
+	Alternativa buscarAlternativa(@Param("p_nIDALTERNATIVA") int p_nIDALTERNATIVA);
 	
 	// Delete
 	@Query(value = "{ CALL SP_ELIMINAR_ALTERNATIVA(:p_nIDALTERNATIVA) }", nativeQuery = true)

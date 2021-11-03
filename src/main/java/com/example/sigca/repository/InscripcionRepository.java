@@ -19,7 +19,7 @@ public interface InscripcionRepository extends JpaRepository<Inscripcion, Intege
 	
 	// Buscar
 	@Query(value = "{ CALL SP_LISTAR_INSCRIPCION(:p_nIdInscripcion) }", nativeQuery = true)
-	Optional<Inscripcion> buscarInscripcion(@Param("p_nIdInscripcion") int p_nIdInscripcion);
+	Inscripcion buscarInscripcion(@Param("p_nIdInscripcion") int p_nIdInscripcion);
 	
 	// Delete
 	@Query(value = "{ CALL SP_ELIMINAR_INSCRIPCION(:p_nIdInscripcion) }", nativeQuery = true)
