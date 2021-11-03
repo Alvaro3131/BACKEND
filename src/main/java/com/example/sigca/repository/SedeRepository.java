@@ -20,7 +20,7 @@ public interface SedeRepository extends JpaRepository<Sede, Integer>{
 	// Buscar
 	
 	@Query(value = "{call SP_LISTAR_SEDE(:p_IDSEDE)}", nativeQuery = true) 
-	Optional<Sede> buscarSede(@Param("p_IDSEDE") int p_IDSEDE);
+	Sede buscarSede(@Param("p_IDSEDE") int p_IDSEDE);
 	
 	//Delete
 	

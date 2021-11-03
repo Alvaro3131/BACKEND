@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,8 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,12 +43,18 @@ public class Persona  implements Serializable {
 	@Column(name="NU_TELEFONO")
 	private String telefono;
 	
-	@OneToOne(mappedBy = "persona")
+	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
+	@JsonManagedReference
 	private Asesor asesor;
-	@OneToOne(mappedBy = "persona")
+	
+	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
+	@JsonManagedReference
 	private Socio socio;
-	@OneToOne(mappedBy = "persona")
+		
+	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
+	@JsonManagedReference
 	private Usuario usuario;
+
 	private static final long serialVersionUID = 1L;
 	
 	

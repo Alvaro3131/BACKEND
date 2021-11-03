@@ -1,5 +1,6 @@
 package com.example.sigca.entity;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,17 +34,18 @@ public class Distrito {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_distrito")
-	public int id_distrito;
+	private int id_distrito;
 	@Column(name="no_distrito")
-	public String no_distrito;
+	private String no_distrito;
 	
-	@ManyToOne
-	@JoinColumn(name="FK_SEDE",nullable = false)
-	public Sede sede;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name="FK_SEDE",referencedColumnName = "id_sede")
+	private Sede sede;
 	
-	@OneToMany( cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_bancocomunal")
-	private Set<BancoComunal> banco;
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="distrito" )
+	//@JoinColumn(name = "id_bancocomunal")
+	private List<BancoComunal> banco;
 	
 	
 	

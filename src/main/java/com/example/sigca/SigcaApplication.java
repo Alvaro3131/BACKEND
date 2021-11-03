@@ -74,16 +74,22 @@ private CategoriaRepository cate;
 
 @Autowired 
 private ModuloRepository modulo;
+
+
+
+
 @Autowired
 private SesionRepository sesionRepository;
 @Autowired
 private AsistenciaSeminarioRepository asistenciaSeminarioRepository;
+
 @Autowired 
 private SocioRepository socio;
 @Autowired 
 private AsesorRepository asesor;
 @Autowired 
 private UsuarioRepository usuario;
+
 @Autowired 
 private SeminarioRepository seminario;
 
@@ -100,6 +106,7 @@ private PrivilegiosRepository privilegios;
 
 @Autowired
 private ProgramacionRepository p;
+
 
 
 
@@ -121,8 +128,7 @@ private ProgramacionRepository p;
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getIdrolprivilegios());
 		}*/
-			
-	
+
 
 /*
 	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
@@ -142,6 +148,7 @@ private ProgramacionRepository p;
 
 
 	}
+
 
 }
 
