@@ -25,8 +25,9 @@ public class Programacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_programacion")
 	int id_programacion;
-	@Column(name="es_pogramacion")
-	String es_pogramacion;
+	
+	@Column(name="es_programacion")
+	int es_programacion;
 	
 	//Relacion con modulo
 	@ManyToOne

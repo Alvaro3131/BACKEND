@@ -89,6 +89,8 @@ private RolPrivilegiosRepository rolprivilegios;
 private RolUsuarioRepository rolusuario;
 @Autowired 
 private PrivilegiosRepository privilegios;
+@Autowired 
+private BancoComunalRepositoy banco;
 
 
 
@@ -101,7 +103,7 @@ private PrivilegiosRepository privilegios;
 	@Override
 	public void run(String... args) throws Exception {
 
-	Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
+		/*Asistencia_Seminario a = asistenciaSeminarioRepository.buscarAsistenciaSeminario(4);
 	System.out.println(a.getID_ASISTENCIA_SEMINARIO()+" "+
 			   		   a.getSeminario().getNO_SEMINARIO()+" "+
 			   		   a.getSocio().getPersona().getNombre()+" "+
@@ -112,7 +114,7 @@ private PrivilegiosRepository privilegios;
 
 		List<Asistencia_Seminario> pe = asistenciaSeminarioRepository.listarAsistencia_Seminario();
 
-		/*List<Sesion> pe= sesion.listarSesion();
+		List<Sesion> pe= sesion.listarSesion();
 
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getID_ASISTENCIA_SEMINARIO()+" "+
@@ -124,16 +126,15 @@ private PrivilegiosRepository privilegios;
 		}
 		
 
-		/*
+		
 
 
-		List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
-		*/
-
+		
+		personaRepository.savePersona("Ariana", "Villalva", "VELASQUEZ", "45632187","arianavillalva@upeu.edu.pe ", "993213480");
+*/
 	}
+	
+	
 
 }
 

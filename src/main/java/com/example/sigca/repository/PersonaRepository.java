@@ -22,10 +22,8 @@ public interface PersonaRepository extends JpaRepository<Persona, Integer>{
 	@Query(value = "{ CALL SP_DEL_TBL_PERSONA(:P_nID) }", nativeQuery = true) 
 	String deleteId(@Param("P_nID") int P_nID);
 	
-
-	
-	
-	@Query(value = "{ CALL ido_bi_capa.SP_INS_TBL_PERSONA(:p_vNOMBRE,:p_vAPELLIDO_P,:p_vAPELLIDO_M,:p_vDNI,:p_vCORREO,:p_vTELEFONO) }", nativeQuery = true) 
+	@Query(value = "{ CALL ido_bi_capa.SP_INS_TBL_PERSONA(:p_vNOMBRE,:p_vAPELLIDO_P,:p_vAPELLIDO_M,"
+			+ ":p_vDNI,:p_vCORREO,:p_vTELEFONO) }", nativeQuery = true) 
 	String savePersona(@Param("p_vNOMBRE") String p_vNOMBRE,
 			@Param("p_vAPELLIDO_P") String p_vAPELLIDO_P, @Param("p_vAPELLIDO_M") String p_vAPELLIDO_M,
 			@Param("p_vDNI") String p_vDNI, @Param("p_vCORREO") String p_vCORREO,@Param("p_vTELEFONO") String p_vTELEFONO  );
