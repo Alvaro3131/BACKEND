@@ -40,7 +40,8 @@ public class Sesion implements Serializable {
 	public String no_recursos;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_recurso")
+	
+	//@JoinColumn(name = "id_recurso")
 	private Set<Recurso> recurso;
 	
 }

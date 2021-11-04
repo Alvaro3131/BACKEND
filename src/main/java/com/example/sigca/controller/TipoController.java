@@ -14,22 +14,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.sigca.entity.Recurso;
-import com.example.sigca.serviceImpl.RecursoServiceImpl;
+
+import com.example.sigca.entity.Tipo;
+import com.example.sigca.serviceImpl.TipoServiceImpl;
 
 @RestController
-@RequestMapping("/api/recursos")
-public class RecursoController {
+@RequestMapping("/api/tipo")
+public class TipoController {
 
 	@Autowired
-	private RecursoServiceImpl recursoimpl;
+	private TipoServiceImpl tipoimpl;
 	
 	//Funciona
 		@GetMapping("/all")
-		public ResponseEntity<List<Recurso>> listarRecurso(){
+		public ResponseEntity<List<Tipo>> listarTipo(){
 			try {
-				List<Recurso> list = new ArrayList<>();
-				list=recursoimpl.listarRecurso();
+				List<Tipo> list = new ArrayList<>();
+				list=tipoimpl.listarTipo();
 				if (list.isEmpty()) {
 					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 				}
@@ -42,10 +43,10 @@ public class RecursoController {
 		
 		//Funciona
 		@GetMapping("/search/{id}")
-		public ResponseEntity<Recurso> buscarRecurso(@PathVariable("id") int id){
-			Recurso recurso = recursoimpl.buscarRecurso(id);
-			if (recurso.getId()>0) {
-				return new ResponseEntity<>(recurso,HttpStatus.OK);
+		public ResponseEntity<Tipo> buscarTipo(@PathVariable("id") int id){
+			Tipo tipo = tipoimpl.buscarTipo(id);
+			if (tipo.getId_tipo()>0) {
+				return new ResponseEntity<>(tipo,HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -53,10 +54,10 @@ public class RecursoController {
 		
 		//Funciona
 		@PostMapping("/new")
-		public ResponseEntity<String> agregarRecurso(@RequestBody Recurso rec){
+		public ResponseEntity<String> agregarTipo(@RequestBody Tipo tip){
 			try {
-				Recurso r = new Recurso(rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion(), rec.getTipo());
-				String mensaje= recursoimpl.insertarRecurso(r);
+				Tipo tipo = new Tipo(tip.getNombre());
+				String mensaje= tipoimpl.insertarTipo(tipo);
 				return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -67,9 +68,9 @@ public class RecursoController {
 		
 		//Funciona
 		@DeleteMapping("/delete/{id}")
-		public ResponseEntity<String> eliminarRecurso(@PathVariable("id") int id){
+		public ResponseEntity<String> eliminarTipo(@PathVariable("id") int id){
 		try {
-			String mensaje = recursoimpl.eliminarRecurso(id);
+			String mensaje = tipoimpl.eliminarTipo(id);
 			return new ResponseEntity<>(mensaje,HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -79,16 +80,12 @@ public class RecursoController {
 		
 		//Funciona
 		@PutMapping("/update/{id}")
-		public ResponseEntity<String> ActualizarRecurso(@RequestBody Recurso rec, @PathVariable("id") int id){
+		public ResponseEntity<String> actualizarTipo(@RequestBody Tipo tip, @PathVariable("id") int id){
 		try {
-			Recurso ul = recursoimpl.buscarRecurso(id);
-			if (ul.getId()>0) {
-				ul.setNombrerecurso(rec.getNombrerecurso());
-				ul.setOrden(rec.getOrden());
-				ul.setDescripcion(rec.getDescripcion());
-				ul.setTipo(rec.getTipo());
-				ul.setSesion(rec.getSesion());
-				return new ResponseEntity<>(recursoimpl.actualizarRecurso(ul),HttpStatus.OK);
+			Tipo ul = tipoimpl.buscarTipo(id);
+			if (ul.getId_tipo()>0) {
+				ul.setNombre(tip.getNombre());
+				return new ResponseEntity<>(tipoimpl.actualizarTipo(ul),HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
@@ -98,5 +95,4 @@ public class RecursoController {
 		}
 		
 		}
-	
 }

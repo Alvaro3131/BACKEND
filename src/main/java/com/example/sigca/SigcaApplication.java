@@ -122,66 +122,6 @@ private PersonaService personaService;
 	public void run(String... args) throws Exception {
 
 
-		
-		
-		
-	/*	
-		List<Rol> pe= rol.listarRol();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
-		}
-		*/
-		/*
-		rol.insertarRol("integral");
-		
-	*/
-		
-		
-		rol.actualizarRol(5, "INTEGRAL ACTUALIZADO");
-		
-		
-		/*
-		rol.eliminarRol(6);
-		*/
-		/*
-		privilegios.eliminarPrivilegios(2);
-		
-		       */
-		
-	/*privilegios.actualizarPrivilegios(, null)
-	 
-	 */
-		
-		
-		
-		/*
-		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrolprivilegios());
-		}*/
-			
-
-
-		
-
-		
-
-		
-
-
-		/*List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
-		*/
-
-		
-		
-	
-
-
-	
-
 }
 }
 

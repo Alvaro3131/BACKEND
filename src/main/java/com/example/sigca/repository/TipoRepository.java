@@ -20,7 +20,7 @@ public interface TipoRepository extends JpaRepository<Tipo, Integer> {
 		// Buscar
 		
 		@Query(value = "{call SP_LISTAR_TIPO(:p_nIDTIPO)}", nativeQuery = true) 
-		Optional<Tipo> buscarTipo(@Param("p_nIDTIPO") int p_nIDTIPO);
+		Tipo buscarTipo(@Param("p_nIDTIPO") int p_nIDTIPO);
 		
 		//Delete
 		
