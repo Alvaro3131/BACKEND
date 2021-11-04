@@ -121,8 +121,7 @@ private PersonaService personaService;
 	@Override
 	public void run(String... args) throws Exception {
 
-<<<<<<< HEAD
-=======
+
 		
 		
 		
@@ -179,8 +178,7 @@ private PersonaService personaService;
 		
 		
 	
-		
->>>>>>> carlos
+
 
 	
 

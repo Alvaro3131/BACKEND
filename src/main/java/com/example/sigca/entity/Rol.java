@@ -32,6 +32,11 @@ public class Rol implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_rol")
 	public int idrol;
+	public Rol(String nombrerol) {
+		super();
+		this.nombrerol = nombrerol;
+	}
+
 	@Column(name="no_rol")
 	public String nombrerol;
 	
