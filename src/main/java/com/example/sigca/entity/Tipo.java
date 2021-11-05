@@ -1,11 +1,13 @@
 package com.example.sigca.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,14 +26,22 @@ import lombok.NoArgsConstructor;
 public class Tipo implements Serializable {
 		
 	private static final long serialVersionUID = 6647357831920610109L;
+	
+	
+		public Tipo(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 		@Id
 		@GeneratedValue (strategy = GenerationType.IDENTITY)
 		@Column(name = "id_tipo")
-		private int id;
+		private int id_tipo;
+		
 		@Column(name="no_tipo")
 		private String nombre;
 		
-		@OneToMany(cascade = CascadeType.ALL)
-		@JoinColumn(name="id_recurso")
-		private Set<Recurso> recursos;
+		@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipo")
+		//@JoinColumn(name="id_recurso")
+		private List<Recurso> recurso;
 }

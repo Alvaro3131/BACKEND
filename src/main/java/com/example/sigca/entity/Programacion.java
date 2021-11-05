@@ -24,18 +24,19 @@ public class Programacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_programacion")
 	int id_programacion;
+	
 	@Column(name="es_programacion")
 	int es_pogramacion;
-	
+
 	//Relacion con modulo
 	@ManyToOne
-	@JoinColumn(name="fk_modulo",nullable = false)
-	public Modulo modulo;
+	@JoinColumn(name="fk_modulo",referencedColumnName = "id_modulo")
+	private Modulo modulo;
 	
 	
 	//Relacion con banco comunal
 	@ManyToOne
-	@JoinColumn(name="fk_bancocomunal",nullable = false)
-	public BancoComunal banco;
+	@JoinColumn(name="fk_bancocomunal",referencedColumnName = "id_bancocomunal")
+	private BancoComunal banco;
 	
 }

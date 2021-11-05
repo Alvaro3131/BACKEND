@@ -43,7 +43,7 @@ public class Modulo {
 	private Categoria categoria;
 	
 	@Column(name = "NU_SESIONES")
-	private int nu_sesiones;
+	private String nu_sesiones;
 	
 	// Enlace con programacion
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")

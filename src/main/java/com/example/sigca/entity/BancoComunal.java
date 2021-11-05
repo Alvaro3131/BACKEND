@@ -1,9 +1,7 @@
 package com.example.sigca.entity;
 
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tbl_bancocomunal" )
 public class BancoComunal {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_bancocomunal")
@@ -36,6 +34,13 @@ public class BancoComunal {
 	@Column(name = "no_bancocomunal")
 	private String no_bancocomunal;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
+	private Asesor asesor;
+	
+	
+	/*
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
@@ -58,6 +63,5 @@ public class BancoComunal {
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
 	//@JoinColumn(name = "id_persona")
 	private List<Socio> socio;
-	
-	
+	*/
 }
