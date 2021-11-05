@@ -122,65 +122,7 @@ private PersonaService personaService;
 	public void run(String... args) throws Exception {
 
 
-		
-	/*	
-		List<Rol> pe= rol.listarRol();
-
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getID_SESION()+" "+pe.get(i).getNO_SESION());
-		}
 	
-		/*
-		 
-		sesionRepository.eliminarSesion(2);
-		
-		
-	/*	
-		List<Rol> pe= rol.listarRol();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
-		}
-
-		*/
-		/*
-		rol.insertarRol("integral");
-
-		/*
-		rol.eliminarRol(6);
-		*/
-		/*
-		privilegios.eliminarPrivilegios(2);
-		
-		       */
-		
-	/*privilegios.actualizarPrivilegios(, null)
-	
-
-		sesionRepository.buscarSesion(0);
-	*/
-	 
-	 */
-		
-
-		/*
-		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrolprivilegios());
-		}*/
-			
-
-		/*List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
-		*/
-
-		/*List<Persona> pe= personaRepository.listarPersona();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
-		}
-		*/
-
 
 }
 }
