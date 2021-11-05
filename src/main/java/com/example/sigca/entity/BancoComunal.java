@@ -33,6 +33,13 @@ public class BancoComunal {
 	
 	@Column(name = "no_bancocomunal")
 	private String no_bancocomunal;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
+	private Asesor asesor;
+	
+	
 	/*
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore

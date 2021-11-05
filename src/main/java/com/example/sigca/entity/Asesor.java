@@ -42,11 +42,8 @@ public class Asesor {
 	private Persona persona;
 	
 
-	
-	
-/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asesor")
 	private List<BancoComunal> banco;
-*/	
+
 }
 

@@ -54,7 +54,7 @@ public class AsesorController {
 	public ResponseEntity<Asesor> save(@RequestBody Asesor asesor){
 		try {
 			Asesor a = new Asesor();
-			
+		
 			a.setId_persona(asesor.getId_persona());
 			a.setEs_asesor(asesor.getEs_asesor());
 			Asesor al = asesorService.create(a);

@@ -46,7 +46,7 @@ public class Inscripcion implements Serializable{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
-	@JoinColumn(name = "fk_socio", referencedColumnName = "id_socio")
+	@JoinColumn(name = "fk_socio", referencedColumnName = "id_persona")
 	private Socio socio;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
