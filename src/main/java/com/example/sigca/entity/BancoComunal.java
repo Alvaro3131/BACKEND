@@ -41,10 +41,7 @@ public class BancoComunal {
 	
 	
 	/*
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
-	private Distrito distrito;
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
