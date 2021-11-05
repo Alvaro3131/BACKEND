@@ -39,12 +39,11 @@ public class Modulo {
 	
 	// Enlaze con categoria
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name="fk_categoria", referencedColumnName = "id_categoria")
 	private Categoria categoria;
 	
 	@Column(name = "NU_SESIONES")
-	private String nu_sesiones;
+	private int nu_sesiones;
 	
 	// Enlace con programacion
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
@@ -52,6 +51,7 @@ public class Modulo {
 	private List<Programacion> programacion;
 	
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
 	//@JoinColumn(name="id_sesion")
 	private List<Sesion> sesion;

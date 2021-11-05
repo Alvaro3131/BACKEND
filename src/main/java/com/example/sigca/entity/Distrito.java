@@ -1,9 +1,7 @@
 package com.example.sigca.entity;
 
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,18 +29,31 @@ public class Distrito {
 	
 	//JOSUE DOMINGUEZ
 	
+	
+	
+	
+	public Distrito(String no_distrito, Sede sede) {
+		super();
+		this.no_distrito = no_distrito;
+		this.sede=sede;
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_distrito")
 	private int id_distrito;
+
+
 	@Column(name="no_distrito")
 	private String no_distrito;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn(name="FK_SEDE",referencedColumnName = "id_sede")
+	@JoinColumn(name="fk_sede",referencedColumnName = "id_sede")
 	private Sede sede;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="distrito" )
 	//@JoinColumn(name = "id_bancocomunal")
 	private List<BancoComunal> banco;

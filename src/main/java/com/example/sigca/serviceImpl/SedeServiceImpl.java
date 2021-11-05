@@ -17,7 +17,7 @@ public class SedeServiceImpl implements SedeService {
 	@Override
 	public String insertarSede(Sede s) {
 		// TODO Auto-generated method stub
-		return sede.insertarSede(s.getNombreSede());
+		return sede.insertarSede(s.getNo_sede());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class SedeServiceImpl implements SedeService {
 	@Override
 	public String actualizarSede(Sede s) {
 		// TODO Auto-generated method stub
-		return sede.actualizarSede(s.getIdsede(), s.getNombreSede());
+		return sede.actualizarSede(s.getId_sede(), s.getNo_sede());
 	}
 
 }

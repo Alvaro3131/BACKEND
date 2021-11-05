@@ -44,7 +44,7 @@ public class SedeController {
 	@GetMapping("/search/{id}")
 	public ResponseEntity<Sede> buscarSede(@PathVariable("id") int id){
 		Sede sede = sedeimpl.buscarSede(id);
-		if (sede.getIdsede()>0) {
+		if (sede.getId_sede()>0) {
 			return new ResponseEntity<>(sede,HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -55,7 +55,7 @@ public class SedeController {
 	@PostMapping("/new")
 	public ResponseEntity<String> agregarSede(@RequestBody Sede s){
 		try {
-			Sede sede = new Sede(s.getNombreSede());
+			Sede sede = new Sede(s.getNo_sede());
 			String mensaje= sedeimpl.insertarSede(sede);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -82,8 +82,8 @@ public class SedeController {
 	public ResponseEntity<String> ActualizarSede(@RequestBody Sede s, @PathVariable("id") int id){
 	try {
 		Sede ul = sedeimpl.buscarSede(id);
-		if (ul.getIdsede()>0) {
-			ul.setNombreSede(s.getNombreSede());
+		if (ul.getId_sede()>0) {
+			ul.setNo_sede(s.getNo_sede());
 			return new ResponseEntity<>(sedeimpl.actualizarSede(ul),HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
