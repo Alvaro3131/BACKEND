@@ -1,0 +1,48 @@
+package com.example.sigca.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.sigca.entity.ProgramaSeminario;
+import com.example.sigca.repository.ProgramaSeminarioRepository;
+import com.example.sigca.service.ProgramaSeminarioService;
+
+@Service
+public class ProgramaSeminarioServiceImpl implements ProgramaSeminarioService {
+
+	@Autowired
+	private ProgramaSeminarioRepository ps;
+
+	
+	@Override
+	public List<ProgramaSeminario> listarProgramaSeminario() {
+		// TODO Auto-generated method stub
+		return ps.listarProgramaSeminario();
+	}
+
+	@Override
+	public String insertarProgramaSeminario(ProgramaSeminario ps) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ProgramaSeminario buscarProgramaSeminario(int id_programa_capacitacion) {
+		// TODO Auto-generated method stub
+		return ps.buscarProgramaSeminario(id_programa_capacitacion);
+	}
+
+	@Override
+	public String eliminarProgramaSeminario(int id_programa_capacitacion) {
+		// TODO Auto-generated method stub
+		return ps.eliminarProgramaSeminario(id_programa_capacitacion);
+	}
+
+	@Override
+	public String actualizarProgramaSeminario(ProgramaSeminario ps) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

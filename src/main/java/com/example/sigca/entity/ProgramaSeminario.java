@@ -32,7 +32,7 @@ public class ProgramaSeminario{
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
-	@JoinColumn(name="fk_seminario", nullable = false)
+	@JoinColumn(name="fk_seminario", referencedColumnName = "id_seminario")
 	private Seminario seminario;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

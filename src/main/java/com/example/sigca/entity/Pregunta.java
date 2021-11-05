@@ -1,6 +1,7 @@
 package com.example.sigca.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,10 +30,17 @@ import lombok.NoArgsConstructor;
 public class Pregunta implements Serializable {
 	
 	private static final long serialVersionUID = 4868757099978767253L;
+	
+	public Pregunta(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pregunta")
 	private int id;
+	
 	@Column(name = "no_pregunta")
 	private String nombre;
 	
@@ -41,7 +49,7 @@ public class Pregunta implements Serializable {
 	@JoinColumn(name = "fk_recurso", referencedColumnName = "id_recurso")
 	private Recurso recurso;
 	
-	/*@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_alternativa")
-	private Set<Alternativa> alternativas;*/
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pregunta")
+	//@JoinColumn(name = "id_alternativa")
+	private List<Alternativa> alternativa;
 }

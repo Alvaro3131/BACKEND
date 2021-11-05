@@ -1,22 +1,17 @@
 package com.example.sigca.entity;
 
-import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,17 +25,19 @@ import lombok.NoArgsConstructor;
 public class Socio {
 		
 	@Id
-	@Column(name = "id_persona")
-	int id;
+	@Column(name = "ID_PERSONA")
+	private int id;
 
 	
 	@Column(name = "es_socio")
-	public int  estado;
+	private int  estado;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	@JsonBackReference
-	public Persona persona;
+	private Persona persona;
+	
+	
 	/*
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")

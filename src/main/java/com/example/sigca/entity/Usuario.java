@@ -42,10 +42,10 @@ public class Usuario {
 	public Persona persona;
 	
 
-	/*
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<RolUsuario> rolusuario;
-	*/
+	
 	
 	
 	
