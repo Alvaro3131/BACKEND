@@ -133,8 +133,6 @@ private PersonaService personaService;
 		/*
 		 
 		sesionRepository.eliminarSesion(2);
-
-=======
 		
 		
 	/*	
@@ -142,13 +140,11 @@ private PersonaService personaService;
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getIdrol()+" "+pe.get(i).getNombrerol());
 		}
->>>>>>> ariana
+
 		*/
 		/*
 		rol.insertarRol("integral");
 
-		
-		
 		/*
 		rol.eliminarRol(6);
 		*/
@@ -158,13 +154,14 @@ private PersonaService personaService;
 		       */
 		
 	/*privilegios.actualizarPrivilegios(, null)
-<<<<<<< HEAD
-=======
+	
+
+		sesionRepository.buscarSesion(0);
+	*/
 	 
 	 */
 		
-		
-		
+
 		/*
 		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
 		for(int i=0;i<pe.size(); i++) {
@@ -172,22 +169,11 @@ private PersonaService personaService;
 		}*/
 			
 
-
-		
-
-		
-
-		
-
-
 		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
-
-		
-			
 
 		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {

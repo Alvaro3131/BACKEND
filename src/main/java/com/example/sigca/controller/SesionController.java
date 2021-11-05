@@ -6,10 +6,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.sigca.entity.Sede;
 import com.example.sigca.entity.Sesion;
 import com.example.sigca.service.SesionService;
 
@@ -18,12 +24,14 @@ import com.example.sigca.service.SesionService;
 public class SesionController {
 	
 	@Autowired
-	private SesionService sesionService;
+	private SesionService sesionImpl;
+	
+	//Funciona
 	@GetMapping("/all")
-	public ResponseEntity<List<Sesion>> getSesion(){
+	public ResponseEntity<List<Sesion>> listarSesion(){
 		try {
 			List<Sesion> list = new ArrayList<>();
-			list = sesionService.readAll();
+			list = sesionImpl.ListarSesion();
 			if (list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -32,4 +40,50 @@ public class SesionController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	//Funciona 
+	@GetMapping("/search/{id}")
+	public ResponseEntity<Sesion> buscarSesion(@PathVariable("id") int id){
+		Sesion sesion = sesionImpl.buscarSesion(id);
+		if (sesion.getID_SESION()>0) {
+			return new ResponseEntity<>(sesion,HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	//Funciona
+		@PostMapping("/new")
+		public ResponseEntity<String> agregarSesion(@RequestBody Sesion s){
+			try {
+				String mensaje= sesionImpl.insertarSesion(s);
+				return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
+			} catch (Exception e) {
+				// TODO: handle exception
+				return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> eliminarSesion(@PathVariable("id") int id){
+	try {
+		String mensaje = sesionImpl.eliminarSesion(id);
+		return new ResponseEntity<>(mensaje,HttpStatus.NO_CONTENT);
+	} catch (Exception e) {
+		// TODO: handle exception
+		return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+	}	
+	}
+	@PutMapping("/update/{id}")
+	public ResponseEntity<String> ActualizarSesion(@RequestBody Sesion s, @PathVariable("id") int id){
+	try {
+		Sesion ul = sesionImpl.buscarSesion(id);
+		if (ul.getID_SESION()>0) {
+			ul.setNO_SESION(s.getNO_SESION());
+			return new ResponseEntity<>(sesionImpl.actualizarSesion(ul),HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	} catch (Exception e) {
+		// TODO: handle exception
+		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+}
 }

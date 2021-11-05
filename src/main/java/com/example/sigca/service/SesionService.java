@@ -6,9 +6,9 @@ import com.example.sigca.entity.Sesion;
 
 public interface SesionService {
 
-	List<Sesion> readAll();
-	Sesion create (Sesion al);
-	Sesion read(int id);
-	void delete(int id);
-	Sesion update(Sesion al);
+	String insertarSesion (Sesion s);
+	List<Sesion> ListarSesion();
+	Sesion buscarSesion(int id_sesion);
+	String eliminarSesion(int id_sesion);
+	String actualizarSesion(Sesion s);
 }
