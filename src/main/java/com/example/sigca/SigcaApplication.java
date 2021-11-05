@@ -121,7 +121,7 @@ private PersonaService personaService;
 	@Override
 	public void run(String... args) throws Exception {
 
-		List<Sesion> pe= sesionRepository.listarSesion();
+
 		
 	/*	
 		List<Rol> pe= rol.listarRol();
@@ -194,6 +194,7 @@ private PersonaService personaService;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
+
 
 }
 }
