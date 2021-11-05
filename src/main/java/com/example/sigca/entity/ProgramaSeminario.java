@@ -1,5 +1,7 @@
 package com.example.sigca.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tbl_programa_seminario" )
-public class ProgramaSeminario {
+public class ProgramaSeminario{
  
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

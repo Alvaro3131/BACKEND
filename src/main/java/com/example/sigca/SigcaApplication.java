@@ -157,13 +157,6 @@ private PersonaService personaService;
 
 		sesionRepository.buscarSesion(0);
 	*/
-
-		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrolprivilegios());
-		}*/
-			
-
 		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());

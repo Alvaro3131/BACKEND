@@ -17,7 +17,7 @@ public interface AsistenciaRecursoRepository extends JpaRepository<AsistenciaRec
 			
 	// Buscar
 	@Query(value = "{call SP_LISTAR_ASISTENCIA_RECURSO(:p_nIDASISTENCIARECURSO)}", nativeQuery = true) 
-	Modulo buscarAsistenciaRecurso(@Param("p_nIDASISTENCIARECURSO") int p_nIDASISTENCIARECURSO);
+	AsistenciaRecurso buscarAsistenciaRecurso(@Param("p_nIDASISTENCIARECURSO") int p_nIDASISTENCIARECURSO);
 			
 	//Delete
 	@Query(value = "{ CALL SP_ELIMINAR_ASISTENCIA_RECURSO(:P_nIDRec) }", nativeQuery = true)
@@ -29,5 +29,5 @@ public interface AsistenciaRecursoRepository extends JpaRepository<AsistenciaRec
 			
 	//Update
 	@Query(value = "{call SP_UPD_ASISTENCIA_RECURSO(:p_nId,:p_nEstado,:p_nValoracion,:p_nIdSocio,:p_nIdRecurso)}", nativeQuery = true) 
-	String actualizarAsistenciaRecurso(@Param("p_nId") int p_nId ,@Param("p_nEstado") int p_nEstado,@Param("p_nValoracion") int p_nValoracion,@Param("p_nIdSocio") int p_nIdSocio,@Param("p_nIdRecurso")int p_nIdRecurso);
+	String actualizarAsistenciaRecurso(@Param("p_nId") int p_nId ,@Param("p_nEstado") int p_nEstado,@Param("p_nValoracion") int p_nValoracion);
 }

@@ -1,10 +1,11 @@
-package com.example.sigca.servicelmpl;
+package com.example.sigca.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.sigca.entity.Sede;
 import com.example.sigca.entity.Sesion;
 import com.example.sigca.repository.SesionRepository;
 import com.example.sigca.service.SesionService;
@@ -12,37 +13,40 @@ import com.example.sigca.service.SesionService;
 public class SesionServiceImpl implements SesionService{
 
 	@Autowired
-	private SesionRepository sesionRepository;
+	private SesionRepository sesion;
 	
 	@Override
-	public List<Sesion> readAll() {
+	public String insertarSesion(Sesion s) {
 		// TODO Auto-generated method stub
-		return sesionRepository.findAll();
+		return sesion.insertarSesion(s.getNO_SESION());
+	}
+	@Override
+	public List<Sesion> ListarSesion() {
+		// TODO Auto-generated method stub
+		return sesion.listarSesion();
 	}
 
 	@Override
-	public Sesion create(Sesion al) {
+	public Sesion buscarSesion(int id_sesion) {
 		// TODO Auto-generated method stub
-		return sesionRepository.save(al);
+		return sesion.buscarSesion(id_sesion);
 	}
 
 	@Override
-	public Sesion read(int id) {
+	public String eliminarSesion(int id_sesion) {
 		// TODO Auto-generated method stub
-		return sesionRepository.findById(id).get();
+		System.out.println(id_sesion);
+		return sesion.eliminarSesion(id_sesion);
 	}
 
 	@Override
-	public void delete(int id) {
+	public String actualizarSesion(Sesion s) {
 		// TODO Auto-generated method stub
-		sesionRepository.deleteById(id);
+		return sesion.actualizarSesion(s.getID_SESION(), s.getNO_SESION());
 	}
 
-	@Override
-	public Sesion update(Sesion al) {
-		// TODO Auto-generated method stub
-		return sesionRepository.save(al);
-	}
+
+	
 	
 	
 }
