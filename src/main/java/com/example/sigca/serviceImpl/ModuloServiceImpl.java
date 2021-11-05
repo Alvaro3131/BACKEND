@@ -18,7 +18,7 @@ public class ModuloServiceImpl implements ModuloService{
 	@Override
 	public String insertarModulo(Modulo m) {
 		// TODO Auto-generated method stub
-		return modulo.insertarModulo(m.getNo_modulo(), m.getCategoria().getId_categoria());
+		return modulo.insertarModulo(m.getNo_modulo(),m.getCategoria().getId_categoria());
 	}
 
 	@Override

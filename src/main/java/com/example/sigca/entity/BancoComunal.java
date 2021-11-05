@@ -35,11 +35,11 @@ public class BancoComunal {
 	private String no_bancocomunal;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
 	private Asesor asesor;
 	
-	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
+	private List<Socio> socio;
 	/*
 	
 	

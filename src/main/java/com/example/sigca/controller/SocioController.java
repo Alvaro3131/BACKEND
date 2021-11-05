@@ -55,6 +55,7 @@ public ResponseEntity<Socio> save(@RequestBody Socio socio){
 		
 		a.setId(socio.getId());
 		a.setEstado(socio.getEstado());
+		a.setBanco(socio.getBanco());
 		Socio al = socioService.create(a);
 		return new ResponseEntity<>(al, HttpStatus.CREATED);
 	} catch (Exception e) {
@@ -69,6 +70,7 @@ public ResponseEntity<Socio> update(@RequestBody Socio socio, @PathVariable("id"
 		if(a.getId()>0) {
 			
 			a.setEstado(socio.getEstado());
+			a.setBanco(socio.getBanco());
 			return new ResponseEntity<>(socioService.create(a),HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

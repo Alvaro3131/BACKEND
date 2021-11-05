@@ -5,7 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -25,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Socio {
 		
 	@Id
-	@Column(name = "ID_PERSONA")
+	@Column(name = "id_persona")
 	private int id;
 
 	
@@ -37,6 +38,9 @@ public class Socio {
 	@JsonBackReference
 	private Persona persona;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="FK_BANCOCOMUNAL",referencedColumnName = "id_bancocomunal")
+	private BancoComunal banco;
 	
 	/*
 	
