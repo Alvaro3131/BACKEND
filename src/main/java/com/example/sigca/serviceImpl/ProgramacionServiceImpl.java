@@ -13,36 +13,36 @@ import com.example.sigca.service.ProgramacionService;
 public class ProgramacionServiceImpl implements ProgramacionService {
 
 	@Autowired
-	private ProgramacionRepository p;
+	private ProgramacionRepository pg;
 	
 	@Override
 	public List<Programacion> listarProgramacion() {
 		// TODO Auto-generated method stub
-		return p.listarProgramacion();
+		return pg.listarProgramacion();
 	}
 
 	@Override
 	public String insertarProgramacion(Programacion p) {
 		// TODO Auto-generated method stub
-		return null;
+		return pg.insertarProgramacion(0, 0, p.getEs_pogramacion());
 	}
 
 	@Override
 	public Programacion BuscarProgramacion(int id_programacion) {
 		// TODO Auto-generated method stub
-		return p.BuscarProgramacion(id_programacion);
+		return pg.BuscarProgramacion(id_programacion);
 		}
 
 	@Override
 	public String eliminarProgramacion(int id_programacion) {
 		// TODO Auto-generated method stub
-		return p.eliminarProgramacion(id_programacion);
+		return pg.eliminarProgramacion(id_programacion);
 		}
 
 	@Override
 	public String actualizarProgramacion(Programacion p) {
 		// TODO Auto-generated method stub
-		return null;
+		return pg.actualizarProgramacion(p.getId_programacion(), 0, 0,p.getEs_pogramacion());
 	}
 
 }

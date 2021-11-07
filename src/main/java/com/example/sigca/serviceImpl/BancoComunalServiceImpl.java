@@ -15,36 +15,36 @@ import com.example.sigca.service.BancoComunalService;
 public class BancoComunalServiceImpl implements BancoComunalService {
 
 	@Autowired
-	private BancoComunalRepositoy banco;
+	private BancoComunalRepositoy b;
 
 	@Override
 	public List<BancoComunal> listarBancoComunal() {
 		// TODO Auto-generated method stub
-		return banco.listarBancoComunal();
+		return b.listarBancoComunal();
 	}
 
 	@Override
 	public String insertarBanco(BancoComunal banco) {
 		// TODO Auto-generated method stub
-		return null;
+		return b.insertarBanco(banco.getNo_bancocomunal(),0, 0);
 	}
 
 	@Override
 	public Optional<BancoComunal> buscarBanco(int id_bancocomunal) {
 		// TODO Auto-generated method stub
-		return banco.buscarBanco(id_bancocomunal);
+		return b.buscarBanco(id_bancocomunal);
 	}
 
 	@Override
 	public String eliminarBanco(int id_bancocomunal) {
 		// TODO Auto-generated method stub
-		return banco.eliminarBanco(id_bancocomunal);
+		return b.eliminarBanco(id_bancocomunal);
 	}
 
 	@Override
 	public String actualizarBanco(BancoComunal banco) {
 		// TODO Auto-generated method stub
-		return null;
+		return b.actualizarBanco(banco.getId_bancocomunal(), banco.getNo_bancocomunal(), 0, 0);
 	}
 	
 	

@@ -23,6 +23,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_programa_seminario" )
 public class ProgramaSeminario {
  
+	public ProgramaSeminario(Seminario seminario, BancoComunal banco) {
+		super();
+		this.seminario = seminario;
+		this.banco = banco;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_programa_capacitacion")

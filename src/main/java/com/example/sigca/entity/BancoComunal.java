@@ -26,6 +26,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_bancocomunal" )
 public class BancoComunal {
 
+	public BancoComunal(String no_bancocomunal, Distrito distrito, Asesor asesor) {
+		super();
+		this.no_bancocomunal = no_bancocomunal;
+		this.distrito = distrito;
+		this.asesor = asesor;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_bancocomunal")
@@ -33,7 +40,7 @@ public class BancoComunal {
 	
 	@Column(name = "no_bancocomunal")
 	private String no_bancocomunal;
-	/*
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	@JoinColumn(name="fk_distrito",referencedColumnName = "id_distrito" )
@@ -56,5 +63,5 @@ public class BancoComunal {
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
 	//@JoinColumn(name = "id_persona")
 	private List<Socio> socio;
-	*/
+	
 }
