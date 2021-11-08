@@ -40,14 +40,13 @@ public class BancoComunal {
 	
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
 	private List<Socio> socio;
-	/*
-	
-	
+		
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
-	private Asesor asesor;
+	private Distrito distrito;
 	
+	
+	/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
 	//@JoinColumn(name = "id_programa_capacitacion")
 	private List<ProgramaSeminario> ps;
