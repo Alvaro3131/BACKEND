@@ -42,7 +42,7 @@ public class BancoComunal {
 	private List<Socio> socio;
 		
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
+	@JoinColumn(name="fk_distrito", referencedColumnName = "id_distrito")
 	private Distrito distrito;
 	
 	
