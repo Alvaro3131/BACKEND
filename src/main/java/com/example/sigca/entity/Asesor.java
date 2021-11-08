@@ -33,6 +33,7 @@ public class Asesor {
 	@Id
 	@Column(name = "id_persona")
 	private int id_persona;
+	
 	@Column(name = "es_asesor")
 	private int es_asesor;
 	

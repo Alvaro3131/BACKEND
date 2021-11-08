@@ -45,12 +45,10 @@ public class Inscripcion implements Serializable{
 	private int estado;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_socio", referencedColumnName = "id_persona")
 	private Socio socio;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_modulo", referencedColumnName = "id_modulo")
 	private Modulo modulo;
 	

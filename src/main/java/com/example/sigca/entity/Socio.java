@@ -1,12 +1,15 @@
 package com.example.sigca.entity;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -41,6 +44,21 @@ public class Socio {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="FK_BANCOCOMUNAL",referencedColumnName = "id_bancocomunal")
 	private BancoComunal banco;
+	
+	
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<PedidoOracion> pedido;
+	
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<Inscripcion> inscripcion;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<Asistencia_Seminario> as;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<AsistenciaRecurso> ar;
 	
 	/*
 	

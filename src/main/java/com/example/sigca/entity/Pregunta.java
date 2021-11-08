@@ -45,7 +45,6 @@ public class Pregunta implements Serializable {
 	private String nombre;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_recurso", referencedColumnName = "id_recurso")
 	private Recurso recurso;
 	

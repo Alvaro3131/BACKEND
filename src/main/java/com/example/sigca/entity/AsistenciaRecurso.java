@@ -31,12 +31,10 @@ public class AsistenciaRecurso {
 	int id_asistencia_recurso;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn( name = "fk_socio", referencedColumnName = "id_persona")
 	private Socio socio;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn( name = "fk_recurso", referencedColumnName = "id_recurso")
 	private Recurso recurso;
 	

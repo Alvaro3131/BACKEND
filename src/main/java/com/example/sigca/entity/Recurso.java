@@ -53,12 +53,10 @@ public class Recurso implements Serializable {
 	private String descripcion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_sesion", referencedColumnName = "id_sesion")
 	private Sesion sesion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_tipo", referencedColumnName = "id_tipo")
 	private Tipo tipo;
 	
