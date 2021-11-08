@@ -8,7 +8,7 @@ import com.example.sigca.entity.BancoComunal;
 public interface BancoComunalService {
 	List<BancoComunal> listarBancoComunal();
 	String insertarBanco(BancoComunal banco);
-	Optional<BancoComunal> buscarBanco(int id_bancocomunal);
+	BancoComunal buscarBanco(int id_bancocomunal);
 	String eliminarBanco(int id_bancocomunal);
 	String actualizarBanco(BancoComunal banco);
 

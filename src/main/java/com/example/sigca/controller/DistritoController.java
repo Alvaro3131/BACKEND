@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.sigca.entity.Distrito;
-import com.example.sigca.entity.Sede;
 import com.example.sigca.serviceImpl.DistritoServiceImpl;
 
 @RestController

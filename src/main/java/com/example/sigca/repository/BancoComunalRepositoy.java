@@ -17,7 +17,7 @@ public interface BancoComunalRepositoy extends JpaRepository<BancoComunal, Integ
 	
 	//Buscar
 	@Query(value = "{call SP_LISTAR_BANCOCOMUNAL(:p_nIDBANCOCOMUNAL)}", nativeQuery = true) 
-	Optional<BancoComunal> buscarBanco(@Param("p_nIDBANCOCOMUNAL") int p_nIDBANCOCOMUNAL);
+	BancoComunal buscarBanco(@Param("p_nIDBANCOCOMUNAL") int p_nIDBANCOCOMUNAL);
 	
 	//Delete
 	@Query(value = "{ CALL SP_ELIMINAR_BANCOCOMUNAL(:p_nIDBANCOCOMUNAL) }", nativeQuery = true)
