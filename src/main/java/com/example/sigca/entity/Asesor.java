@@ -19,6 +19,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,12 +38,12 @@ public class Asesor {
 	@Column(name = "es_asesor")
 	private int es_asesor;
 	
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	@JsonBackReference
 	private Persona persona;
 	
-
+    @JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "asesor")
 	private List<BancoComunal> banco;
 

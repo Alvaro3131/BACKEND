@@ -15,7 +15,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,25 +39,27 @@ public class Socio {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	@JsonBackReference
 	private Persona persona;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="FK_BANCOCOMUNAL",referencedColumnName = "id_bancocomunal")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private BancoComunal banco;
 	
 	
-	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
 	private List<PedidoOracion> pedido;
 	
-	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
 	private List<Inscripcion> inscripcion;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
 	private List<Asistencia_Seminario> as;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
 	private List<AsistenciaRecurso> ar;
 	

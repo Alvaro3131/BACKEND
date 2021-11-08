@@ -27,7 +27,7 @@ public class PersonaController {
 	@Autowired
 	private PersonaService personaService;
 	@GetMapping("/all")
-	public ResponseEntity<List<Persona>> getAlumnos(){
+	public ResponseEntity<List<Persona>> getPersona(){
 		try {
 			List<Persona> list = new ArrayList<>();
 			list = personaService.readall();
@@ -41,7 +41,7 @@ public class PersonaController {
 		}
 	}
 	@GetMapping("/read/{id}")
-	public ResponseEntity<Persona> getUser(@PathVariable("id") int id){
+	public ResponseEntity<Persona> getPersona(@PathVariable("id") int id){
 		Persona persona = personaService.read(id);
 			if(persona.getId()>0) {
 				return new ResponseEntity<>(persona, HttpStatus.OK);
@@ -73,7 +73,6 @@ public class PersonaController {
 		try {
 			Persona a = personaService.read(id);
 			if(a.getId()>0) {
-				
 				
 				a.setNombre(persona.getNombre());
 				a.setPaterno(persona.getPaterno());

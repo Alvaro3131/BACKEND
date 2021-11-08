@@ -3,6 +3,7 @@ package com.example.sigca.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -43,16 +45,16 @@ public class Persona  implements Serializable {
 	@Column(name="NU_TELEFONO")
 	private String telefono;
 	
-	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
-	@JsonManagedReference
+	@JsonIgnore
+	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	private Asesor asesor;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
-	@JsonManagedReference
 	private Socio socio;
 		
+	@JsonIgnore
 	@OneToOne(mappedBy = "persona", fetch = FetchType.LAZY)
-	@JsonManagedReference
 	private Usuario usuario;
 
 	private static final long serialVersionUID = 1L;
