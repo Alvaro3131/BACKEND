@@ -46,6 +46,7 @@ public class BancoComunal {
 		
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_distrito", referencedColumnName = "id_distrito")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Distrito distrito;
 	
 	
