@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,14 +41,15 @@ public class Modulo {
 	// Enlaze con categoria
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_categoria", referencedColumnName = "id_categoria")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Categoria categoria;
 	
 	@Column(name = "NU_SESIONES")
 	private String nu_sesiones;
 	
 	// Enlace con programacion
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
-	//@JoinColumn(name="id_programacion")
 	private List<Programacion> programacion;
 	
 	
@@ -56,4 +58,7 @@ public class Modulo {
 	//@JoinColumn(name="id_sesion")
 	private List<Sesion> sesion;
 	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
+	private List<Inscripcion> inscripcion;
 }
