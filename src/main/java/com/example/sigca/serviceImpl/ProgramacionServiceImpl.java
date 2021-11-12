@@ -26,7 +26,7 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 	@Override
 	public String insertarProgramacion(Programacion p) {
 		// TODO Auto-generated method stub
-		return pr.insertarProgramacion(p.getBanco().getId_bancocomunal(), p.getModulo().getId_modulo(),p.getEs_pogramacion());
+		return pr.insertarProgramacion(p.getBanco().getId_bancocomunal(), p.getModulo().getId_modulo());
 	}
 
 	@Override

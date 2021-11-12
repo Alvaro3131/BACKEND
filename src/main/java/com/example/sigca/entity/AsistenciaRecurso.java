@@ -31,6 +31,14 @@ public class AsistenciaRecurso {
 	@Column(name = "id_asistencia_recurso")
 	int id_asistencia_recurso;
 	
+	
+	
+	@Column( name = "es_asistencia")
+	int es_asistencia;
+	
+	@Column( name = "nu_valoracion")
+	int nu_valoracion;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( name = "fk_socio", referencedColumnName = "id_persona")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -40,12 +48,6 @@ public class AsistenciaRecurso {
 	@JoinColumn( name = "fk_recurso", referencedColumnName = "id_recurso")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Recurso recurso;
-	
-	@Column( name = "es_asistencia")
-	int es_asistencia;
-	
-	@Column( name = "nu_valoracion")
-	int nu_valoracion;
 	
 	
 }
