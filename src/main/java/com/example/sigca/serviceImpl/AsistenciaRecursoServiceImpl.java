@@ -16,11 +16,11 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 	@Autowired
 	private AsistenciaRecursoRepository asistenciaRecurso;
 	
-	/*@Override
+	@Override
 	public String insertarAsistenciaRecurso(AsistenciaRecurso s) {
 		// TODO Auto-generated method stub
-		return AsistenciaRecurso.insertarAsistenciaRecurso(s.get);
-	}*/
+		return null;
+	}
 
 	@Override
 	public List<AsistenciaRecurso> ListarAsistenciaRecurso() {
