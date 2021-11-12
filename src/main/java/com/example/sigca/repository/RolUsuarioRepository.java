@@ -30,8 +30,8 @@ public interface RolUsuarioRepository extends JpaRepository<RolUsuario, Integer>
 	String eliminarRolUsuario(@Param("p_nIDROLUSUARIO") int p_nIDROLUSUARIO);
 	
 	// Insertar
-	@Query(value = "{call SP_INS_ROL_USUARIO(:p_nIDROLUSUARIO,:p_nIDROL,:p_nIDPERSONA)}", nativeQuery = true) 
-	String insertarRolUsuario(@Param("p_nIDROLUSUARIO") int p_nIDROLUSUARIO,@Param("p_nIDROL") int p_nIDROL,@Param("p_nIDPERSONA") int p_nIDPERSONA);
+	@Query(value = "{call SP_INS_ROL_USUARIO(:p_nIDROL,:p_nIDPERSONA)}", nativeQuery = true) 
+	String insertarRolUsuario(@Param("p_nIDROL") int p_nIDROL,@Param("p_nIDPERSONA") int p_nIDPERSONA);
 	
 	//Update
 	@Query(value = "{call SP_UPD_ROL_USUARIO(:p_nIDROLUSUARIO,:p_nIDROL,:p_nIDPERSONA)}", nativeQuery = true) 

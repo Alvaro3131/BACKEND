@@ -44,7 +44,7 @@ public class Privilegios implements Serializable{
 	public String nombreprivilegios;
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="privilegios")
 	private List<RolPrivilegios> rolprivilegios;
 	
 	
