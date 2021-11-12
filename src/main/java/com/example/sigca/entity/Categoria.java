@@ -41,7 +41,6 @@ public class Categoria {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria")
-	//@JoinColumn(name="id_modulo")
 	private List<Modulo> modulo;
 	
 	

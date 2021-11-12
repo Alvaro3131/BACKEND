@@ -49,7 +49,6 @@ public class Sede implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sede")
-	//@JoinColumn(name="id_distrito")
 	private List<Distrito> distrito;
 	
 	
