@@ -42,13 +42,11 @@ public class RolUsuarioServiceImpl implements RolUsuarioService {
 	@Override
 	public String actualizarRolUsuario(RolUsuario u) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		return rolusuario.actualizarRolUsuario(u.idrolusuario, u.getRol().idrol, u.getUsuario().getId());
-=======
-
+/*
 		return rolusuario.actualizarRolUsuario(u.getIdrolusuario(), u.getRol().getIdrol(), u.getUsuario().getId());
-
->>>>>>> 0ab75cad07dc0709afb2359205925503349516e3
+*/
 	}
 	
 
