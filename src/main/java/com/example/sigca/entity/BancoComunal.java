@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,18 +44,20 @@ public class BancoComunal {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Asesor asesor;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
 	private List<Socio> socio;
-	/*
-	
-	
+		
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn(name="fk_asesor", referencedColumnName = "id_persona")
-	private Asesor asesor;
+	@JoinColumn(name="fk_distrito", referencedColumnName = "id_distrito")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Distrito distrito;
 	
+	
+	/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banco")
 	//@JoinColumn(name = "id_programa_capacitacion")
 	private List<ProgramaSeminario> ps;

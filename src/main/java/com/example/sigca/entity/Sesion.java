@@ -40,7 +40,6 @@ public class Sesion implements Serializable {
 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name="FK_MODULO",referencedColumnName = "id_modulo")
 	private Modulo modulo;
 	

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,10 +43,12 @@ public class Asistencia_Seminario implements Serializable{
 	public Time FE_ASISTENCIA;
 	
 	@ManyToOne
-	@JoinColumn(name = "FK_SEMINARIO")
+	@JoinColumn(name="FK_SEMINARIO", referencedColumnName = "ID_SEMINARIO")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	public Seminario seminario;
 	
 	@ManyToOne
-	@JoinColumn(name = "FK_SOCIO")
+	@JoinColumn(name="FK_SOCIO", referencedColumnName = "ID_PERSONA")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	public Socio socio;
 }

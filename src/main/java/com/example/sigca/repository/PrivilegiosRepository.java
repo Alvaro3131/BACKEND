@@ -22,7 +22,7 @@ public interface PrivilegiosRepository extends JpaRepository<Privilegios, Intege
 	// Buscar
 	
 	@Query(value = "{call SP_LISTAR_TBL_PRIVILEGIO(:p_nID)}", nativeQuery = true) 
-	Privilegios ListarPrivilegios(@Param("p_nID") int p_nID);
+	Privilegios buscarPrivilegios(@Param("p_nID") int p_nID);
 	
 	//Delete
 	

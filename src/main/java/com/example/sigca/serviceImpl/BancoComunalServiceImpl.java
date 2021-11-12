@@ -2,11 +2,8 @@ package com.example.sigca.serviceImpl;
 
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.sigca.entity.BancoComunal;
 import com.example.sigca.repository.BancoComunalRepositoy;
 import com.example.sigca.service.BancoComunalService;
@@ -26,11 +23,11 @@ public class BancoComunalServiceImpl implements BancoComunalService {
 	@Override
 	public String insertarBanco(BancoComunal banco) {
 		// TODO Auto-generated method stub
-		return b.insertarBanco(banco.getNo_bancocomunal(),0, 0);
+		return b.insertarBanco(banco.getNo_bancocomunal(), banco.getDistrito().getId_distrito(), banco.getAsesor().getId_persona());
 	}
 
 	@Override
-	public Optional<BancoComunal> buscarBanco(int id_bancocomunal) {
+	public BancoComunal buscarBanco(int id_bancocomunal) {
 		// TODO Auto-generated method stub
 		return b.buscarBanco(id_bancocomunal);
 	}
@@ -44,8 +41,9 @@ public class BancoComunalServiceImpl implements BancoComunalService {
 	@Override
 	public String actualizarBanco(BancoComunal banco) {
 		// TODO Auto-generated method stub
-		return b.actualizarBanco(banco.getId_bancocomunal(), banco.getNo_bancocomunal(), 0, 0);
+		return b.actualizarBanco(banco.getId_bancocomunal(), banco.getNo_bancocomunal(),banco.getDistrito().getId_distrito(), banco.getAsesor().getId_persona());
 	}
-	
+
+
 	
 }

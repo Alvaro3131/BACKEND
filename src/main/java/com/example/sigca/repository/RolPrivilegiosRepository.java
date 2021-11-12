@@ -23,7 +23,7 @@ public interface RolPrivilegiosRepository extends JpaRepository<RolPrivilegios, 
 	// Buscar
 	
 	@Query(value = "{call SP_LISTAR_ROL_PRIVILEGIOS(:p_nIDROLPRIVILEGIOS)}", nativeQuery = true) 
-	RolPrivilegios ListarRolPrivilegios(@Param("p_nIDROLPRIVILEGIOS") int p_nIDROLPRIVILEGIOS);
+	RolPrivilegios buscarRolPrivilegios(@Param("p_nIDROLPRIVILEGIOS") int p_nIDROLPRIVILEGIOS);
 	
 	//Delete
 	

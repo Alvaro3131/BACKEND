@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.sigca.entity.Seminario;
-import com.example.sigca.serviceImpl.SeminarioServiceImpl;
+import com.example.sigca.entity.BancoComunal;
+import com.example.sigca.serviceImpl.BancoComunalServiceImpl;
 
 @RestController
-@RequestMapping("/api/seminario")
-public class SeminarioController {
+@RequestMapping("/api/bancoComunal")
+public class BancoComunalController {
 	
 	@Autowired
-	private SeminarioServiceImpl seminario;
+	private BancoComunalServiceImpl bsi;
 	
 	//Funciona
 			@GetMapping("/all")
-			public ResponseEntity<List<Seminario>> listarSeminario(){
+			public ResponseEntity<List<BancoComunal>> listarBancoComunal(){
 				try {
-					List<Seminario> list = new ArrayList<>();
-					list=seminario.listarSeminario();
+					List<BancoComunal> list = new ArrayList<>();
+					list=bsi.listarBancoComunal();
 					if (list.isEmpty()) {
 						return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 					}
@@ -42,10 +42,10 @@ public class SeminarioController {
 			
 			//Funciona
 			@GetMapping("/search/{id}")
-			public ResponseEntity<Seminario> buscarSeminario(@PathVariable("id") int id){
-				Seminario s = seminario.buscarSeminario(id);
-				if (s.getID_SEMINARIO()>0) {
-					return new ResponseEntity<>(s,HttpStatus.OK);
+			public ResponseEntity<BancoComunal> buscarBancoComunal(@PathVariable("id") int id){
+				BancoComunal bc = bsi.buscarBanco(id);
+				if (bc.getId_bancocomunal()>0) {
+					return new ResponseEntity<>(bc,HttpStatus.OK);
 				} else {
 					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 				}
@@ -53,10 +53,10 @@ public class SeminarioController {
 			
 			//Funciona
 			@PostMapping("/new")
-			public ResponseEntity<String> agregarSeminario(@RequestBody Seminario s){
+			public ResponseEntity<String> agregarBancoComunal(@RequestBody BancoComunal bc){
 				try {
-					if (s.getNO_SEMINARIO() !=null) {
-						String mensaje= seminario.insertarSeminario(s);
+					if (bc.getNo_bancocomunal() !=null) {
+						String mensaje= bsi.insertarBanco(bc);
 						return new ResponseEntity<>(mensaje,HttpStatus.CREATED);					
 					}
 					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -69,9 +69,9 @@ public class SeminarioController {
 			
 			//Funciona
 			@DeleteMapping("/delete/{id}")
-			public ResponseEntity<String> eliminarSeminario(@PathVariable("id") int id){
+			public ResponseEntity<String> eliminarBancoComunal(@PathVariable("id") int id){
 			try {
-				String mensaje = seminario.eliminarSeminario(id);
+				String mensaje = bsi.eliminarBanco(id);
 				return new ResponseEntity<>(mensaje,HttpStatus.NO_CONTENT);
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -81,15 +81,14 @@ public class SeminarioController {
 			
 			//Funciona
 			@PutMapping("/update/{id}")
-			public ResponseEntity<String> ActualizarSeminario(@RequestBody Seminario s, @PathVariable("id") int id){
+			public ResponseEntity<String> ActualizarBancoComunal(@RequestBody BancoComunal bc, @PathVariable("id") int id){
 			try {
-				Seminario ul = seminario.buscarSeminario(id);
-				if (ul.getID_SEMINARIO()>0) {
-					ul.setNO_SEMINARIO(s.getNO_SEMINARIO());
-					ul.setFE_INICIO(s.getFE_INICIO());
-					ul.setFE_FIN(s.getFE_FIN());
-					ul.setURL_SEMINARIO(s.getURL_SEMINARIO());
-					return new ResponseEntity<>(seminario.actualizarSeminario(ul),HttpStatus.OK);
+				BancoComunal ul = bsi.buscarBanco(id);
+				if (ul.getId_bancocomunal()>0) {
+					ul.setNo_bancocomunal(bc.getNo_bancocomunal());
+					ul.setDistrito(bc.getDistrito());
+					ul.setAsesor(bc.getAsesor());
+					return new ResponseEntity<>(bsi.actualizarBanco(ul),HttpStatus.OK);
 				} else {
 					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 				}
@@ -99,5 +98,5 @@ public class SeminarioController {
 			}
 			
 			}
-
+	
 }

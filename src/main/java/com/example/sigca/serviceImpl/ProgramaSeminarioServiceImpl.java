@@ -24,7 +24,7 @@ public class ProgramaSeminarioServiceImpl implements ProgramaSeminarioService {
 	@Override
 	public String insertarProgramaSeminario(ProgramaSeminario ps) {
 		// TODO Auto-generated method stub
-		return psr.insertarProgramaSeminario(ps.getSeminario().getID_SEMINARIO(),ps.getBanco().getId_bancocomunal());
+		return psr.insertarProgramaSeminario(ps.getSeminario().getID_SEMINARIO(), ps.getBanco().getId_bancocomunal());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ProgramaSeminarioServiceImpl implements ProgramaSeminarioService {
 	@Override
 	public String actualizarProgramaSeminario(ProgramaSeminario ps) {
 		// TODO Auto-generated method stub
-		return null;
+		return psr.actualizarProgramaSeminario(ps.getId_programa_capacitacion(), ps.getSeminario().getID_SEMINARIO(), ps.getBanco().getId_bancocomunal());
 	}
 
 }

@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.sigca.entity.Seminario;
-import com.example.sigca.serviceImpl.SeminarioServiceImpl;
+import com.example.sigca.entity.Programacion;
+import com.example.sigca.serviceImpl.ProgramacionServiceImpl;
 
 @RestController
-@RequestMapping("/api/seminario")
-public class SeminarioController {
+@RequestMapping("/api/programacion")
+public class ProgramacionController {
 	
 	@Autowired
-	private SeminarioServiceImpl seminario;
+	private ProgramacionServiceImpl psi;
 	
 	//Funciona
 			@GetMapping("/all")
-			public ResponseEntity<List<Seminario>> listarSeminario(){
+			public ResponseEntity<List<Programacion>> listarProgramacion(){
 				try {
-					List<Seminario> list = new ArrayList<>();
-					list=seminario.listarSeminario();
+					List<Programacion> list = new ArrayList<>();
+					list=psi.listarProgramacion();
 					if (list.isEmpty()) {
 						return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 					}
@@ -42,10 +42,10 @@ public class SeminarioController {
 			
 			//Funciona
 			@GetMapping("/search/{id}")
-			public ResponseEntity<Seminario> buscarSeminario(@PathVariable("id") int id){
-				Seminario s = seminario.buscarSeminario(id);
-				if (s.getID_SEMINARIO()>0) {
-					return new ResponseEntity<>(s,HttpStatus.OK);
+			public ResponseEntity<Programacion> buscarProgramacion(@PathVariable("id") int id){
+				Programacion p = psi.BuscarProgramacion(id);
+				if (p.getId_programacion()>0) {
+					return new ResponseEntity<>(p,HttpStatus.OK);
 				} else {
 					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 				}
@@ -53,13 +53,10 @@ public class SeminarioController {
 			
 			//Funciona
 			@PostMapping("/new")
-			public ResponseEntity<String> agregarSeminario(@RequestBody Seminario s){
+			public ResponseEntity<String> agregarProgramacion(@RequestBody Programacion p){
 				try {
-					if (s.getNO_SEMINARIO() !=null) {
-						String mensaje= seminario.insertarSeminario(s);
+						String mensaje= psi.insertarProgramacion(p);
 						return new ResponseEntity<>(mensaje,HttpStatus.CREATED);					
-					}
-					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 				} catch (Exception e) {
 					// TODO: handle exception
 					return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
@@ -69,9 +66,9 @@ public class SeminarioController {
 			
 			//Funciona
 			@DeleteMapping("/delete/{id}")
-			public ResponseEntity<String> eliminarSeminario(@PathVariable("id") int id){
+			public ResponseEntity<String> eliminarProgramacion(@PathVariable("id") int id){
 			try {
-				String mensaje = seminario.eliminarSeminario(id);
+				String mensaje = psi.eliminarProgramacion(id);
 				return new ResponseEntity<>(mensaje,HttpStatus.NO_CONTENT);
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -81,15 +78,14 @@ public class SeminarioController {
 			
 			//Funciona
 			@PutMapping("/update/{id}")
-			public ResponseEntity<String> ActualizarSeminario(@RequestBody Seminario s, @PathVariable("id") int id){
+			public ResponseEntity<String> ActualizarProgramacion(@RequestBody Programacion p, @PathVariable("id") int id){
 			try {
-				Seminario ul = seminario.buscarSeminario(id);
-				if (ul.getID_SEMINARIO()>0) {
-					ul.setNO_SEMINARIO(s.getNO_SEMINARIO());
-					ul.setFE_INICIO(s.getFE_INICIO());
-					ul.setFE_FIN(s.getFE_FIN());
-					ul.setURL_SEMINARIO(s.getURL_SEMINARIO());
-					return new ResponseEntity<>(seminario.actualizarSeminario(ul),HttpStatus.OK);
+				Programacion ul = psi.BuscarProgramacion(id);
+				if (ul.getId_programacion()>0) {
+					ul.setBanco(p.getBanco());
+					ul.setModulo(p.getModulo());
+					ul.setEs_pogramacion(p.getEs_pogramacion());
+					return new ResponseEntity<>(psi.actualizarProgramacion(ul),HttpStatus.OK);
 				} else {
 					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 				}
@@ -99,5 +95,6 @@ public class SeminarioController {
 			}
 			
 			}
-
+		
+	
 }

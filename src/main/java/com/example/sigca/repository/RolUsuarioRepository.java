@@ -22,7 +22,7 @@ public interface RolUsuarioRepository extends JpaRepository<RolUsuario, Integer>
 	// Buscar
 	
 	@Query(value = "{call SP_LISTAR_ROL_USUARIO(:p_nIDROLUSUARIO)}", nativeQuery = true) 
-	RolUsuario ListarRolUsuario(@Param("p_nIDROLUSUARIO") int p_nIDROLUSUARIO);
+	RolUsuario buscarRolUsuario(@Param("p_nIDROLUSUARIO") int p_nIDROLUSUARIO);
 	
 	//Delete
 	
