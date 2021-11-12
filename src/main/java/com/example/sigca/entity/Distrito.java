@@ -2,6 +2,7 @@ package com.example.sigca.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,14 +51,13 @@ public class Distrito {
 	@Column(name="no_distrito")
 	private String no_distrito;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.MERGE)
 	@JoinColumn(name="fk_sede",referencedColumnName = "id_sede")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Sede sede;
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="distrito" )
-	//@JoinColumn(name = "id_bancocomunal")
 	private List<BancoComunal> banco;
 	
 	
