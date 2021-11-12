@@ -17,7 +17,7 @@ import com.example.sigca.entity.PedidoOracion;
 import com.example.sigca.serviceImpl.PedidoOracionServiceImpl;
 
 @RestController
-@RequestMapping("/api/recursos")
+@RequestMapping("/api/pedidooracion")
 public class PedidoOracionController {
 
 	@Autowired
