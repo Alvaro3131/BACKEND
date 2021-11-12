@@ -45,9 +45,6 @@ public class RolUsuarioServiceImpl implements RolUsuarioService {
 
 		return rolusuario.actualizarRolUsuario(u.idrolusuario, u.getRol().idrol, u.getUsuario().getId());
 
-		
-
-
 	}
 	
 
