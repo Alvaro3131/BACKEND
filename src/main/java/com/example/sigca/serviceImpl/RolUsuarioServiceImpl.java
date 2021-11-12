@@ -44,9 +44,7 @@ public class RolUsuarioServiceImpl implements RolUsuarioService {
 		// TODO Auto-generated method stub
 
 		return rolusuario.actualizarRolUsuario(u.idrolusuario, u.getRol().idrol, u.getUsuario().getId());
-/*
-		return rolusuario.actualizarRolUsuario(u.getIdrolusuario(), u.getRol().getIdrol(), u.getUsuario().getId());
-*/
+
 	}
 	
 
