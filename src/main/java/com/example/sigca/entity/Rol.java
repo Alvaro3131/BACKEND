@@ -6,13 +6,17 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,16 +40,17 @@ public class Rol implements Serializable{
 		super();
 		this.nombrerol = nombrerol;
 	}
-
+	
+	
 	@Column(name="no_rol")
 	public String nombrerol;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_privilegios")
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="rol")
 	private Set<RolPrivilegios> rolprivilegios;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_usuario")
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="rol")
 	private Set<RolUsuario> rolusuario;
 	
 }

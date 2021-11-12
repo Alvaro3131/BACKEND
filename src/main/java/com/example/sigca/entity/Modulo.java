@@ -39,7 +39,7 @@ public class Modulo {
 	private String no_modulo;
 	
 	// Enlaze con categoria
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_categoria", referencedColumnName = "id_categoria")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Categoria categoria;
@@ -48,14 +48,13 @@ public class Modulo {
 	private String nu_sesiones;
 	
 	// Enlace con programacion
-	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
 	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
 	private List<Programacion> programacion;
 	
 	
-	
-	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
 	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="modulo")
 	private List<Sesion> sesion;
 	
 	@JsonIgnore

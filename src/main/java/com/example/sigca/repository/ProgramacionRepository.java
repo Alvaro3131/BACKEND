@@ -27,7 +27,7 @@ public interface ProgramacionRepository extends JpaRepository<Programacion, Inte
 	
 	// Insertar
 	@Query(value = "{call SP_INS_PROGRAMACION(:p_nFK_BANCOCOMUNAL,:p_nFK_MODULO)}", nativeQuery = true) 
-	String insertarProgramacion(@Param("p_nFK_BANCOCOMUNAL") int p_nFK_BANCOCOMUNAL,@Param("p_nFK_MODULO") int p_nFK_MODULO, @Param("p_nES_PROGRAMACION") int p_nES_PROGRAMACION);
+	String insertarProgramacion(@Param("p_nFK_BANCOCOMUNAL") int p_nFK_BANCOCOMUNAL,@Param("p_nFK_MODULO") int p_nFK_MODULO);
 	
 	//Update
 	@Query(value = "{call SP_UPD_PROGRAMACION(:p_nIDPROGRAMACION,:p_nFK_BANCOCOMUNAL,:p_nFK_MODULO,:p_nES_PROGRAMACION)}", nativeQuery = true) 
