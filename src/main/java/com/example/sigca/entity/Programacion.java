@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,12 +33,14 @@ public class Programacion {
 	//Relacion con modulo
 	@ManyToOne
 	@JoinColumn(name="fk_modulo",referencedColumnName = "id_modulo")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Modulo modulo;
 	
 	
 	//Relacion con banco comunal
 	@ManyToOne
 	@JoinColumn(name="fk_bancocomunal",referencedColumnName = "id_bancocomunal")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private BancoComunal banco;
 	
 }

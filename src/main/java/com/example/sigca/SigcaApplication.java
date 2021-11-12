@@ -76,9 +76,6 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 
-
-
-
 @Autowired
 private SesionRepository sesionRepository;
 @Autowired
@@ -109,10 +106,6 @@ private ProgramacionRepository p;
 @Autowired
 private PersonaService personaService;
 
-
-
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
 	}
@@ -120,6 +113,46 @@ private PersonaService personaService;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
+
+		
+		/*
+		rol.insertarRol("integral");
+
+		
+		
+		/*
+		rol.eliminarRol(6);
+		*/
+		/*
+		privilegios.eliminarPrivilegios(2);
+		
+		       */
+		
+	/*privilegios.actualizarPrivilegios(, null)
+	 
+	 */
+		
+		
+		
+		/*
+		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getIdrolprivilegios());
+		}*/
+			
+		/*List<Persona> pe= personaRepository.listarPersona();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
+		}
+		*/
+
+			
+
+		/*List<Persona> pe= personaRepository.listarPersona();
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
+		}
+		*/
 
 
 }

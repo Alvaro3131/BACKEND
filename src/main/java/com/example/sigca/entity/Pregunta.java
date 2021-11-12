@@ -52,6 +52,5 @@ public class Pregunta implements Serializable {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pregunta")
-	//@JoinColumn(name = "id_alternativa")
 	private List<Alternativa> alternativa;
 }
