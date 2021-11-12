@@ -2,6 +2,7 @@ package com.example.sigca.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,13 +51,14 @@ public class Distrito {
 	@Column(name="no_distrito")
 	private String no_distrito;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.MERGE)
 	@JoinColumn(name="fk_sede",referencedColumnName = "id_sede")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Sede sede;
 
 	
 	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="distrito" )
-	//@JoinColumn(name = "id_bancocomunal")
+	@JsonIgnore
 	private List<BancoComunal> banco;
 	
 	

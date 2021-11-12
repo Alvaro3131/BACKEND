@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,7 +48,7 @@ public class Sede implements Serializable{
 	private String no_sede;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sede")
-	//@JoinColumn(name="id_distrito")
+	@JsonIgnore
 	private List<Distrito> distrito;
 	
 	
