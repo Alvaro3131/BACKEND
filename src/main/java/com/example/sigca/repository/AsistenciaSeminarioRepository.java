@@ -14,7 +14,7 @@ public interface AsistenciaSeminarioRepository extends JpaRepository<Asistencia_
 	
 		//Listar
 		@Query(value = "{ CALL SP_LISTAR_ASISTENCIA_SEMINARIO(0) }", nativeQuery = true)
-		List<Asistencia_Seminario> listarAsistencia_Seminario();
+		List<Asistencia_Seminario> listarAsistenciaSeminario();
 		
 		//Buscar
 		@Query(value = "{call SP_LISTAR_ASISTENCIA_SEMINARIO(:p_nIDASISTENCIASEMINARIO)}", nativeQuery = true) 
@@ -29,7 +29,7 @@ public interface AsistenciaSeminarioRepository extends JpaRepository<Asistencia_
 		String insertarAsistenciaSeminario(@Param("p_nIdAsistencia_Seminario") int p_nIdAsistencia_Seminario,@Param("p_Es_Asistencia") int p_Es_Asistencia,@Param("p_De_Asistencia") String p_De_Asistencia, @Param("p_Fe_Asistencia") Time p_Fe_Asistencia);
 		
 		//Update
-		@Query(value = "{call SP_UPD_ASISTENCIA_SEMINARIO(:p_nIdAsistencia,:p_nIdSeminario,:p_nIdSocio,:p_nEstado,:p_vDescripcion)}", nativeQuery = true) 
+		@Query(value = "{call SP_UPD_ASISTENCIA_SEMINARIO(:p_nIdAsistencia_Seminario,:p_Es_Asistencia:p_De_Asistencia,:p_Fe_Asistencia)}", nativeQuery = true) 
 		String actualizarAsistenciaSeminario(@Param("p_nIdAsistencia_Seminario") int p_nIdAsistencia_Seminario,@Param("p_Es_Asistencia") int p_Es_Asistencia,@Param("p_De_Asistencia") String p_De_Asistencia, @Param("p_Fe_Asistencia") Time p_Fe_Asistencia);
 		
 }
