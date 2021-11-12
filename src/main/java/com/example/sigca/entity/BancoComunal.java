@@ -26,12 +26,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_bancocomunal" )
 public class BancoComunal {
 
-	public BancoComunal(String no_bancocomunal, Distrito distrito, Asesor asesor) {
+	/*public BancoComunal(String no_bancocomunal, Distrito distrito, Asesor asesor) {
 		super();
 		this.no_bancocomunal = no_bancocomunal;
 		this.distrito = distrito;
 		this.asesor = asesor;
-	}
+	}*/
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,6 +66,6 @@ public class BancoComunal {
 	
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "banco")
 	//@JoinColumn(name = "id_persona")
-	private List<Socio> socio;
+	private List<Socio> socio;*/
 	
 }
