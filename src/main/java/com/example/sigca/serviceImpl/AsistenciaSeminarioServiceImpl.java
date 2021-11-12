@@ -24,7 +24,7 @@ public class AsistenciaSeminarioServiceImpl implements AsistenciaSeminarioServic
 	@Override
 	public List<Asistencia_Seminario> ListarAsistenciaSeminario() {
 		// TODO Auto-generated method stub
-		return asistenciaSeminario.listarAsistencia_Seminario();
+		return asistenciaSeminario.listarAsistenciaSeminario();
 	}
 	
 	@Override
