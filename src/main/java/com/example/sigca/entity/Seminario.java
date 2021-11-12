@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -50,11 +53,11 @@ public class Seminario {
 	@Column(name = "URL_SEMINARIO")
 	public String URL_SEMINARIO;
 	
-
+    @JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "seminario")
-	//@JoinColumn(name="id_asistencia_seminario")
 	private Set<Asistencia_Seminario> as;
 	
+    @JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "seminario")
 	//@JoinColumn(name="id_programa_capacitacion")
 	private Set<ProgramaSeminario> ps;

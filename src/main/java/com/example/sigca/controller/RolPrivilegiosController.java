@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
+import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.RolPrivilegios;
 import com.example.sigca.serviceImpl.RolPrivilegiosServiceImpl;
 
@@ -55,20 +54,21 @@ public class RolPrivilegiosController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
-	/*
+	
 	//Funciona
 	@PostMapping("/new")
 	public ResponseEntity<String> agregarRolPrivilegios(@RequestBody RolPrivilegios i){
-		try {
-			RolPrivilegios rolprivilegios = new RolPrivilegios(i.);
-			String mensaje= rolprivilegiosimpl.insertarRolPrivilegios(rolprivilegios);
+		try {			
+			String mensaje= rolprivilegiosimpl.insertarRolPrivilegios(i);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	*/
+	
+	
+	
 	
 	//Funciona
 	@DeleteMapping("/delete/{id}")
@@ -84,20 +84,19 @@ public class RolPrivilegiosController {
 	
 	//Funciona
 	@PutMapping("/update/{id}")
-	public ResponseEntity<String> ActualizarRolPrivilegios(@RequestBody RolPrivilegios i, @PathVariable("id") int id){
+	public ResponseEntity<String> actualizarRolPrivilegios(@RequestBody RolPrivilegios i, @PathVariable("id") int id){
 	try {
 		RolPrivilegios ul = rolprivilegiosimpl.buscarRolPrivilegios(id);
-		if (ul.getIdrolprivilegios()>0) {
-			;
+			ul.setRol(i.getRol());
+			ul.setPrivilegios(i.getPrivilegios());
 			return new ResponseEntity<>(rolprivilegiosimpl.actualizarRolPrivilegios(ul),HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		 
 	} catch (Exception e) {
 		// TODO: handle exception
 		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	}
-	}
+}
+	
 

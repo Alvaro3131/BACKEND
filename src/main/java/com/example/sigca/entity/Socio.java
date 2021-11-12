@@ -1,17 +1,22 @@
 package com.example.sigca.entity;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +30,7 @@ import lombok.NoArgsConstructor;
 public class Socio {
 		
 	@Id
-	@Column(name = "ID_PERSONA")
+	@Column(name = "id_persona")
 	private int id;
 
 	
@@ -34,9 +39,29 @@ public class Socio {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	@JsonBackReference
 	private Persona persona;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="FK_BANCOCOMUNAL",referencedColumnName = "id_bancocomunal")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private BancoComunal banco;
+	
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<PedidoOracion> pedido;
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<Inscripcion> inscripcion;
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<Asistencia_Seminario> as;
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
+	private List<AsistenciaRecurso> ar;
 	
 	/*
 	

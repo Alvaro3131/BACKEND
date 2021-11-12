@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,19 +35,20 @@ public class Sede implements Serializable{
 	
 	public Sede(String nombreSede) {
 		super();
-		this.nombreSede = nombreSede;
+		this.no_sede = nombreSede;
 	}
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_sede")
-	private int idsede;
+	private int id_sede;
 	
 	@Column(name="no_sede")
-	private String nombreSede;
+	private String no_sede;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sede")
-	//@JoinColumn(name="id_distrito")
 	private List<Distrito> distrito;
 	
 	

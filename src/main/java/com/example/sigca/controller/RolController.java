@@ -83,12 +83,12 @@ public class RolController {
 	
 	//Funciona
 	@PutMapping("/update/{id}")
-	public ResponseEntity<String> ActualizarRol(@RequestBody Rol r, @PathVariable("id") int id){
+	public ResponseEntity<String> actualizarRol(@RequestBody Rol r, @PathVariable("id") int id){
 	try {
 		Rol ul = rolimpl.buscarRol(id);
 		if (ul.getIdrol()>0) {
 			ul.getNombrerol();
-			return new ResponseEntity<>(rolimpl.ActualizarRol(ul),HttpStatus.OK);
+			return new ResponseEntity<>(rolimpl.actualizarRol(ul),HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

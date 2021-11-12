@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,19 +26,25 @@ import lombok.NoArgsConstructor;
 @Table(name = "tbl_programa_seminario" )
 public class ProgramaSeminario{
  
+	public ProgramaSeminario(Seminario seminario, BancoComunal banco) {
+		super();
+		this.seminario = seminario;
+		this.banco = banco;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_programa_capacitacion")
 	private int id_programa_capacitacion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name="fk_seminario", referencedColumnName = "id_seminario")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Seminario seminario;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name="fk_bancocomunal", referencedColumnName = "id_bancocomunal")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private BancoComunal banco;
 
 }

@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,11 +46,11 @@ public class Pregunta implements Serializable {
 	private String nombre;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_recurso", referencedColumnName = "id_recurso")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Recurso recurso;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pregunta")
-	//@JoinColumn(name = "id_alternativa")
 	private List<Alternativa> alternativa;
 }

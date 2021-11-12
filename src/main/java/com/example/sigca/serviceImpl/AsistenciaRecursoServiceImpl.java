@@ -15,11 +15,10 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 
 	@Autowired
 	private AsistenciaRecursoRepository asistenciaRecurso;
-	
 	@Override
 	public String insertarAsistenciaRecurso(AsistenciaRecurso s) {
 		// TODO Auto-generated method stub
-		return null;
+		return asistenciaRecurso.insertarAsistenciaRecurso(1, s.getNu_valoracion(), s.getSocio().getId(), s.getRecurso().getId());
 	}
 
 	@Override
@@ -37,13 +36,14 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 	@Override
 	public String eliminarAsistenciaRecurso(int id_AsistenciaRecurso) {
 		// TODO Auto-generated method stub
-		System.out.println(id_AsistenciaRecurso);
 		return asistenciaRecurso.eliminarAsistenciaRecurso(id_AsistenciaRecurso);
 	}
 
 	@Override
 	public String actualizarAsistenciaRecurso(AsistenciaRecurso s) {
 		// TODO Auto-generated method stub
-		return asistenciaRecurso.actualizarAsistenciaRecurso(s.getId_asistencia_recurso(), s.getEs_asistencia(),s.getNu_valoracion());
+		return asistenciaRecurso.actualizarAsistenciaRecurso(s.getId_asistencia_recurso(), s.getEs_asistencia(), s.getNu_valoracion(),s.getSocio().getId(),s.getRecurso().getId());
 	}
+	
+
 }

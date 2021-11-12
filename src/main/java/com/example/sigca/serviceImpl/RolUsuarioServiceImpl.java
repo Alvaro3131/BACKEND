@@ -6,41 +6,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.sigca.entity.RolUsuario;
+import com.example.sigca.repository.RolUsuarioRepository;
 import com.example.sigca.service.RolUsuarioService;
 
 @Service
 public class RolUsuarioServiceImpl implements RolUsuarioService {
+	
+	@Autowired
+	private RolUsuarioRepository rolusuario;
 
 	@Override
 	public String insertarRolUsuario(RolUsuario u) {
 		// TODO Auto-generated method stub
-		return null;
+		return rolusuario.insertarRolUsuario(u.getRol().idrol, u.getUsuario().getId());
 	}
 
 	@Override
 	public List<RolUsuario> listarRolUsuario() {
 		// TODO Auto-generated method stub
-		return null;
+		return rolusuario.listarRolUsuario();
 	}
 
 	@Override
 	public RolUsuario buscarRolUsuario(int id_rol_usuario) {
 		// TODO Auto-generated method stub
-		return null;
+		return rolusuario.buscarRolUsuario(id_rol_usuario);
 	}
 
 	@Override
 	public String eliminarRolUsuario(int id_rol_usuario) {
 		// TODO Auto-generated method stub
-		return null;
+		return rolusuario.eliminarRolUsuario(id_rol_usuario);
 	}
-
+	
 	@Override
 	public String actualizarRolUsuario(RolUsuario u) {
 		// TODO Auto-generated method stub
-		return null;
+<<<<<<< HEAD
+		return rolusuario.actualizarRolUsuario(u.idrolusuario, u.getRol().idrol, u.getUsuario().getId());
+=======
+
+		return rolusuario.actualizarRolUsuario(u.getIdrolusuario(), u.getRol().getIdrol(), u.getUsuario().getId());
+
+>>>>>>> 0ab75cad07dc0709afb2359205925503349516e3
 	}
 	
 
 
 }
+

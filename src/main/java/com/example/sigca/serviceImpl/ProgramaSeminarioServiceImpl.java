@@ -12,37 +12,37 @@ import com.example.sigca.service.ProgramaSeminarioService;
 public class ProgramaSeminarioServiceImpl implements ProgramaSeminarioService {
 
 	@Autowired
-	private ProgramaSeminarioRepository ps;
+	private ProgramaSeminarioRepository psr;
 
 	
 	@Override
 	public List<ProgramaSeminario> listarProgramaSeminario() {
 		// TODO Auto-generated method stub
-		return ps.listarProgramaSeminario();
+		return psr.listarProgramaSeminario();
 	}
 
 	@Override
 	public String insertarProgramaSeminario(ProgramaSeminario ps) {
 		// TODO Auto-generated method stub
-		return null;
+		return psr.insertarProgramaSeminario(ps.getSeminario().getID_SEMINARIO(), ps.getBanco().getId_bancocomunal());
 	}
 
 	@Override
 	public ProgramaSeminario buscarProgramaSeminario(int id_programa_capacitacion) {
 		// TODO Auto-generated method stub
-		return ps.buscarProgramaSeminario(id_programa_capacitacion);
+		return psr.buscarProgramaSeminario(id_programa_capacitacion);
 	}
 
 	@Override
 	public String eliminarProgramaSeminario(int id_programa_capacitacion) {
 		// TODO Auto-generated method stub
-		return ps.eliminarProgramaSeminario(id_programa_capacitacion);
+		return psr.eliminarProgramaSeminario(id_programa_capacitacion);
 	}
 
 	@Override
 	public String actualizarProgramaSeminario(ProgramaSeminario ps) {
 		// TODO Auto-generated method stub
-		return null;
+		return psr.actualizarProgramaSeminario(ps.getId_programa_capacitacion(), ps.getSeminario().getID_SEMINARIO(), ps.getBanco().getId_bancocomunal());
 	}
 
 }

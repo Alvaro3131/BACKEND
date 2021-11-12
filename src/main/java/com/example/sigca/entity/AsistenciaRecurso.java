@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,21 +31,23 @@ public class AsistenciaRecurso {
 	@Column(name = "id_asistencia_recurso")
 	int id_asistencia_recurso;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn( name = "fk_socio", referencedColumnName = "id_persona")
-	private Socio socio;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
-	@JoinColumn( name = "fk_recurso", referencedColumnName = "id_recurso")
-	private Recurso recurso;
 	
 	@Column( name = "es_asistencia")
 	int es_asistencia;
 	
 	@Column( name = "nu_valoracion")
 	int nu_valoracion;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "fk_socio", referencedColumnName = "id_persona")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Socio socio;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn( name = "fk_recurso", referencedColumnName = "id_recurso")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Recurso recurso;
 	
 	
 }
