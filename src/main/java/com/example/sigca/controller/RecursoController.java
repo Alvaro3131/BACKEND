@@ -55,8 +55,8 @@ public class RecursoController {
 		@PostMapping("/new")
 		public ResponseEntity<String> agregarRecurso(@RequestBody Recurso rec){
 			try {
-				Recurso recurso = new Recurso(rec.getNombrerecurso() +""+ rec.getOrden() +""+ rec.getDescripcion() +""+ rec.getTipo() +""+ rec.getSesion());
-				String mensaje= recursoimpl.insertarRecurso(recurso);
+				Recurso r = new Recurso(rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion(), rec.getTipo());
+				String mensaje= recursoimpl.insertarRecurso(r);
 				return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 			} catch (Exception e) {
 				// TODO: handle exception

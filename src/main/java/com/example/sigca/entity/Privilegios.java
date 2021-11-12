@@ -32,6 +32,11 @@ public class Privilegios implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_privilegios")
 	public int idprivilegios;
+	public Privilegios(String nombreprivilegios) {
+		super();
+		this.nombreprivilegios = nombreprivilegios;
+	}
+
 	@Column(name="no_privilegios")
 	public String nombreprivilegios;
 	

@@ -34,16 +34,17 @@ public class Sede implements Serializable{
 	
 	public Sede(String nombreSede) {
 		super();
-		this.nombreSede = nombreSede;
+		this.no_sede = nombreSede;
 	}
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_sede")
-	private int idsede;
+	private int id_sede;
 	
 	@Column(name="no_sede")
-	private String nombreSede;
+	private String no_sede;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sede")
 	//@JoinColumn(name="id_distrito")
