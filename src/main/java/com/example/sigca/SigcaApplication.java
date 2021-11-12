@@ -122,8 +122,6 @@ private PersonaService personaService;
 	public void run(String... args) throws Exception {
 
 
-	
-
 }
 }
 
