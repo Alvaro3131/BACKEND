@@ -20,31 +20,31 @@ public class PrivilegiosServiceImpl implements PrivilegiosService {
 	@Override
 	public String insertarPrivilegios(Privilegios p) {
 		// TODO Auto-generated method stub
-		return null;
+		return  privilegios.insertarPrivilegios(p.getNombreprivilegios());
 	}
 
 	@Override
 	public List<Privilegios> ListarPrivilegios() {
 		// TODO Auto-generated method stub
-		return null;
+		return privilegios.listarPrivilegios();
 	}
 
 	@Override
 	public Privilegios buscarPrivilegios(int id_privilegios) {
 		// TODO Auto-generated method stub
-		return null;
+		return privilegios.buscarPrivilegios(id_privilegios);
 	}
 
 	@Override
 	public String eliminarPrivilegios(int id_privilegios) {
 		// TODO Auto-generated method stub
-		return null;
+		return privilegios.eliminarPrivilegios(id_privilegios);
 	}
 
 	@Override
 	public String actualizarPrivilegios(Privilegios p) {
 		// TODO Auto-generated method stub
-		return null;
+		return privilegios.actualizarPrivilegios(p.getIdprivilegios(),p.getNombreprivilegios());
 	}
 	
  

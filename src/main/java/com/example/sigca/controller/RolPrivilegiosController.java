@@ -84,7 +84,7 @@ public class RolPrivilegiosController {
 	
 	//Funciona
 	@PutMapping("/update/{id}")
-	public ResponseEntity<String> ActualizarRolPrivilegios(@RequestBody RolPrivilegios i, @PathVariable("id") int id){
+	public ResponseEntity<String> actualizarRolPrivilegios(@RequestBody RolPrivilegios i, @PathVariable("id") int id){
 	try {
 		RolPrivilegios ul = rolprivilegiosimpl.buscarRolPrivilegios(id);
 		if (ul.getIdrolprivilegios()>0) {
