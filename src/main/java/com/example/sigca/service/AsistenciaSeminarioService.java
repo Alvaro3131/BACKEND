@@ -8,7 +8,7 @@ public interface AsistenciaSeminarioService {
 
 	String insertarAsistenciaSeminario (Asistencia_Seminario s);
 	List<Asistencia_Seminario> ListarAsistenciaSeminario();
-	Asistencia_Seminario buscarAsistenciaSeminario(int id_asistenciaSeminario);
-	String eliminarAsistenciaSeminario(int id_asistenciaSeminario);
+	Asistencia_Seminario buscarAsistenciaSeminario(int id_asistencia_seminario);
+	String eliminarAsistenciaSeminario(int id_asistencia_seminario);
 	String actualizarAsistenciaSeminario(Asistencia_Seminario s);
 }
