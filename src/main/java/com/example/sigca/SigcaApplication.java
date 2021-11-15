@@ -3,6 +3,7 @@ package com.example.sigca;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.sigca.dto.ParticipacionDto;
 import com.example.sigca.entity.Asesor;
 
 import com.example.sigca.entity.Asistencia_Seminario;
@@ -42,6 +44,7 @@ import com.example.sigca.repository.BancoComunalRepositoy;
 
 import com.example.sigca.repository.CategoriaRepository;
 import com.example.sigca.repository.DistritoRepository;
+import com.example.sigca.repository.DtoRepository;
 import com.example.sigca.repository.ModuloRepository;
 import com.example.sigca.repository.PersonaRepository;
 import com.example.sigca.repository.PrivilegiosRepository;
@@ -106,6 +109,9 @@ private ProgramacionRepository p;
 @Autowired
 private PersonaService personaService;
 
+@Autowired
+private DtoRepository dtoRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
 	}
@@ -153,8 +159,7 @@ private PersonaService personaService;
 			System.out.println(pe.get(i).getNombre()+" "+pe.get(i).getPaterno());
 		}
 		*/
-
-
+		
 }
 }
 
