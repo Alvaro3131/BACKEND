@@ -7,8 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.sigca.dto.ParticipacionDto;
-import com.example.sigca.entity.Persona;
+
+
 import com.example.sigca.repository.DtoRepository;
 import com.example.sigca.service.ParticipacionService;
 @Service
@@ -20,6 +20,11 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 	public List<Map<String, Object>> readall(int banco, int modulo) {
 		// TODO Auto-generated method stub
 		return dtoRepository.listarDto(banco, modulo);
+	}
+	@Override
+	public String insertarMasivo(String modulo, String banco) {
+		// TODO Auto-generated method stub
+		return dtoRepository.insertarMasico(modulo, banco);
 	}
 
 

@@ -11,7 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.sigca.dto.ParticipacionDto;
+
 import com.example.sigca.entity.Asesor;
 
 import com.example.sigca.entity.Asistencia_Seminario;

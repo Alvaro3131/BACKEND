@@ -9,6 +9,7 @@ public interface DistritoService {
 	String insertarDistrito (Distrito d);
 	List<Distrito> listarDistrito();
 	Distrito buscarDistrito(int id_distrito);
+	
 	String eliminarDistrito(int id_distrito);
 	String ActualizarDistrito(Distrito d);
 }
