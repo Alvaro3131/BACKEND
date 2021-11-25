@@ -44,6 +44,12 @@ public class BancoComunalServiceImpl implements BancoComunalService {
 		return b.actualizarBanco(banco.getId_bancocomunal(), banco.getNo_bancocomunal(),banco.getDistrito().getId_distrito(), banco.getAsesor().getId_persona());
 	}
 
+	@Override
+	public List<BancoComunal> buscarDistrito(int id) {
+		// TODO Auto-generated method stub
+		return b.listarBancoComunalDistrito(id);
+	}
+
 
 	
 }

@@ -13,11 +13,13 @@ import com.example.sigca.service.ProgramacionService;
 public class ProgramacionServiceImpl implements ProgramacionService {
 
 	@Autowired
+
 	private ProgramacionRepository pr;
 	
 	@Override
 	public List<Programacion> listarProgramacion() {
 		// TODO Auto-generated method stub
+
 		return pr.listarProgramacion();
 	}
 
@@ -30,19 +32,28 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 	@Override
 	public Programacion BuscarProgramacion(int id_programacion) {
 		// TODO Auto-generated method stub
+
 		return pr.BuscarProgramacion(id_programacion);
 		}
 
 	@Override
 	public String eliminarProgramacion(int id_programacion) {
 		// TODO Auto-generated method stub
+
 		return pr.eliminarProgramacion(id_programacion);
 		}
 
 	@Override
 	public String actualizarProgramacion(Programacion p) {
 		// TODO Auto-generated method stub
+
 		return pr.actualizarProgramacion(p.getId_programacion(), p.getBanco().getId_bancocomunal(), p.getModulo().getId_modulo(), p.getEs_pogramacion());
+	}
+
+	@Override
+	public List<Programacion> buscarProgramacionBanco(int id) {
+		// TODO Auto-generated method stub
+		return pr.listarProgramacionBanco(id);
 	}
 
 }

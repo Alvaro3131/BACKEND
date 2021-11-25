@@ -15,7 +15,6 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 
 	@Autowired
 	private AsistenciaRecursoRepository asistenciaRecurso;
-
 	@Override
 	public String insertarAsistenciaRecurso(AsistenciaRecurso s) {
 		// TODO Auto-generated method stub

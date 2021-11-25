@@ -11,5 +11,5 @@ public interface BancoComunalService {
 	BancoComunal buscarBanco(int id_bancocomunal);
 	String eliminarBanco(int id_bancocomunal);
 	String actualizarBanco(BancoComunal banco);
-
+	List<BancoComunal> buscarDistrito(int id);
 }

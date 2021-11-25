@@ -22,7 +22,7 @@ public class RolPrivilegiosServiceImpl implements RolPrivilegiosService {
 	@Override
 	public String insertarRolPrivilegios(RolPrivilegios i) {
 		// TODO Auto-generated method stub
-		return null;
+		return rolprivilegios.insertarRolPrivilegios(i.getPrivilegios().idprivilegios, i.getRol().idrol);
 	}
 
 	@Override
@@ -38,15 +38,15 @@ public class RolPrivilegiosServiceImpl implements RolPrivilegiosService {
 	}
 
 	@Override
-	public String eliminarRolPrivilegios(int id_rol_privilegios) {
+	public String eliminarRolPrivilegios(int id) {
 		// TODO Auto-generated method stub
-		return rolprivilegios.eliminarRolPrivilegios(id_rol_privilegios);
+		return rolprivilegios.eliminarRolPrivilegios(id);
 	}
 
 	@Override
 	public String actualizarRolPrivilegios(RolPrivilegios i) {
 		// TODO Auto-generated method stub
-		return null;
+		return rolprivilegios.actualizarRolPrivilegios(i.getIdrolprivilegios(), i.getPrivilegios().getIdprivilegios(), i.getRol().getIdrol());
 	}
 
 

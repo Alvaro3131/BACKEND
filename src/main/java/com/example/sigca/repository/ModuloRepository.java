@@ -27,6 +27,8 @@ public interface ModuloRepository extends JpaRepository<Modulo, Integer> {
 		@Query(value = "{call SP_INS_MODULO(:p_vNombre,:p_nIdCategoria)}", nativeQuery = true) 
 		String insertarModulo(@Param("p_vNombre") String P_NOMBRE, @Param("p_nIdCategoria") int p_nIdCategoria);
 		
+		
+		
 		//Update
 		@Query(value = "{call SP_UPD_MODULO(:p_nID,:p_vNombre,:p_nIdCategoria)}", nativeQuery = true) 
 		String actualizarModulo(@Param("p_nID") int p_nID ,@Param("p_vNombre") String p_vNombre,@Param("p_nIdCategoria") int p_nIdCategoria);

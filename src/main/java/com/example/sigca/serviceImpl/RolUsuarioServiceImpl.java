@@ -18,7 +18,7 @@ public class RolUsuarioServiceImpl implements RolUsuarioService {
 	@Override
 	public String insertarRolUsuario(RolUsuario u) {
 		// TODO Auto-generated method stub
-		return rolusuario.insertarRolUsuario(0, 0, 0);
+		return rolusuario.insertarRolUsuario(u.getRol().idrol, u.getUsuario().getId());
 	}
 
 	@Override
@@ -42,7 +42,9 @@ public class RolUsuarioServiceImpl implements RolUsuarioService {
 	@Override
 	public String actualizarRolUsuario(RolUsuario u) {
 		// TODO Auto-generated method stub
-		return rolusuario.actualizarRolUsuario(u.getIdrolusuario(), u.getRol().getIdrol(), u.getUsuario().getId());
+
+		return rolusuario.actualizarRolUsuario(u.idrolusuario, u.getRol().idrol, u.getUsuario().getId());
+
 	}
 	
 

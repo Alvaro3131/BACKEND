@@ -11,4 +11,5 @@ public interface SesionService {
 	Sesion buscarSesion(int id_sesion);
 	String eliminarSesion(int id_sesion);
 	String actualizarSesion(Sesion s);
+	List<Sesion> listarSesionModulo(int id_sesion);
 }

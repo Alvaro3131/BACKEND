@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.sigca.entity.RolPrivilegios;
 import com.example.sigca.entity.RolUsuario;
 import com.example.sigca.serviceImpl.RolUsuarioServiceImpl;
 
@@ -52,20 +54,18 @@ public class RolUsuarioController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
-	/*
-	//Funciona
+	
+	//Funciona	
 	@PostMapping("/new")
-	public ResponseEntity<String> agregarRolPrivilegios(@RequestBody RolPrivilegios i){
-		try {
-			RolPrivilegios rolprivilegios = new RolPrivilegios(i.);
-			String mensaje= rolprivilegiosimpl.insertarRolPrivilegios(rolprivilegios);
+	public ResponseEntity<String> agregarRolUsuario(@RequestBody RolUsuario u){
+		try {			
+			String mensaje= rolusuarioimpl.insertarRolUsuario(u);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	*/
 	
 	//Funciona
 	@DeleteMapping("/delete/{id}")
