@@ -17,14 +17,24 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 	@Autowired
 	public DtoRepository dtoRepository;
 	@Override
-	public List<Map<String, Object>> readall(int banco, int modulo) {
+	public List<Map<String, Object>> listarParticipacionSesion(int banco, int modulo) {
 		// TODO Auto-generated method stub
-		return dtoRepository.listarDto(banco, modulo);
+		return dtoRepository.listarParticipacionSesiones(banco, modulo);
 	}
 	@Override
 	public String insertarMasivo(String modulo, String banco) {
 		// TODO Auto-generated method stub
 		return dtoRepository.insertarMasico(modulo, banco);
+	}
+	@Override
+	public List<Map<String, Object>> participantes(int banco, int modulo) {
+		// TODO Auto-generated method stub
+		return dtoRepository.listarParticipantes(banco, modulo);
+	}
+	@Override
+	public List<Map<String, Object>> listaProgramaAsesor(int id) {
+		// TODO Auto-generated method stub
+		return dtoRepository.listarProgramasAsesor(id);
 	}
 
 

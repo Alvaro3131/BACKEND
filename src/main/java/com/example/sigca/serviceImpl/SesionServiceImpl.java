@@ -44,6 +44,11 @@ public class SesionServiceImpl implements SesionService{
 		// TODO Auto-generated method stub
 		return sesion.actualizarSesion(s.getID_SESION(), s.getNO_SESION());
 	}
+	@Override
+	public List<Sesion> listarSesionModulo(int id_sesion) {
+		// TODO Auto-generated method stub
+		return sesion.listarSesionModulo(id_sesion);
+	}
 
 
 	

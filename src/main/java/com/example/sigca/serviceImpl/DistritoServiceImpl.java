@@ -45,6 +45,12 @@ public class DistritoServiceImpl implements DistritoService{
 		return distrito.actualizarDistrito(d.getId_distrito(), d.getNo_distrito(), d.getSede().getId_sede());
 	}
 
+	@Override
+	public List<Distrito> buscarDistritoSede(int id) {
+		// TODO Auto-generated method stub
+		return distrito.listarDistritoSede(id);
+	}
+
 	
 
 }

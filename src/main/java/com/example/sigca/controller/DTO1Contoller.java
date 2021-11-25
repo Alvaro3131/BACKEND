@@ -26,7 +26,37 @@ public ParticipacionService participacionService;
 	public ResponseEntity<List<Map<String, Object>>> listarDistrito(@PathVariable("banco") int banco, @PathVariable("modulo") int modulo){
 		try {
 			List<Map<String, Object>> list = new ArrayList<>();
-			list=participacionService.readall(banco, modulo);
+			list=participacionService.listarParticipacionSesion(banco, modulo);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/programa/{id}")
+	public ResponseEntity<List<Map<String, Object>>> listarProgramaAsesor(@PathVariable("id") int id){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+			list=participacionService.listaProgramaAsesor(id);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/participantes/{banco}/{modulo}")
+	public ResponseEntity<List<Map<String, Object>>> listarParticipantes(@PathVariable("banco") int banco, @PathVariable("modulo") int modulo){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+			list=participacionService.participantes(banco, modulo);
 			System.out.println(list);
 			if (list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

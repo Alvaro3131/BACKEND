@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.sigca.entity.Distrito;
 import com.example.sigca.entity.Sede;
 import com.example.sigca.entity.Sesion;
 import com.example.sigca.service.SesionService;
@@ -27,6 +28,21 @@ public class SesionController {
 	private SesionService sesionImpl;
 	
 	//Funciona
+	
+	@GetMapping("/modulo/{id}")
+	public ResponseEntity<List<Sesion>> listarSesionModulo(@PathVariable("id") int id){
+		try {
+			List<Sesion> list = new ArrayList<>();
+			list=sesionImpl.listarSesionModulo(id);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	@GetMapping("/all")
 	public ResponseEntity<List<Sesion>> listarSesion(){
 		try {
