@@ -22,11 +22,57 @@ import com.example.sigca.service.ParticipacionService;
 public class DTO1Contoller {
 @Autowired
 public ParticipacionService participacionService;
+@GetMapping("/participacionrecursos/{idsesion}/{idmodulo}")
+public ResponseEntity<List<Map<String, Object>>> participacionrecursosocio(@PathVariable("idsesion") int sesion, @PathVariable("idmodulo") int modulo){
+	try {
+		List<Map<String, Object>> list = new ArrayList<>();
+		list=participacionService.ParticipacionRecursosSocio(sesion, modulo);
+		System.out.println(list);
+		if (list.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(list,HttpStatus.OK);
+	} catch (Exception e) {
+		// TODO: handle exception
+		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+}
 	@GetMapping("/participacion/{banco}/{modulo}")
 	public ResponseEntity<List<Map<String, Object>>> listarDistrito(@PathVariable("banco") int banco, @PathVariable("modulo") int modulo){
 		try {
 			List<Map<String, Object>> list = new ArrayList<>();
 			list=participacionService.listarParticipacionSesion(banco, modulo);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/recursos/{idsocio}/{sesion}")
+	public ResponseEntity<List<Map<String, Object>>> listarSocioRecursos(@PathVariable("idsocio") int idsocio, @PathVariable("sesion") int sesion){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+
+			list=participacionService.listarSocioRecurso(idsocio, sesion);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/participacion/{banco}/{modulo}/{sesion}")
+	public ResponseEntity<List<Map<String, Object>>> listarSocioSesiones(@PathVariable("banco") int banco, @PathVariable("modulo") int modulo, @PathVariable("sesion") int sesion){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+			list=participacionService.listarSocioSesiones(banco, modulo,sesion);
 			System.out.println(list);
 			if (list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

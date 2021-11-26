@@ -119,7 +119,10 @@ private DtoRepository dtoRepository;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-
+		List<Rol> pe= rol.listarRoles(2);
+		for(int i=0;i<pe.size(); i++) {
+			System.out.println(pe.get(i).getNombrerol());
+		}
 		
 		/*
 		rol.insertarRol("integral");
@@ -141,10 +144,7 @@ private DtoRepository dtoRepository;
 		
 		
 		/*
-		List<RolPrivilegios> pe= rolprivilegios.listarRolPrivilegios();
-		for(int i=0;i<pe.size(); i++) {
-			System.out.println(pe.get(i).getIdrolprivilegios());
-		}*/
+		/
 			
 		/*List<Persona> pe= personaRepository.listarPersona();
 		for(int i=0;i<pe.size(); i++) {

@@ -36,6 +36,8 @@ public interface RolRepository extends JpaRepository<Rol, Integer>{
 	@Query(value = "{call SP_UPD_ROL(:p_nID_ROL,:p_nNO_ROL)}", nativeQuery = true) 
 	String actualizarRol(@Param("p_nID_ROL") int p_nID_ROL ,@Param("p_nNO_ROL") String p_nNO_ROL);
 	
+	@Query(value = "select tr.ID_ROL , tr.NO_ROL from tbl_usuario tu join tbl_rol_usuario tru on tu.ID_PERSONA =tru.FK_USUARIO join tbl_rol tr  on tru.FK_ROL =tr.ID_ROL where tu.ID_PERSONA =?;", nativeQuery = true)
+	List<Rol> listarRoles(int id);
 	
 	
 }

@@ -19,7 +19,7 @@ import com.example.sigca.entity.Asistencia_Seminario;
 import com.example.sigca.service.AsistenciaSeminarioService;
 
 @RestController
-@RequestMapping("/api/sesion")
+@RequestMapping("/api/asistenciaseminario")
 public class AsistenciaSeminarioController {
 
 	@Autowired
