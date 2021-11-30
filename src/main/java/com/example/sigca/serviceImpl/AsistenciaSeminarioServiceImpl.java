@@ -10,6 +10,8 @@ import com.example.sigca.entity.Asistencia_Seminario;
 import com.example.sigca.repository.AsistenciaSeminarioRepository;
 
 import com.example.sigca.service.AsistenciaSeminarioService;
+
+
 @Service
 public class AsistenciaSeminarioServiceImpl implements AsistenciaSeminarioService {
 

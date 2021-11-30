@@ -12,9 +12,14 @@ import com.example.sigca.entity.Recurso;
 
 @Repository
 public interface RecursoRepository extends JpaRepository<Recurso, Integer> {
-
+			
+			
+			@Query(value = "select * from tbl_recurso where fk_sesion=?1", nativeQuery = true)
+			List<Recurso> listarRecursoSesion(int id);
+	
+		
 			// Listar
-			@Query(value = "{ CALL SP_LISTAR_RECURSO}", nativeQuery = true)
+			@Query(value = "{ call SP_listar_recurso(0)}", nativeQuery = true)
 			List<Recurso> listarRecurso();
 			
 			// Buscar
