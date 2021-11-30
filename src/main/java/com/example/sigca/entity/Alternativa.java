@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,7 +49,7 @@ public class Alternativa implements Serializable {
 	private int valor;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
 	@JoinColumn(name = "fk_pregunta", referencedColumnName = "id_pregunta")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Pregunta pregunta;
 }

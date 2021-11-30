@@ -1,11 +1,13 @@
 package com.example.sigca.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,11 +35,18 @@ public class Privilegios implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_privilegios")
 	public int idprivilegios;
+	public Privilegios(String nombreprivilegios) {
+		super();
+		this.nombreprivilegios = nombreprivilegios;
+	}
+
 	@Column(name="no_privilegios")
 	public String nombreprivilegios;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_rol_privilegios")
-	private Set<RolPrivilegios> rolprivilegios;
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY ,mappedBy ="privilegios")
+	private List<RolPrivilegios> rolprivilegios;
+	
+	
 	
 }

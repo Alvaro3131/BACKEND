@@ -1,5 +1,6 @@
 package com.example.sigca.repository;
 
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,7 +14,7 @@ public interface AsistenciaSeminarioRepository extends JpaRepository<Asistencia_
 	
 		//Listar
 		@Query(value = "{ CALL SP_LISTAR_ASISTENCIA_SEMINARIO(0) }", nativeQuery = true)
-		List<Asistencia_Seminario> listarAsistencia_Seminario();
+		List<Asistencia_Seminario> listarAsistenciaSeminario();
 		
 		//Buscar
 		@Query(value = "{call SP_LISTAR_ASISTENCIA_SEMINARIO(:p_nIDASISTENCIASEMINARIO)}", nativeQuery = true) 
@@ -24,11 +25,11 @@ public interface AsistenciaSeminarioRepository extends JpaRepository<Asistencia_
 		String eliminarAsistenciaSeminario(@Param("p_nIDASISTENCIASEMINARIO") int p_nIDASISTENCIASEMINARIO);
 		
 		//Insertar
-		@Query(value = "{call SP_INS_ASISTENCIA_SEMINARIO(:p_nIdSeminario,:p_nIdSocio,:p_nEstado,:p_vDescripcion)}", nativeQuery = true) 
-		String insertarAsistenciaSeminario(@Param("p_nIdSeminario") int p_nIdSeminario,@Param("p_nIdSocio") int p_nIdSocio,@Param("p_nEstado") int p_nEstado,@Param("p_vDescripcion") String p_vDescripcion);
+		@Query(value = "{call SP_INS_ASISTENCIA_SEMINARIO(:p_nIdAsistencia_Seminario,:p_Es_Asistencia:p_De_Asistencia,:p_Fe_Asistencia)}", nativeQuery = true) 
+		String insertarAsistenciaSeminario(@Param("p_nIdAsistencia_Seminario") int p_nIdAsistencia_Seminario,@Param("p_Es_Asistencia") int p_Es_Asistencia,@Param("p_De_Asistencia") String p_De_Asistencia, @Param("p_Fe_Asistencia") Time p_Fe_Asistencia);
 		
 		//Update
-		@Query(value = "{call SP_UPD_ASISTENCIA_SEMINARIO(:p_nIdAsistencia,:p_nIdSeminario,:p_nIdSocio,:p_nEstado,:p_vDescripcion)}", nativeQuery = true) 
-		String actualizarAsistenciaSeminario(@Param("p_nIdAsistencia") int p_nIdAsistencia ,@Param("p_nIdSeminario") int p_nIdSeminario,@Param("p_nIdSocio") int p_nIdSocio,@Param("p_nEstado") int p_nEstado,@Param("p_vDescripcion") int p_vDescripcion);
+		@Query(value = "{call SP_UPD_ASISTENCIA_SEMINARIO(:p_nIdAsistencia_Seminario,:p_Es_Asistencia:p_De_Asistencia,:p_Fe_Asistencia)}", nativeQuery = true) 
+		String actualizarAsistenciaSeminario(@Param("p_nIdAsistencia_Seminario") int p_nIdAsistencia_Seminario,@Param("p_Es_Asistencia") int p_Es_Asistencia,@Param("p_De_Asistencia") String p_De_Asistencia, @Param("p_Fe_Asistencia") Time p_Fe_Asistencia);
 		
 }

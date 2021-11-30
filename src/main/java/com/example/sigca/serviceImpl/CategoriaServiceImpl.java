@@ -28,15 +28,15 @@ public class CategoriaServiceImpl implements CategoriaService{
 	}
 
 	@Override
-	public Categoria buscarCategoria(int id_distrito) {
+	public Categoria buscarCategoria(int id_categoria) {
 		// TODO Auto-generated method stub
-		return categoria.buscarCategoria(id_distrito);
+		return categoria.buscarCategoria(id_categoria);
 	}
 
 	@Override
-	public String eliminarCategoria(int id_distrito) {
+	public String eliminarCategoria(int id_categoria) {
 		// TODO Auto-generated method stub
-		return categoria.eliminarCategoria(id_distrito);
+		return categoria.eliminarCategoria(id_categoria);
 	}
 
 	@Override

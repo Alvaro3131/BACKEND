@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,15 +25,22 @@ public class Categoria {
 	
 	//JOSUE DOMINGUEZ 
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_categoria")
 	private int id_categoria;
+	public Categoria(String no_categoria) {
+		super();
+		this.no_categoria = no_categoria;
+	}
+
 	@Column(name="no_categoria")
 	private String no_categoria;
 	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria")
-	//@JoinColumn(name="id_modulo")
 	private List<Modulo> modulo;
 	
 	

@@ -21,7 +21,7 @@ public interface RolRepository extends JpaRepository<Rol, Integer>{
 	// Buscar
 	
 	@Query(value = "{call SP_LISTAR_ROL(:p_nID_ROL)}", nativeQuery = true) 
-	Rol ListarRol(@Param("p_nID_ROL") int p_nID_ROL);
+	Rol buscarRol(@Param("p_nID_ROL") int p_nID_ROL);
 	
 	//Delete
 	

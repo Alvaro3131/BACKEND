@@ -15,6 +15,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,14 +39,13 @@ public class Usuario {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	@JsonBackReference
 	public Persona persona;
 	
 
-	/*
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<RolUsuario> rolusuario;
-	*/
+	
 	
 	
 	

@@ -76,9 +76,6 @@ private CategoriaRepository cate;
 @Autowired 
 private ModuloRepository modulo;
 
-
-
-
 @Autowired
 private SesionRepository sesionRepository;
 @Autowired
@@ -108,10 +105,6 @@ private BancoComunalRepositoy banco;
 private ProgramacionRepository p;
 @Autowired
 private PersonaService personaService;
-
-
-
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);

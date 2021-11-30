@@ -18,7 +18,7 @@ public class DistritoServiceImpl implements DistritoService{
 	@Override
 	public String insertarDistrito(Distrito d) {
 		// TODO Auto-generated method stub
-		return distrito.insertarDistrito(d.getNo_distrito(), d.getSede().getIdsede());
+		return distrito.insertarDistrito(d.getNo_distrito(),d.getSede().getId_sede());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class DistritoServiceImpl implements DistritoService{
 	@Override
 	public String ActualizarDistrito(Distrito d) {
 		// TODO Auto-generated method stub
-		return distrito.actualizarDistrito(d.getId_distrito(), d.getNo_distrito(), d.getSede().getIdsede());
+		return distrito.actualizarDistrito(d.getId_distrito(), d.getNo_distrito(), d.getSede().getId_sede());
 	}
 
 }
