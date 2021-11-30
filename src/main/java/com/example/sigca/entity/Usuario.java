@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,21 +33,25 @@ public class Usuario {
 	int id;
 	
 	@Column(name = "US_NOMBRE")
-	public String  user;
+	public String  username;
 	
 	@Column(name = "PW_USUARIO")
-	public String  pass;
+	public String  password;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	public Persona persona;
 	
-
+	@Column(name="ESTADO")
+	private boolean estado;
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<RolUsuario> rolusuario;
 	
-	
+	public boolean getEstado() {
+		return this.estado;
+	}
 	
 	
 	

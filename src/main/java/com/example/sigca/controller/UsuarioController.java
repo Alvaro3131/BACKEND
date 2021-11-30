@@ -55,8 +55,8 @@ public class UsuarioController {
 			Usuario a = new Usuario();
 			
 			a.setId(usuario.getId());
-			a.setPass(usuario.getPass());
-			a.setUser(usuario.getUser());
+			a.setPassword(usuario.getPassword());
+			a.setUsername(usuario.getUsername());
 			Usuario al = usuarioService.create(a);
 			return new ResponseEntity<>(al, HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -70,8 +70,8 @@ public class UsuarioController {
 			Usuario a = usuarioService.read(id);
 			if(a.getId()>0) {
 				
-				a.setPass(usuario.getPass());
-				a.setUser(usuario.getUser());
+				a.setPassword(usuario.getPassword());
+				a.setUsername(usuario.getUsername());
 				return new ResponseEntity<>(usuarioService.create(a),HttpStatus.OK);
 			}else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);

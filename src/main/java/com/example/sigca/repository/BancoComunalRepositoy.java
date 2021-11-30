@@ -1,6 +1,7 @@
 package com.example.sigca.repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +15,11 @@ public interface BancoComunalRepositoy extends JpaRepository<BancoComunal, Integ
 	//List
 	@Query(value = "{ CALL SP_LISTAR_BANCOCOMUNAL(0) }", nativeQuery = true)
 	List<BancoComunal> listarBancoComunal();
+	
+	
+	@Query(value = "Select * from tbl_bancocomunal where fk_distrito=?1", nativeQuery = true)
+	List<BancoComunal> listarBancoComunalDistrito(int id);
+	
 	
 	//Buscar
 	@Query(value = "{call SP_LISTAR_BANCOCOMUNAL(:p_nIDBANCOCOMUNAL)}", nativeQuery = true) 

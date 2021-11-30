@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ public class ModuloController {
 	private ModuloServiceImpl modulo;
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/all")
 	public ResponseEntity<List<Modulo>> listarModulo(){
 		try {
@@ -40,6 +42,7 @@ public class ModuloController {
 	}
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/search/{id}")
 	public ResponseEntity<Modulo> buscarModulo(@PathVariable("id") int id){
 		Modulo m = modulo.buscarModulo(id);
@@ -51,9 +54,11 @@ public class ModuloController {
 	}
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/new")
 	public ResponseEntity<String> agregarModulo(@RequestBody Modulo m){
 		try {
+			System.out.println("Pase");
 			String mensaje= modulo.insertarModulo(m);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -64,6 +69,7 @@ public class ModuloController {
 	
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> eliminarModulo(@PathVariable("id") int id){
 	try {
@@ -76,6 +82,7 @@ public class ModuloController {
 	}
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public ResponseEntity<String> ActualizarModulo(@RequestBody Modulo m, @PathVariable("id") int id){
 	try {

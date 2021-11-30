@@ -1,6 +1,7 @@
 package com.example.sigca.repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +19,9 @@ public interface PrivilegiosRepository extends JpaRepository<Privilegios, Intege
 	// Listar	
 	@Query(value = "{ CALL SP_LISTAR_TBL_PRIVILEGIO(0) }", nativeQuery = true)
 	List<Privilegios> listarPrivilegios();
+	
+	@Query(value = "{ CALL ido_bi_capa.SP_CHECK_USER(:p_nID) }", nativeQuery = true)
+	List<Map<String,Object>> listarPrivilegiosUsuario(@Param("p_nID") int p_nID);
 	
 	// Buscar
 	

@@ -45,4 +45,6 @@ public class ModuloServiceImpl implements ModuloService{
 		return modulo.actualizarModulo(m.getId_modulo(),m.getNo_modulo() , m.getCategoria().getId_categoria());
 	}
 
+	
+
 }

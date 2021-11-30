@@ -3,6 +3,7 @@ package com.example.sigca.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.sigca.entity.Asistencia_Seminario;
 
@@ -10,6 +11,8 @@ import com.example.sigca.repository.AsistenciaSeminarioRepository;
 
 import com.example.sigca.service.AsistenciaSeminarioService;
 
+
+@Service
 public class AsistenciaSeminarioServiceImpl implements AsistenciaSeminarioService {
 
 	@Autowired

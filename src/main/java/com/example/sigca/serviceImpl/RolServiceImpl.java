@@ -47,5 +47,13 @@ public class RolServiceImpl implements RolService {
 		return rol.actualizarRol(r.getIdrol(), r.getNombrerol());
 	}
 
+	@Override
+	public List<Rol> listarRoles(int id_rol) {
+		// TODO Auto-generated method stub
+		return rol.listarRoles(id_rol);
+	}
+
+	
+
 
 }

@@ -45,4 +45,10 @@ public class RecursoServiceImpl implements RecursoService{
 		return recurso.actualizarRecurso(rec.getId(), rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion().getID_SESION(), rec.getTipo().getId_tipo());
 	}
 
+	@Override
+	public List<Recurso> listarRecursoSesion(int id) {
+		// TODO Auto-generated method stub
+		return recurso.listarRecursoSesion(id);
+	}
+
 }

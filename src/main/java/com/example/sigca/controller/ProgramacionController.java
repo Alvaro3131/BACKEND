@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.sigca.entity.BancoComunal;
 import com.example.sigca.entity.Programacion;
 import com.example.sigca.serviceImpl.ProgramacionServiceImpl;
 
@@ -25,6 +27,20 @@ public class ProgramacionController {
 	private ProgramacionServiceImpl psi;
 	
 	//Funciona
+	@GetMapping("/banco/{id}")
+	public ResponseEntity<List<Programacion>> listarBancoDistrito(@PathVariable("id") int id){
+		try {
+			List<Programacion> list = new ArrayList<>();
+			list=psi.buscarProgramacionBanco(id);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 			@GetMapping("/all")
 			public ResponseEntity<List<Programacion>> listarProgramacion(){
 				try {

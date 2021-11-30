@@ -2,6 +2,7 @@ package com.example.sigca.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sigca.entity.Privilegios;
-
+import com.example.sigca.service.PrivilegiosService;
 import com.example.sigca.serviceImpl.PrivilegiosServiceImpl;
 
 
@@ -26,6 +27,8 @@ public class PrivilegiosController {
 	
 	@Autowired
 	private PrivilegiosServiceImpl privilegiosimpl;
+	@Autowired
+	private PrivilegiosService privilegiosService;
 	
 	//Funciona
 	@GetMapping("/all")
@@ -33,6 +36,20 @@ public class PrivilegiosController {
 		try {
 			List<Privilegios> list = new ArrayList<>();
 			list=privilegiosimpl.ListarPrivilegios();
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/usuario/{id}")
+	public ResponseEntity<List<Map<String, Object>>> listarPrivilegiosUsuario(@PathVariable("id") int id){
+		try {
+			List<Map<String,Object>> list = new ArrayList<>();
+			list=privilegiosService.ListarPrivilegiosUsuario(id);
 			if (list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
