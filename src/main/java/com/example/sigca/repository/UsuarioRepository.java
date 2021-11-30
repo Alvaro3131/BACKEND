@@ -12,6 +12,8 @@ import com.example.sigca.entity.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 	// Listar	
+	public Usuario findByUsername(String username);
+	
 	@Query(value = "{ CALL SP_LISTAR_USUARIO(0) }", nativeQuery = true)
 	List<Usuario> listarUsuario();
 	
