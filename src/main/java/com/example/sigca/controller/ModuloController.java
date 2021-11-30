@@ -54,9 +54,11 @@ public class ModuloController {
 	}
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/new")
 	public ResponseEntity<String> agregarModulo(@RequestBody Modulo m){
 		try {
+			System.out.println("Pase");
 			String mensaje= modulo.insertarModulo(m);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
@@ -67,6 +69,7 @@ public class ModuloController {
 	
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> eliminarModulo(@PathVariable("id") int id){
 	try {
@@ -79,6 +82,7 @@ public class ModuloController {
 	}
 	
 	//Funciona
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/update/{id}")
 	public ResponseEntity<String> ActualizarModulo(@RequestBody Modulo m, @PathVariable("id") int id){
 	try {
