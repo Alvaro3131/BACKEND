@@ -2,13 +2,12 @@ package com.example.sigca.repository;
 
 import java.sql.Time;
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import com.example.sigca.entity.Asistencia_Seminario;
+
 @Repository
 public interface AsistenciaSeminarioRepository extends JpaRepository<Asistencia_Seminario, Integer>{
 	
