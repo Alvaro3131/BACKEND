@@ -50,4 +50,10 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 		return pr.actualizarProgramacion(p.getId_programacion(), p.getBanco().getId_bancocomunal(), p.getModulo().getId_modulo(), p.getEs_pogramacion());
 	}
 
+	@Override
+	public List<Programacion> buscarProgramacionBanco(int id) {
+		// TODO Auto-generated method stub
+		return pr.listarProgramacionBanco(id);
+	}
+
 }

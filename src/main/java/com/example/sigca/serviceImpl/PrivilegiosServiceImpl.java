@@ -1,6 +1,7 @@
 package com.example.sigca.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,12 @@ public class PrivilegiosServiceImpl implements PrivilegiosService {
 	public String actualizarPrivilegios(Privilegios p) {
 		// TODO Auto-generated method stub
 		return privilegios.actualizarPrivilegios(p.getIdprivilegios(),p.getNombreprivilegios());
+	}
+
+	@Override
+	public List<Map<String,Object>> ListarPrivilegiosUsuario(int id) {
+		// TODO Auto-generated method stub
+		return privilegios.listarPrivilegiosUsuario(id);
 	}
 	
  

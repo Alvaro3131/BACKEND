@@ -8,6 +8,7 @@ public interface RecursoService {
 
 	String insertarRecurso (Recurso rec);
 	List<Recurso> listarRecurso();
+	List<Recurso> listarRecursoSesion(int id);
 	Recurso buscarRecurso(int id_recurso);
 	String eliminarRecurso(int id_recurso);
 	String actualizarRecurso(Recurso rec);

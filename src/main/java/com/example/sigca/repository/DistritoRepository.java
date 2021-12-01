@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.example.sigca.entity.BancoComunal;
 import com.example.sigca.entity.Distrito;
 
 @Repository
@@ -16,7 +18,8 @@ public interface DistritoRepository extends JpaRepository<Distrito, Integer>{
 	@Query(value = "{ CALL SP_LISTAR_DISTRITO(0) }", nativeQuery = true)
 	List<Distrito> listarDistrito();
 	
-	
+	@Query(value = "Select * from tbl_distrito where fk_sede=?1", nativeQuery = true)
+	List<Distrito> listarDistritoSede(int id);
 	//buscar
 	@Query(value = "{call SP_LISTAR_DISTRITO(:p_nIDDISTRITO)}", nativeQuery = true) 
 	Distrito buscarDistrito(@Param("p_nIDDISTRITO") int p_nIDDISTRITO);

@@ -43,6 +43,21 @@ public class RolController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	//Funciona
+	@GetMapping("/roles/{id}")
+	public ResponseEntity<List<Rol>> listarRoles(@PathVariable("id") int id){
+		try {
+			List<Rol> list = new ArrayList<>();
+			list=rolimpl.listarRoles(id);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	
 	//Funciona
 	@GetMapping("/search/{id}")

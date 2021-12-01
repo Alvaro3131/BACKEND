@@ -11,4 +11,5 @@ public interface RolService {
 	Rol buscarRol(int id_rol);
 	String eliminarRol(int id_rol);
 	String actualizarRol(Rol r);
+	List<Rol> listarRoles(int id_rol);
 }

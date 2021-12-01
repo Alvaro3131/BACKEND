@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sigca.entity.Asistencia_Seminario;
-import com.example.sigca.service.AsistenciaSeminarioService;
+import com.example.sigca.serviceImpl.AsistenciaSeminarioServiceImpl;
 
 @RestController
-@RequestMapping("/api/sesion")
+@RequestMapping("/api/asistenciaseminario")
 public class AsistenciaSeminarioController {
 
 	@Autowired
-	private AsistenciaSeminarioService asistenciaSeminarioImpl;
+	private AsistenciaSeminarioServiceImpl asistencia;
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<Asistencia_Seminario>> listarAsistenciaSeminario(){
 		try {
 			List<Asistencia_Seminario> list = new ArrayList<>();
-			list = asistenciaSeminarioImpl.ListarAsistenciaSeminario();
+			list = asistencia.ListarAsistenciaSeminario();
 			if (list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -41,7 +41,7 @@ public class AsistenciaSeminarioController {
 	
 	@GetMapping("/search/{id}")
 	public ResponseEntity<Asistencia_Seminario> buscarAsistenciaSeminario(@PathVariable("id") int id){
-		Asistencia_Seminario asistenciaSeminario= asistenciaSeminarioImpl.buscarAsistenciaSeminario(id);
+		Asistencia_Seminario asistenciaSeminario= asistencia.buscarAsistenciaSeminario(id);
 		if (asistenciaSeminario.getID_ASISTENCIA_SEMINARIO()>0) {
 			return new ResponseEntity<>(asistenciaSeminario,HttpStatus.OK);
 		} else {
@@ -52,7 +52,7 @@ public class AsistenciaSeminarioController {
 	@PostMapping("/new")
 	public ResponseEntity<String> agregarAsistenciaSeminario(@RequestBody Asistencia_Seminario s){
 		try {
-			String mensaje= asistenciaSeminarioImpl.insertarAsistenciaSeminario(s);
+			String mensaje= asistencia.insertarAsistenciaSeminario(s);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -62,7 +62,7 @@ public class AsistenciaSeminarioController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> eliminarAsistenciaSeminario(@PathVariable("id") int id){
 		try {
-			String mensaje = asistenciaSeminarioImpl.eliminarAsistenciaSeminario(id);
+			String mensaje = asistencia.eliminarAsistenciaSeminario(id);
 			return new ResponseEntity<>(mensaje,HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -72,12 +72,12 @@ public class AsistenciaSeminarioController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<String> ActualizarAsistenciaSeminario(@RequestBody Asistencia_Seminario s, @PathVariable("id") int id){
 		try {
-			Asistencia_Seminario ul = asistenciaSeminarioImpl.buscarAsistenciaSeminario(id);
+			Asistencia_Seminario ul = asistencia.buscarAsistenciaSeminario(id);
 			if (ul.getID_ASISTENCIA_SEMINARIO()>0) {
 				ul.setES_ASISTENCIA(id);
 				ul.setDE_ASISTENCIA(null);
 				ul.setFE_ASISTENCIA(null);
-				return new ResponseEntity<>(asistenciaSeminarioImpl.actualizarAsistenciaSeminario(ul),HttpStatus.OK);
+				return new ResponseEntity<>(asistencia.actualizarAsistenciaSeminario(ul),HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}

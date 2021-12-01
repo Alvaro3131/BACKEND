@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.example.sigca.entity.BancoComunal;
 import com.example.sigca.entity.Programacion;
 
 @Repository
@@ -20,6 +21,8 @@ public interface ProgramacionRepository extends JpaRepository<Programacion, Inte
 	@Query(value = "{call SP_LISTAR_PROGRAMACION(:p_nIDPROGRAMACION)}", nativeQuery = true) 
 	Programacion BuscarProgramacion(@Param("p_nIDPROGRAMACION") int p_nIDPROGRAMACION);
 	
+	@Query(value = "Select * from tbl_programacion where fk_bancocomunal=?1", nativeQuery = true)
+	List<Programacion> listarProgramacionBanco(int id);
 	//Delete
 	
 	@Query(value = "{ CALL SP_DEL_PROGRAMACION(:p_nIDPROGRAMACION) }", nativeQuery = true)
