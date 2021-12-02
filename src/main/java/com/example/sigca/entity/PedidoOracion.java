@@ -30,7 +30,7 @@ public class PedidoOracion {
 	private int id_pedidooracion;
 	@Column(name = "de_pedidooracion")
 	private String de_pedidooracion;
-	@Column(name = "fe_predidooracion")
+	@Column(name = "FE_PEDIDOORACION")
 	private String fe_pedidooracion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

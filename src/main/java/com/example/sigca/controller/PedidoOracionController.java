@@ -51,9 +51,12 @@ public class PedidoOracionController {
 	@PostMapping("/new")
 	public ResponseEntity<String> agregarPedidoOracion(@RequestBody PedidoOracion po){
 		try {
-			PedidoOracion r = new PedidoOracion(0, po.getDe_pedidooracion(), po.getFe_pedidooracion(), null);
-			String mensaje= pedidoOracionimpl.insertarPedidoOracion(r);
-			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
+			if (po.getDe_pedidooracion() !=null) {
+				
+				String pe= pedidoOracionimpl.insertarPedidoOracion(po);
+				return new ResponseEntity<String>(pe,HttpStatus.CREATED);					
+			}
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);

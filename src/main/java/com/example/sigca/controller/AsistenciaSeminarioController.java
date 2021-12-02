@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sigca.entity.Asistencia_Seminario;
+import com.example.sigca.service.ParticipacionService;
 import com.example.sigca.serviceImpl.AsistenciaSeminarioServiceImpl;
 
 @RestController
@@ -24,6 +25,9 @@ public class AsistenciaSeminarioController {
 
 	@Autowired
 	private AsistenciaSeminarioServiceImpl asistencia;
+	
+	@Autowired
+	private ParticipacionService participacionService;
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<Asistencia_Seminario>> listarAsistenciaSeminario(){
@@ -53,6 +57,17 @@ public class AsistenciaSeminarioController {
 	public ResponseEntity<String> agregarAsistenciaSeminario(@RequestBody Asistencia_Seminario s){
 		try {
 			String mensaje= asistencia.insertarAsistenciaSeminario(s);
+			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@PostMapping("/actualizar/{socio}/{seminario}/{valoracion}/{descripccion}")
+	public ResponseEntity<String> actualizar(@PathVariable("socio") int socio, @PathVariable("seminario") int seminario, @PathVariable("valoracion") int valor, @PathVariable("descripccion") String descripccion){
+		try {
+			System.out.println(socio+"seminario:"+seminario+"valor:"+valor+"descrip:"+descripccion);
+			String mensaje= participacionService.actualizarasistenciaSeminario(socio, seminario, valor, descripccion);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
