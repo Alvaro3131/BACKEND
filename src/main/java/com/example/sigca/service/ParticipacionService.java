@@ -15,4 +15,6 @@ public interface ParticipacionService {
 	List<Map<String, Object>> listarSocioRecurso(int idsocio, int sesion);
 	List<Map<String, Object>> participantes(int banco, int modulo);
 	String insertarMasivo(String modulo, String banco);
+	String actualizarasistenciaSeminario(int socio, int seminario, int valoracion, String descripcion );
+	List<Map<String, Object>> progresogeeneralsocio(int id);
 }
