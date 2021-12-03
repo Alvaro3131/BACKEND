@@ -19,7 +19,9 @@ public interface BancoComunalRepositoy extends JpaRepository<BancoComunal, Integ
 	
 	@Query(value = "Select * from tbl_bancocomunal where fk_distrito=?1", nativeQuery = true)
 	List<BancoComunal> listarBancoComunalDistrito(int id);
-	
+
+	@Query(value = "select bc.ID_BANCOCOMUNAL, bc.NO_BANCOCOMUNAL, bc.FK_DISTRITO, bc.FK_ASESOR from tbl_bancocomunal bc join tbl_distrito tb on tb.ID_DISTRITO = bc.FK_DISTRITO join tbl_sede sd on tb.FK_SEDE = sd.ID_SEDE where sd.ID_SEDE = ?;", nativeQuery = true)
+	List<BancoComunal> listarBancoComunalSede(int id);
 	
 	//Buscar
 	@Query(value = "{call SP_LISTAR_BANCOCOMUNAL(:p_nIDBANCOCOMUNAL)}", nativeQuery = true) 

@@ -50,6 +50,12 @@ public class BancoComunalServiceImpl implements BancoComunalService {
 		return b.listarBancoComunalDistrito(id);
 	}
 
+	@Override
+	public List<BancoComunal> listarBancoComunalSede(int id) {
+		// TODO Auto-generated method stub
+		return b.listarBancoComunalSede(id);
+	}
+
 
 	
 }
