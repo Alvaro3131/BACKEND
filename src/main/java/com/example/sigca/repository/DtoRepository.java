@@ -28,6 +28,9 @@ public interface DtoRepository extends JpaRepository<AsistenciaRecurso, String> 
 	@Query(value = "{ CALL ido_bi_capa.SP_MASIVO(:p_modulo,:p_bancos) }", nativeQuery = true) 
 	String insertarMasico(@Param("p_modulo") String p_modulo, @Param("p_bancos") String p_bancos);
 	
+	@Query(value = "{ CALL ido_bi_capa.SP_PROGRESO_SOCIO(:p_nID) }", nativeQuery = true) 
+	List<Map<String,Object>> progresogeneralsocio(@Param("p_nID") int p_nID);
+	
 	
 	
 	@Query(value = "select tpe.NO_PERSONA NOMBRE , tpe.AP_PATERNO  PATERNO, tpe.AP_MATERNO MATERNO,tpe.NU_TELEFONO TELEFONO, tpe.CO_DNI DNI,tpe.NO_CORREO CORREO from tbl_programacion tp join tbl_bancocomunal tb on tp.FK_BANCOCOMUNAL=tb.ID_BANCOCOMUNAL join tbl_socio ts  on ts.FK_BANCOCOMUNAL=tb.ID_BANCOCOMUNAL join tbl_persona tpe on ts.ID_PERSONA =tpe.ID_PERSONA join tbl_modulo tm on tp.FK_MODULO =tm.ID_MODULO where tb.ID_BANCOCOMUNAL =?1 and tm.ID_MODULO=?2 ;", nativeQuery = true)
