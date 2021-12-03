@@ -15,6 +15,9 @@ public interface ModuloRepository extends JpaRepository<Modulo, Integer> {
 		@Query(value = "{ CALL SP_LISTAR_MODULO(0) }", nativeQuery = true)
 		List<Modulo> listarModulo();
 		
+		@Query(value = "select * from tbl_modulo md where md.FK_CATEGORIA = 1;", nativeQuery = true)
+		List<Modulo> listarModuloCategoria(int id);
+		
 		// Buscar
 		@Query(value = "{call SP_LISTAR_MODULO(:p_nIDMODULO)}", nativeQuery = true) 
 		Modulo buscarModulo(@Param("p_nIDMODULO") int p_nIDMODULO);

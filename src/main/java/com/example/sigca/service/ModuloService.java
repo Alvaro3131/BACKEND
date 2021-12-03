@@ -10,6 +10,6 @@ public interface ModuloService {
 	List<Modulo> listarModulo();
 	Modulo buscarModulo(int id_modulo);
 	String eliminarModulo(int id_modulo);
-	
 	String actualizarModulo(Modulo m);
+	List<Modulo> listarModuloCategoria(int id);
 }
