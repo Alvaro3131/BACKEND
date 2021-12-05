@@ -17,7 +17,7 @@ public class RecursoServiceImpl implements RecursoService{
 	@Override
 	public String insertarRecurso(Recurso rec) {
 		// TODO Auto-generated method stub
-		return recurso.insertarRecurso(rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion().getID_SESION(), rec.getTipo().getId_tipo());
+		return recurso.insertarRecurso(rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion().getId_sesion(), rec.getTipo().getId_tipo());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class RecursoServiceImpl implements RecursoService{
 	@Override
 	public String actualizarRecurso(Recurso rec) {
 		// TODO Auto-generated method stub
-		return recurso.actualizarRecurso(rec.getId(), rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion().getID_SESION(), rec.getTipo().getId_tipo());
+		return recurso.actualizarRecurso(rec.getId(), rec.getNombrerecurso(), rec.getOrden(), rec.getDescripcion(), rec.getSesion().getId_sesion(), rec.getTipo().getId_tipo());
 	}
 
 	@Override
