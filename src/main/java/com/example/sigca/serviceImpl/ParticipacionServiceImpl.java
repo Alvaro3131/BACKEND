@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.sigca.repository.AsistenciaSeminarioRepository;
 import com.example.sigca.repository.DTO2Repository;
 import com.example.sigca.repository.DtoRepository;
 import com.example.sigca.service.ParticipacionService;
@@ -17,6 +18,8 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 	public DtoRepository dtoRepository;
 	@Autowired
 	public DTO2Repository dto2Repository;
+	@Autowired
+	public AsistenciaSeminarioRepository asistenciaSeminarioRepository;
 	@Override
 	public List<Map<String, Object>> listarParticipacionSesion(int banco, int modulo) {
 		// TODO Auto-generated method stub
@@ -52,5 +55,15 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 	public List<Map<String, Object>> ParticipacionRecursosSocio(int idsesion, int idmodulo) {
 		// TODO Auto-generated method stub
 		return dtoRepository.participacionRecursoSocio(idsesion, idmodulo);
+	}
+	@Override
+	public List<Map<String, Object>> progresogeeneralsocio(int id) {
+		// TODO Auto-generated method stub
+		return dtoRepository.progresogeneralsocio(id);
+	}
+	@Override
+	public String actualizarasistenciaSeminario(int socio, int seminario, int valoracion, String descripcion) {
+		// TODO Auto-generated method stub
+		return asistenciaSeminarioRepository.actualizar(socio, seminario, valoracion, descripcion);
 	}
 }

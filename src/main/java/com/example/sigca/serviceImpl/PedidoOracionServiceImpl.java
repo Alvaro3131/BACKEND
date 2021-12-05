@@ -17,7 +17,7 @@ public class PedidoOracionServiceImpl implements PedidoOracionService{
 	
 	@Override
 	public String insertarPedidoOracion(PedidoOracion po) {
-		return pedidoOracion.insertarPedidoOracion(po.getDe_pedidooracion(), po.getFe_pedidooracion());
+		return pedidoOracion.insertarPedidoOracion(po.getDe_pedidooracion(), po.getSocio().getId());
 	}
 	
 	@Override

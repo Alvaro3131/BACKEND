@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.sigca.entity.Seminario;
+import com.example.sigca.service.SeminarioService;
 import com.example.sigca.serviceImpl.SeminarioServiceImpl;
 
 @RestController
@@ -24,12 +25,16 @@ public class SeminarioController {
 	@Autowired
 	private SeminarioServiceImpl seminario;
 	
+	@Autowired
+	private SeminarioService seminarioService;
+	
+	
 	//Funciona
 			@GetMapping("/all")
 			public ResponseEntity<List<Seminario>> listarSeminario(){
 				try {
 					List<Seminario> list = new ArrayList<>();
-					list=seminario.listarSeminario();
+					list=seminarioService.listarSeminario();
 					if (list.isEmpty()) {
 						return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 					}
@@ -39,7 +44,20 @@ public class SeminarioController {
 					return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 			}
-			
+			@GetMapping("/socio/{id}")
+			public ResponseEntity<List<Seminario>> listarSeminarioSocio(@PathVariable("id") int id){
+				try {
+					List<Seminario> list = new ArrayList<>();
+					list=seminarioService.listarSeminarioSocio(id);
+					if (list.isEmpty()) {
+						return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+					}
+					return new ResponseEntity<>(list,HttpStatus.OK);
+				} catch (Exception e) {
+					// TODO: handle exception
+					return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+				}
+			}
 			//Funciona
 			@GetMapping("/search/{id}")
 			public ResponseEntity<Seminario> buscarSeminario(@PathVariable("id") int id){

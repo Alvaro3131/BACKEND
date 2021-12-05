@@ -47,4 +47,10 @@ public class SeminarioServiceImpl implements SeminarioService {
 		return seminario.actualizarSeminario(se.getID_SEMINARIO(),se.getNO_SEMINARIO(),se.getFE_INICIO(),se.getFE_FIN(),se.getURL_SEMINARIO());
 	}
 
+	@Override
+	public List<Seminario> listarSeminarioSocio(int id) {
+		// TODO Auto-generated method stub
+		return seminario.listarSeminarioSocio(id);
+	}
+
 }
