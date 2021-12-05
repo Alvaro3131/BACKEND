@@ -31,6 +31,7 @@ public interface AlternativaRepository extends JpaRepository<Alternativa, Intege
 	
 	//Actualizar
 	@Query(value = "{call SP_UPD_ALTERNATIVA(:p_nID,:p_vNombre, :p_nAlternativa, :p_nIdPregunta )}", nativeQuery = true) 
-	String actualizarAlternativa(@Param("p_nID") int p_nID ,@Param("p_vNombre") String p_vNombre, @Param("p_nAlternativa") int p_nAlternativa, @Param("p_nIdPregunta") int p_nIdPregunta);
+	String actualizarAlternativa(@Param("p_nID") int p_nID ,@Param("p_vNombre") String p_vNombre, @Param("p_nAlternativa") int p_nAlternativa, 
+	@Param("p_nIdPregunta") int p_nIdPregunta);
 	
 }
