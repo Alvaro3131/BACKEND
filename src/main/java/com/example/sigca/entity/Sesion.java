@@ -35,9 +35,9 @@ public class Sesion implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID_SESION")
-	private int ID_SESION;
+	private int id_sesion;
 	@Column(name="NO_SESION")
-	private String NO_SESION;
+	private String no_sesion;
 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
