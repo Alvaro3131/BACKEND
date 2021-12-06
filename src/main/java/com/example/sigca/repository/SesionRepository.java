@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.sigca.entity.Distrito;
+import com.example.sigca.entity.Modulo;
 import com.example.sigca.entity.Sesion;
 
 @Repository
@@ -37,5 +38,8 @@ public interface SesionRepository extends JpaRepository<Sesion, Integer>{
 		@Query(value = "{call SP_UPD_SESION(:ID_SESION,:NO_SESION,:FK_MODULO)}", nativeQuery = true) 
 		String actualizarSesion(@Param("ID_SESION") int ID_SESION,@Param("NO_SESION") String NO_SESION);
 		
+		//listarSesiones
+		@Query(value = "{call SP_LISTAR_SESIONES(:p_nIdModulo)}", nativeQuery = true) 
+		List<Sesion> listarSesiones(@Param("p_nIdModulo") int p_nIdModulo);
 	
 }
