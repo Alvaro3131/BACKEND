@@ -18,7 +18,8 @@ public class SesionServiceImpl implements SesionService{
 	@Override
 	public String insertarSesion(Sesion s) {
 		// TODO Auto-generated method stub
-		return sesion.insertarSesion(s.getNO_SESION());
+		System.out.println(s.getNo_sesion()+ " "+ s.getModulo().getId_modulo());
+		return sesion.insertarSesion(s.getNo_sesion(),s.getModulo().getId_modulo());
 	}
 	@Override
 	public List<Sesion> ListarSesion() {
@@ -42,7 +43,7 @@ public class SesionServiceImpl implements SesionService{
 	@Override
 	public String actualizarSesion(Sesion s) {
 		// TODO Auto-generated method stub
-		return sesion.actualizarSesion(s.getID_SESION(), s.getNO_SESION());
+		return sesion.actualizarSesion(s.getId_sesion(), s.getNo_sesion(),s.getModulo().getId_modulo());
 	}
 	@Override
 	public List<Sesion> listarSesionModulo(int id_sesion) {
@@ -50,7 +51,11 @@ public class SesionServiceImpl implements SesionService{
 		return sesion.listarSesionModulo(id_sesion);
 	}
 
-
+	@Override
+	public List<Sesion> listarSesiones(int p_nIdModulo) {
+		// TODO Auto-generated method stub
+		return sesion.listarSesiones(p_nIdModulo);
+	}
 	
 	
 	

@@ -66,4 +66,9 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 		// TODO Auto-generated method stub
 		return asistenciaSeminarioRepository.actualizar(socio, seminario, valoracion, descripcion);
 	}
+	@Override
+	public List<Map<String, Object>> listarRecursosSesion(int idsesion, int idsocio) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarRecursoSesion(idsesion, idsocio);
+	}
 }
