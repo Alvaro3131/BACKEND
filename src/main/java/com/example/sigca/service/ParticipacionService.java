@@ -17,7 +17,11 @@ public interface ParticipacionService {
 	String insertarMasivo(String modulo, String banco);
 	String actualizarasistenciaSeminario(int socio, int seminario, int valoracion, String descripcion );
 	List<Map<String, Object>> progresogeeneralsocio(int id);
+
 	List<Map<String, Object>> desarrollmoduloDistrito(int id);
 	List<Map<String, Object>> desarrollmoduloBanco(int id);
 	List<Map<String, Object>> listarSocioBanco(int id);
+
+	List<Map<String,Object>> listarRecursosSesion(int idsesion, int idsocio);
+
 }

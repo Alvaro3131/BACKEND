@@ -12,4 +12,5 @@ public interface AsistenciaRecursoService {
 	AsistenciaRecurso buscarAsistenciaRecurso(int id_AsistenciaRecurso);
 	String eliminarAsistenciaRecurso(int id_AsistenciaRecurso);
 	String actualizarAsistenciaRecurso(AsistenciaRecurso s);
+	String actualizarEstadoAsistencia(int id);
 }

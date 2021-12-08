@@ -51,7 +51,11 @@ public class SesionServiceImpl implements SesionService{
 		return sesion.listarSesionModulo(id_sesion);
 	}
 
-
+	@Override
+	public List<Sesion> listarSesiones(int p_nIdModulo) {
+		// TODO Auto-generated method stub
+		return sesion.listarSesiones(p_nIdModulo);
+	}
 	
 	
 	

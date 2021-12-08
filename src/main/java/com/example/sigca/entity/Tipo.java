@@ -27,6 +27,8 @@ import lombok.NoArgsConstructor;
 @Table(name="tbl_tipo")
 public class Tipo implements Serializable {
 		
+	
+	//Elvis Requejo
 	private static final long serialVersionUID = 6647357831920610109L;
 	
 	

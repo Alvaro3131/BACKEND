@@ -44,6 +44,12 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 		// TODO Auto-generated method stub
 		return asistenciaRecurso.actualizarAsistenciaRecurso(s.getId_asistencia_recurso(), s.getEs_asistencia(), s.getNu_valoracion(),s.getSocio().getId(),s.getRecurso().getId());
 	}
+
+	@Override
+	public String actualizarEstadoAsistencia(int id) {
+		// TODO Auto-generated method stub
+		return asistenciaRecurso.actualizarEstadoAsistencia(id);
+	}
 	
 
 }

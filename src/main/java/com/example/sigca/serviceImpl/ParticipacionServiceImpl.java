@@ -81,4 +81,10 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 		// TODO Auto-generated method stub
 		return dto2Repository.desarrollomoduloBanco(id);
 	}
+
+	public List<Map<String, Object>> listarRecursosSesion(int idsesion, int idsocio) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarRecursoSesion(idsesion, idsocio);
+
+	}
 }
