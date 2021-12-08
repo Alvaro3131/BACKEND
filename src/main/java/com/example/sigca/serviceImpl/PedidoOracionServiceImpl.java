@@ -40,4 +40,10 @@ public class PedidoOracionServiceImpl implements PedidoOracionService{
 	public String actualizarPedidoOracion(PedidoOracion po) {
 		return pedidoOracion.actualizarPedidoOracion(po.getId_pedidooracion(), po.getDe_pedidooracion(), po.getFe_pedidooracion());
 	}
+
+	@Override
+	public List<PedidoOracion> listaPedido(String fecha, int id) {
+		// TODO Auto-generated method stub
+		return pedidoOracion.listarpedido(fecha, id);
+	}
 }

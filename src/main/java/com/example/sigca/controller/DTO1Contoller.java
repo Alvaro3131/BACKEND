@@ -37,6 +37,8 @@ public ResponseEntity<List<Map<String, Object>>> participacionrecursosocio(@Path
 		return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
+
+
 	@GetMapping("/participacion/{banco}/{modulo}")
 	public ResponseEntity<List<Map<String, Object>>> listarDistrito(@PathVariable("banco") int banco, @PathVariable("modulo") int modulo){
 		try {
@@ -98,6 +100,21 @@ public ResponseEntity<List<Map<String, Object>>> participacionrecursosocio(@Path
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	@GetMapping("/socios/{id}")
+	public ResponseEntity<List<Map<String, Object>>> listarSocios(@PathVariable("id") int id){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+			list=participacionService.listarSocioBanco(id);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	@GetMapping("/progreso/{id}")
 	public ResponseEntity<List<Map<String, Object>>> progresogeneralsocio(@PathVariable("id") int id){
 		try {
@@ -135,6 +152,36 @@ public ResponseEntity<List<Map<String, Object>>> participacionrecursosocio(@Path
 			
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
 		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/desarrollodistrito/{id}")
+	public ResponseEntity<List<Map<String, Object>>> desarrollodistrito(@PathVariable("id") int id){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+			list=participacionService.desarrollmoduloDistrito(id);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	@GetMapping("/desarrollobanco/{id}")
+	public ResponseEntity<List<Map<String, Object>>> desarrolloBanco(@PathVariable("id") int id){
+		try {
+			List<Map<String, Object>> list = new ArrayList<>();
+			list=participacionService.desarrollmoduloBanco(id);
+			System.out.println(list);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

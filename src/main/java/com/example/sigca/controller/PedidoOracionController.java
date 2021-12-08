@@ -37,6 +37,21 @@ public class PedidoOracionController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	@GetMapping("/buscar/{fecha}/{id}")
+	public ResponseEntity<List<PedidoOracion>> listarPedidoOracion(@PathVariable("fecha") String fecha,@PathVariable("id") int id){
+		try {
+			List<PedidoOracion> list = new ArrayList<>();
+			list=pedidoOracionimpl.listaPedido(fecha,id);
+			System.out.println(fecha);
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list,HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	
 	@GetMapping("/search/{id}")
 	public ResponseEntity<PedidoOracion> buscarPedidoOracion(@PathVariable("id") int id){
