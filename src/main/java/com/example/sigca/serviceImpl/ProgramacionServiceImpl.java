@@ -17,6 +17,15 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 	private ProgramacionRepository pr;
 	
 	@Override
+	public List<Programacion> listarProgramacionTrue(){
+	return pr.programacionEstadoTrue();
+	}
+	@Override
+	public List<Programacion> listarProgramacionFalse(){
+		return pr.programacionEstadoFalse();
+	}
+	
+	@Override
 	public List<Programacion> listarProgramacion() {
 		// TODO Auto-generated method stub
 
