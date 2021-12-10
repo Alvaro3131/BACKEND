@@ -28,7 +28,7 @@ public class Programacion {
 	int id_programacion;
 	
 	@Column(name="es_programacion")
-	int es_pogramacion;
+	int es_programacion;
 
 	//Relacion con modulo
 	@ManyToOne
