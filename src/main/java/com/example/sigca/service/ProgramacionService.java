@@ -6,7 +6,8 @@ import java.util.List;
 import com.example.sigca.entity.Programacion;
 
 public interface ProgramacionService {
-
+	List<Programacion> listarProgramacionTrue();
+	List<Programacion> listarProgramacionFalse();
 	List<Programacion> listarProgramacion();
 	String insertarProgramacion(Programacion p);
 	Programacion BuscarProgramacion(int id_programacion);

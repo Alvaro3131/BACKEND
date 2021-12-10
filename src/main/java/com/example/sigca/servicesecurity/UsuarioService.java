@@ -21,9 +21,6 @@ import com.example.sigca.entity.Usuario;
 import com.example.sigca.repository.RolRepository;
 import com.example.sigca.repository.UsuarioRepository;
 
-
-
-
 @Service
 public class UsuarioService implements UserDetailsService{
 	
@@ -40,19 +37,15 @@ public class UsuarioService implements UserDetailsService{
         List<Rol> roles= repository.listarRoles(usuario.getId());
 		
 		
-      List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-      
-		
+      List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();		
 		for (int i=0;i<roles.size(); i++) {
 			System.out.println();
 			authorities.add(new SimpleGrantedAuthority(roles.get(i).nombrerol));
 			
-		}
-		
+		}		
 		return new User(usuario.getUsername() ,usuario.getPassword(), usuario.getEstado(), true, 
 				true, true, authorities);
-	}
-	
+	}	
 	}
 	
 
