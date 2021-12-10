@@ -132,11 +132,12 @@ public class ProgramacionController {
 			@PutMapping("/update/{id}")
 			public ResponseEntity<String> ActualizarProgramacion(@RequestBody Programacion p, @PathVariable("id") int id){
 			try {
+				System.out.println(p.getEs_programacion()+ " "+p.getModulo().getId_modulo()+ " "+ p.getBanco().getId_bancocomunal());
 				Programacion ul = psi.BuscarProgramacion(id);
 				if (ul.getId_programacion()>0) {
 					ul.setBanco(p.getBanco());
 					ul.setModulo(p.getModulo());
-					ul.setEs_pogramacion(p.getEs_pogramacion());
+					ul.setEs_programacion(p.getEs_programacion());
 					return new ResponseEntity<>(psi.actualizarProgramacion(ul),HttpStatus.OK);
 				} else {
 					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -147,6 +148,8 @@ public class ProgramacionController {
 			}
 			
 			}
+			
+
 		
 	
 }

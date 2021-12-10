@@ -16,6 +16,7 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 
 	private ProgramacionRepository pr;
 	
+	
 	@Override
 	public List<Programacion> listarProgramacionTrue(){
 	return pr.programacionEstadoTrue();
@@ -55,14 +56,19 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 	@Override
 	public String actualizarProgramacion(Programacion p) {
 		// TODO Auto-generated method stub
-
-		return pr.actualizarProgramacion(p.getId_programacion(), p.getBanco().getId_bancocomunal(), p.getModulo().getId_modulo(), p.getEs_pogramacion());
+		return pr.actualizarProgramacion(p.getId_programacion(), p.getBanco().getId_bancocomunal(), p.getModulo().getId_modulo(), p.getEs_programacion());
 	}
 
 	@Override
 	public List<Programacion> buscarProgramacionBanco(int id) {
 		// TODO Auto-generated method stub
 		return pr.listarProgramacionBanco(id);
+	}
+
+	@Override
+	public void ProgramacionUpdate(int estado, int bancocomunal, int modulo) {
+		 pr.programacionUpdate(estado,bancocomunal,modulo);
+		
 	}
 
 }
