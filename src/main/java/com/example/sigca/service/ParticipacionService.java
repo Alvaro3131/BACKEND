@@ -23,5 +23,7 @@ public interface ParticipacionService {
 	List<Map<String, Object>> listarSocioBanco(int id);
 
 	List<Map<String,Object>> listarRecursosSesion(int idsesion, int idsocio);
+	List<Map<String,Object>> listarseminario(int iddistrito, int idseminario);
+	List<Map<String,Object>> listarseminariobanco(int idbanco, int idseminario);
 
 }

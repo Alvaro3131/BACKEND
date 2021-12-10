@@ -87,4 +87,14 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 		return dto2Repository.listarRecursoSesion(idsesion, idsocio);
 
 	}
+	@Override
+	public List<Map<String, Object>> listarseminario(int iddistrito, int idseminario) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarseminario(iddistrito, idseminario);
+	}
+	@Override
+	public List<Map<String, Object>> listarseminariobanco(int idbanco, int idseminario) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarseminariobanco(idbanco, idseminario);
+	}
 }

@@ -27,5 +27,13 @@ public interface DTO2Repository extends JpaRepository<AsistenciaSeminario, Integ
 
 	@Query(value= "select tar.ID_ASISTENCIA_RECURSO, tr.NO_RECURSO, tr.DESC_RECURSO  from tbl_asistencia_recurso tar join tbl_recurso tr on tr.ID_RECURSO =tar.FK_RECURSO  where tr.FK_SESION=? and tar.FK_SOCIO=?;", nativeQuery = true)
 	List<Map<String,Object>> listarRecursoSesion(int idsesion, int idsocio);
+	
+	
+	@Query(value= "select Sum(A.ES_ASISTENCIA)/PERSONAS_BANCO(tb.id_bancocomunal)*100 as Progreso ,Sum(A.ES_ASISTENCIA) Vistos,PERSONAS_BANCO(tb.id_bancocomunal) as Personas,tb.NO_BANCOCOMUNAL BANCO,td.NO_DISTRITO   from TBL_ASISTENCIA_SEMINARIO A join TBL_SEMINARIO S on A.FK_SEMINARIO=S.ID_SEMINARIO join  tbl_socio ts on ts.id_persona=A.fk_socio join  tbl_BANCOCOMUNAL tb on  tb.id_bancocomunal=ts.fk_bancocomunal join tbl_distrito td on tb.FK_DISTRITO=td.ID_DISTRITO where td.ID_DISTRITO =? and S.ID_SEMINARIO=? group by BANCO;", nativeQuery = true)
+	List<Map<String,Object>> listarseminario(int iddistrito, int idseminario);
+	
+	
+	@Query(value= "SELECT CONCAT(P.NO_PERSONA,' ', P.AP_PATERNO,' ', P.AP_MATERNO)SOCIO, ts.NO_SEMINARIO, A.DE_ASISTENCIA, A.FE_ASISTENCIA, A.ES_ASISTENCIA , A.NU_VALORACION FROM TBL_ASISTENCIA_SEMINARIO A JOIN TBL_SOCIO B ON A.FK_SOCIO=B.ID_PERSONA JOIN TBL_PERSONA P ON P.ID_PERSONA=B.ID_PERSONA JOIN TBL_BANCOCOMUNAL BC ON BC.ID_BANCOCOMUNAL= B.FK_BANCOCOMUNAL join tbl_seminario ts on A.FK_SEMINARIO=ts.ID_SEMINARIO WHERE ID_BANCOCOMUNAL= ? AND ts.ID_SEMINARIO=?;", nativeQuery = true)
+	List<Map<String,Object>> listarseminariobanco(int idbanco, int idseminario);
 
 }
