@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.sigca.entity.Asesor;
 
-import com.example.sigca.entity.Asistencia_Seminario;
+import com.example.sigca.entity.AsistenciaSeminario;
 
 import com.example.sigca.entity.BancoComunal;
 
@@ -119,7 +119,7 @@ private DtoRepository dtoRepository;
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-
+	
 }
 }
 

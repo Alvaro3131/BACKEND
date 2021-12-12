@@ -6,9 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import com.example.sigca.entity.PedidoOracion;
+import com.example.sigca.entity.Sesion;
 
 public interface PedidoOracionRepository extends JpaRepository<PedidoOracion, Integer>{
-
+	
+	
+	@Query(value = "select * from tbl_pedidooracion where FE_PEDIDOORACION=? and FK_PERSONA=?;", nativeQuery = true)
+	List<PedidoOracion> listarpedido(String fecha, int idsocio);
 		// Listar	
 		@Query(value = "{  call SP_LISTAR_TBL_PEDIDOORACION(0) }", nativeQuery = true)
 		List<PedidoOracion> listarPedidoOracion();

@@ -8,7 +8,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	String mensaje() {
-		return "Bienvenidos a Sigca";
+		return "Bienvenidos al servidor BACKEND del Sitema SIGCA";
 
 	}
 }

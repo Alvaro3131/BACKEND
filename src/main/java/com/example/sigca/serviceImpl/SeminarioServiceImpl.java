@@ -53,4 +53,10 @@ public class SeminarioServiceImpl implements SeminarioService {
 		return seminario.listarSeminarioSocio(id);
 	}
 
+	@Override
+	public List<Seminario> listarSeminarioFecha(String fecha) {
+		// TODO Auto-generated method stub
+		return seminario.listarseminariofecha(fecha);
+	}
+
 }

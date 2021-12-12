@@ -57,7 +57,7 @@ public class Socio {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")
-	private List<Asistencia_Seminario> as;
+	private List<AsistenciaSeminario> as;
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "socio")

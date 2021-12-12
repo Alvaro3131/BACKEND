@@ -44,6 +44,22 @@ public class SeminarioController {
 					return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 			}
+			@GetMapping("/fecha/{fecha}")
+			public ResponseEntity<List<Seminario>> listarSeminarioFecha(@PathVariable("fecha") String fecha){
+				try {
+					String fecha1=fecha+'%';
+					System.out.println(fecha1);
+					List<Seminario> list = new ArrayList<>();
+					list=seminarioService.listarSeminarioFecha(fecha1);
+					if (list.isEmpty()) {
+						return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+					}
+					return new ResponseEntity<>(list,HttpStatus.OK);
+				} catch (Exception e) {
+					// TODO: handle exception
+					return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+				}
+			}
 			@GetMapping("/socio/{id}")
 			public ResponseEntity<List<Seminario>> listarSeminarioSocio(@PathVariable("id") int id){
 				try {

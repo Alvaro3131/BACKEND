@@ -12,6 +12,17 @@ import com.example.sigca.entity.Programacion;
 
 @Repository
 public interface ProgramacionRepository extends JpaRepository<Programacion, Integer>{
+
+	@Query(value = "select * from tbl_programacion where ES_PROGRAMACION =1;", nativeQuery = true)
+	List<Programacion> programacionEstadoTrue();
+	
+	@Query(value = "select * from tbl_programacion where ES_PROGRAMACION =0;", nativeQuery = true)
+	List<Programacion> programacionEstadoFalse();
+	
+	@Query(value = "update tbl_programacion set ES_PROGRAMACION=p_nEstado where fk_modulo=p_nFK_MODULO and fk_bancocomunal=p_nFK_BANCOCOMUNAL;", nativeQuery = true)
+	List<Programacion> programacionUpdate(@Param("estado") int p_nEstado ,@Param("p_nFK_BANCOCOMUNAL") int p_nFK_BANCOCOMUNAL
+			,	@Param("p_nFK_MODULO") int p_nFK_MODULO);
+	
 	// Listar	
 	@Query(value = "{ CALL SP_LISTAR_PROGRAMACION(0) }", nativeQuery = true)
 	List<Programacion> listarProgramacion();

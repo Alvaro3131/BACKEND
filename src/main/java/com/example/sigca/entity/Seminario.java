@@ -55,7 +55,7 @@ public class Seminario {
 	
     @JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "seminario")
-	private Set<Asistencia_Seminario> as;
+	private Set<AsistenciaSeminario> as;
 	
     @JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "seminario")

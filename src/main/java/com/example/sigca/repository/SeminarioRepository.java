@@ -11,8 +11,11 @@ import com.example.sigca.entity.Seminario;
 
 public interface SeminarioRepository extends JpaRepository<Seminario, Integer>{
        
-	@Query(value = "select tse.ID_SEMINARIO , tse.NO_SEMINARIO, tse.FE_INICIO , tse.FE_FIN , tse.URL_SEMINARIO  from tbl_asistencia_seminario tas  join tbl_socio ts on ts.ID_PERSONA =tas.FK_SOCIO join tbl_seminario tse on tse.ID_SEMINARIO =tas.FK_SEMINARIO where ts.ID_PERSONA =? and tas.ES_ASISTENCIA=0;", nativeQuery = true)
+	@Query(value = "select  * from tbl_seminario ts where  date(now()) >=FE_INICIO and date(now())<=FE_FIN;", nativeQuery = true)
 	List<Seminario> listarSeminarioSocio(int id);
+	
+	@Query(value = "select * from tbl_seminario ts where FE_INICIO like ?", nativeQuery = true)
+	List<Seminario> listarseminariofecha(String fecha);
 		//Listar	
 		@Query(value = "{ CALL SP_LISTAR_SEMINARIO(0) }", nativeQuery = true)
 		List<Seminario> listarSeminario();
