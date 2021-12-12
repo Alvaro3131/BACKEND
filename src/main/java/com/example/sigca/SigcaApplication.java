@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import com.example.sigca.entity.Asesor;
@@ -114,6 +115,9 @@ private DtoRepository dtoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SigcaApplication.class, args);
+		
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		System.out.println(bCryptPasswordEncoder.encode("dana").toString());
 	}
 	
 	@SuppressWarnings("deprecation")
