@@ -100,7 +100,7 @@ public class AsistenciaRecursoController {
 		
 		//Funciona
 		@CrossOrigin(origins = "http://localhost:4200")
-		@PutMapping("/updateVal/{id}")
+		@PostMapping("/updateVal/{id}")
 		public ResponseEntity<String> ActualizarValoracionRecurso(@RequestBody AsistenciaRecurso ar, @PathVariable("id") int id){
 		try {
 			AsistenciaRecurso ul = asistenciaRecursoImpl.buscarAsistenciaRecurso(id);
