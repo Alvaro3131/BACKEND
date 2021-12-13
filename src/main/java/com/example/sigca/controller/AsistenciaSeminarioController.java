@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.sigca.entity.Asistencia_Seminario;
+import com.example.sigca.entity.AsistenciaSeminario;
+import com.example.sigca.service.AsistenciaSeminarioService;
 import com.example.sigca.service.ParticipacionService;
 import com.example.sigca.serviceImpl.AsistenciaSeminarioServiceImpl;
 
@@ -25,15 +26,18 @@ public class AsistenciaSeminarioController {
 
 	@Autowired
 	private AsistenciaSeminarioServiceImpl asistencia;
-	
 	@Autowired
-	private ParticipacionService participacionService;
+	private AsistenciaSeminarioService asistenciaSeminarioService;
+	
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Asistencia_Seminario>> listarAsistenciaSeminario(){
+	public ResponseEntity<List<AsistenciaSeminario>> listarAsistenciaSeminario(){
 		try {
-			List<Asistencia_Seminario> list = new ArrayList<>();
-			list = asistencia.ListarAsistenciaSeminario();
+			System.out.println("asasasas");
+			List<AsistenciaSeminario> list = new ArrayList<>();
+			
+			list = asistenciaSeminarioService.listar();
+			
 			if (list.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -42,10 +46,25 @@ public class AsistenciaSeminarioController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	@GetMapping("/validacion/{seminario}/{socio}")
+	public ResponseEntity<List<AsistenciaSeminario>> listado(@PathVariable("seminario") int seminario,@PathVariable("socio") int socio){
+		try {
+			System.out.println("asasasas");
+			List<AsistenciaSeminario> list = new ArrayList<>();
+			
+			list = asistenciaSeminarioService.listarasistencia(seminario, socio);
+			
+			if (list.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	@GetMapping("/search/{id}")
-	public ResponseEntity<Asistencia_Seminario> buscarAsistenciaSeminario(@PathVariable("id") int id){
-		Asistencia_Seminario asistenciaSeminario= asistencia.buscarAsistenciaSeminario(id);
+	public ResponseEntity<AsistenciaSeminario> buscarAsistenciaSeminario(@PathVariable("id") int id){
+		AsistenciaSeminario asistenciaSeminario= asistencia.buscarAsistenciaSeminario(id);
 		if (asistenciaSeminario.getID_ASISTENCIA_SEMINARIO()>0) {
 			return new ResponseEntity<>(asistenciaSeminario,HttpStatus.OK);
 		} else {
@@ -54,7 +73,7 @@ public class AsistenciaSeminarioController {
 	}
 
 	@PostMapping("/new")
-	public ResponseEntity<String> agregarAsistenciaSeminario(@RequestBody Asistencia_Seminario s){
+	public ResponseEntity<String> agregarAsistenciaSeminario(@RequestBody AsistenciaSeminario s){
 		try {
 			String mensaje= asistencia.insertarAsistenciaSeminario(s);
 			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
@@ -63,17 +82,7 @@ public class AsistenciaSeminarioController {
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@PostMapping("/actualizar/{socio}/{seminario}/{valoracion}/{descripccion}")
-	public ResponseEntity<String> actualizar(@PathVariable("socio") int socio, @PathVariable("seminario") int seminario, @PathVariable("valoracion") int valor, @PathVariable("descripccion") String descripccion){
-		try {
-			System.out.println(socio+"seminario:"+seminario+"valor:"+valor+"descrip:"+descripccion);
-			String mensaje= participacionService.actualizarasistenciaSeminario(socio, seminario, valor, descripccion);
-			return new ResponseEntity<>(mensaje,HttpStatus.CREATED);
-		} catch (Exception e) {
-			// TODO: handle exception
-			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> eliminarAsistenciaSeminario(@PathVariable("id") int id){
 		try {
@@ -85,9 +94,9 @@ public class AsistenciaSeminarioController {
 		}	
 		}
 	@PutMapping("/update/{id}")
-	public ResponseEntity<String> ActualizarAsistenciaSeminario(@RequestBody Asistencia_Seminario s, @PathVariable("id") int id){
+	public ResponseEntity<String> ActualizarAsistenciaSeminario(@RequestBody AsistenciaSeminario s, @PathVariable("id") int id){
 		try {
-			Asistencia_Seminario ul = asistencia.buscarAsistenciaSeminario(id);
+			AsistenciaSeminario ul = asistencia.buscarAsistenciaSeminario(id);
 			if (ul.getID_ASISTENCIA_SEMINARIO()>0) {
 				ul.setES_ASISTENCIA(id);
 				ul.setDE_ASISTENCIA(null);

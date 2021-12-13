@@ -24,11 +24,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tbl_asistencia_seminario")
-public class Asistencia_Seminario implements Serializable{
+public class AsistenciaSeminario implements Serializable{
 	
 	private static final long serialVersionUID = -1942395296462336245L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	
 	@Column(name = "ID_ASISTENCIA_SEMINARIO")
 	int ID_ASISTENCIA_SEMINARIO;
 	
@@ -36,11 +38,17 @@ public class Asistencia_Seminario implements Serializable{
 	@Column(name = "ES_ASISTENCIA")
 	public int ES_ASISTENCIA;
 	
+	
+	
 	@Column(name = "DE_ASISTENCIA")
 	public String DE_ASISTENCIA;
 	
 	@Column(name = "FE_ASISTENCIA")
 	public Time FE_ASISTENCIA;
+	
+	@Column(name = "NU_VALORACION")
+	public int NU_VALORACION;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="FK_SEMINARIO", referencedColumnName = "ID_SEMINARIO")

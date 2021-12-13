@@ -66,9 +66,37 @@ public class ParticipacionServiceImpl implements ParticipacionService  {
 		// TODO Auto-generated method stub
 		return asistenciaSeminarioRepository.actualizar(socio, seminario, valoracion, descripcion);
 	}
+	
+	@Override
+	public List<Map<String, Object>> listarSocioBanco(int id) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarSocioBanco(id);
+	}
+	
+	@Override
+	public List<Map<String, Object>> desarrollmoduloDistrito(int id) {
+		// TODO Auto-generated method stub
+		return dto2Repository.desarrollomoduloDistrito(id);
+	}
+	@Override
+	public List<Map<String, Object>> desarrollmoduloBanco(int id) {
+		// TODO Auto-generated method stub
+		return dto2Repository.desarrollomoduloBanco(id);
+	}
 	@Override
 	public List<Map<String, Object>> listarRecursosSesion(int idsesion, int idsocio) {
 		// TODO Auto-generated method stub
 		return dto2Repository.listarRecursoSesion(idsesion, idsocio);
+
+	}
+	@Override
+	public List<Map<String, Object>> listarseminario(int iddistrito, int idseminario) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarseminario(iddistrito, idseminario);
+	}
+	@Override
+	public List<Map<String, Object>> listarseminariobanco(int idbanco, int idseminario) {
+		// TODO Auto-generated method stub
+		return dto2Repository.listarseminariobanco(idbanco, idseminario);
 	}
 }

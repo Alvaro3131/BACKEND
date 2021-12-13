@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.sigca.entity.Asistencia_Seminario;
+import com.example.sigca.entity.AsistenciaSeminario;
 
 import com.example.sigca.repository.AsistenciaSeminarioRepository;
 
@@ -19,19 +19,19 @@ public class AsistenciaSeminarioServiceImpl implements AsistenciaSeminarioServic
 	private AsistenciaSeminarioRepository asistenciaSeminario;
 	
 	@Override
-	public String insertarAsistenciaSeminario(Asistencia_Seminario s) {
+	public String insertarAsistenciaSeminario(AsistenciaSeminario s) {
 		// TODO Auto-generated method stub
-		return asistenciaSeminario.insertarAsistenciaSeminario(s.getID_ASISTENCIA_SEMINARIO(), s.getES_ASISTENCIA(), s.getDE_ASISTENCIA(), s.getFE_ASISTENCIA());
+		return asistenciaSeminario.insertarAsistenciaSeminario(s.seminario.getID_SEMINARIO(),s.getSocio().getId(),s.getDE_ASISTENCIA(),s.getNU_VALORACION());
 	}
 	
 	@Override
-	public List<Asistencia_Seminario> ListarAsistenciaSeminario() {
+	public List<AsistenciaSeminario> listar() {
 		// TODO Auto-generated method stub
 		return asistenciaSeminario.listarAsistenciaSeminario();
 	}
 	
 	@Override
-	public Asistencia_Seminario buscarAsistenciaSeminario(int id_asistenciaSeminario) {
+	public AsistenciaSeminario buscarAsistenciaSeminario(int id_asistenciaSeminario) {
 		// TODO Auto-generated method stub
 		return asistenciaSeminario.buscarAsistenciaSeminario(id_asistenciaSeminario);
 	}
@@ -44,8 +44,14 @@ public class AsistenciaSeminarioServiceImpl implements AsistenciaSeminarioServic
 	}
 	
 	@Override
-	public String actualizarAsistenciaSeminario(Asistencia_Seminario s) {
+	public String actualizarAsistenciaSeminario(AsistenciaSeminario s) {
 		// TODO Auto-generated method stub
 		return asistenciaSeminario.actualizarAsistenciaSeminario(s.getID_ASISTENCIA_SEMINARIO(), s.getES_ASISTENCIA(), s.getDE_ASISTENCIA(), s.getFE_ASISTENCIA());
+	}
+
+	@Override
+	public List<AsistenciaSeminario> listarasistencia(int seminario, int socio) {
+		// TODO Auto-generated method stub
+		return asistenciaSeminario.listarasistencia(seminario, socio);
 	}
 }
