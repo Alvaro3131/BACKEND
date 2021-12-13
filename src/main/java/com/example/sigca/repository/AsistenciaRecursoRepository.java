@@ -3,6 +3,7 @@ package com.example.sigca.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -34,4 +35,13 @@ public interface AsistenciaRecursoRepository extends JpaRepository<AsistenciaRec
 	//Update
 	@Query(value = "{call SP_UDP_ES_ASISTENCIA(:p_nID)}", nativeQuery = true) 
 	String actualizarEstadoAsistencia(@Param("p_nID") int p_nID);
+	
+	
+	//UpdateValoracion
+	@Query(value = "{call SP_UPD_VAL_RECURSO(:p_nId,:p_nValoracion)}", nativeQuery = true) 
+	String actualizarValoracionRecurso(@Param("p_nId") int p_nId, @Param("p_nValoracion") int p_nValoracion);
+	
+	@Query(value = "update tbl_asistencia_recurso set nu_valoracion=valoracion where fk_socio=p_nFK_SOCIO and FK_RECURSO =p_nFK_RECURSO;", nativeQuery = true)
+	List<AsistenciaRecurso> valorarRecurso(@Param("valoracion") int p_nValoracion ,@Param("p_nFK_SOCIO") int p_nFK_SOCIO
+			,	@Param("p_nFK_RECURSO") int p_nFK_RECURSO);
 }
