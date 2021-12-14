@@ -15,6 +15,7 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 
 	@Autowired
 	private AsistenciaRecursoRepository asistenciaRecurso;
+	
 	@Override
 	public String insertarAsistenciaRecurso(AsistenciaRecurso s) {
 		// TODO Auto-generated method stub
@@ -50,6 +51,20 @@ public class AsistenciaRecursoServiceImpl implements AsistenciaRecursoService{
 		// TODO Auto-generated method stub
 		return asistenciaRecurso.actualizarEstadoAsistencia(id);
 	}
-	
+
+	@Override
+	public void actualizarValoracionAsistencia(int valoracion, int id_socio, int id_recurso) {
+		// TODO Auto-generated method stub
+		asistenciaRecurso.valorarRecurso(valoracion, id_socio, id_recurso);
+	}
+
+	@Override
+	public String actualizarValoracionRecurso(AsistenciaRecurso s) {
+		// TODO Auto-generated method stub
+		return asistenciaRecurso.actualizarValoracionRecurso(s.getId_asistencia_recurso(), s.getNu_valoracion());
+	}
+
+
+
 
 }
